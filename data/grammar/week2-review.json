@@ -1,0 +1,18 @@
+{
+    "id": "week2-review",
+    "title": "2주차 복습 및 퀴즈",
+    "level": "Beginner",
+    "description": "Estar 동사와 장소, 감정 표현을 복습합니다.",
+    "sections": [
+        {
+            "heading": "핵심 요약",
+            "content": "Estar의 변화와 장소/감정 표현의 차이를 이해했는지 확인하세요.",
+            "examples": [
+                {
+                    "es": "Estoy feliz en Madrid.",
+                    "ko": "나는 마드리드에서 행복합니다."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1402 @@
+[
+    {
+        "id": 1,
+        "es": "Hola",
+        "ko": "안녕",
+        "category": "인사/기초",
+        "example": "¡Hola! ¿Cómo estás?"
+    },
+    {
+        "id": 2,
+        "es": "Gracias",
+        "ko": "감사합니다",
+        "category": "인사/기초",
+        "example": "Muchas gracias por todo."
+    },
+    {
+        "id": 3,
+        "es": "Perdón",
+        "ko": "죄송합니다",
+        "category": "인사/기초",
+        "example": "Perdón, no entiendo."
+    },
+    {
+        "id": 4,
+        "es": "Sí",
+        "ko": "네",
+        "category": "인사/기초",
+        "example": "Sí, hablo español."
+    },
+    {
+        "id": 5,
+        "es": "No",
+        "ko": "아니요",
+        "category": "인사/기초",
+        "example": "No, no lo sé."
+    },
+    {
+        "id": 6,
+        "es": "Por favor",
+        "ko": "부탁합니다",
+        "category": "인사/기초",
+        "example": "Un café, por favor."
+    },
+    {
+        "id": 7,
+        "es": "Mucho gusto",
+        "ko": "만나서 반가워요",
+        "category": "인사/기초",
+        "example": "Mucho gusto en conocerte."
+    },
+    {
+        "id": 8,
+        "es": "Adiós",
+        "ko": "잘 가요",
+        "category": "인사/기초",
+        "example": "Adiós, nos vemos pronto."
+    },
+    {
+        "id": 9,
+        "es": "Buenos días",
+        "ko": "좋은 아침",
+        "category": "인사/기초",
+        "example": "Buenos días a todos."
+    },
+    {
+        "id": 10,
+        "es": "Buenas tardes",
+        "ko": "좋은 오후",
+        "category": "인사/기초",
+        "example": "Buenas tardes, señor."
+    },
+    {
+        "id": 11,
+        "es": "Buenas noches",
+        "ko": "좋은 밤",
+        "category": "인사/기초",
+        "example": "Buenas noches, mamá."
+    },
+    {
+        "id": 12,
+        "es": "Lo siento",
+        "ko": "미안합니다",
+        "category": "인사/기초",
+        "example": "Lo siento mucho."
+    },
+    {
+        "id": 13,
+        "es": "¿Cómo estás?",
+        "ko": "어떻게 지내?",
+        "category": "인사/기초",
+        "example": "¿Cómo estás hoy?"
+    },
+    {
+        "id": 14,
+        "es": "Bien",
+        "ko": "잘",
+        "category": "인사/기초",
+        "example": "Estoy muy bien, gracias."
+    },
+    {
+        "id": 15,
+        "es": "Mal",
+        "ko": "나쁘게",
+        "category": "인사/기초",
+        "example": "Hoy me siento mal."
+    },
+    {
+        "id": 16,
+        "es": "De nada",
+        "ko": "천만에요",
+        "category": "인사/기초",
+        "example": "De nada, es un placer."
+    },
+    {
+        "id": 17,
+        "es": "Hasta luego",
+        "ko": "나중에 봐",
+        "category": "인사/기초",
+        "example": "Hasta luego, amigo."
+    },
+    {
+        "id": 18,
+        "es": "¿Qué tal?",
+        "ko": "어때?",
+        "category": "인사/기초",
+        "example": "¿Qué tal tu día?"
+    },
+    {
+        "id": 19,
+        "es": "Encantado",
+        "ko": "반가워요",
+        "category": "인사/기초",
+        "example": "Encantado de conocerte."
+    },
+    {
+        "id": 20,
+        "es": "Hola a todos",
+        "ko": "모두 안녕",
+        "category": "인사/기초",
+        "example": "Hola a todos, ¿qué pasa?"
+    },
+    {
+        "id": 21,
+        "es": "Libro",
+        "ko": "책",
+        "category": "사물/환경",
+        "example": "El libro es muy interesante."
+    },
+    {
+        "id": 22,
+        "es": "Mesa",
+        "ko": "책상",
+        "category": "사물/환경",
+        "example": "La mesa es blanca."
+    },
+    {
+        "id": 23,
+        "es": "Casa",
+        "ko": "집",
+        "category": "사물/환경",
+        "example": "Mi casa es pequeña."
+    },
+    {
+        "id": 24,
+        "es": "Coche",
+        "ko": "자동차",
+        "category": "사물/환경",
+        "example": "El coche es rojo."
+    },
+    {
+        "id": 25,
+        "es": "Silla",
+        "ko": "의자",
+        "category": "사물/환경",
+        "example": "La silla es cómoda."
+    },
+    {
+        "id": 26,
+        "es": "Puerta",
+        "ko": "문",
+        "category": "사물/환경",
+        "example": "Cierra la puerta, por favor."
+    },
+    {
+        "id": 27,
+        "es": "Ventana",
+        "ko": "창문",
+        "category": "사물/환경",
+        "example": "Abre la ventana."
+    },
+    {
+        "id": 28,
+        "es": "Teléfono",
+        "ko": "전화기",
+        "category": "사물/환경",
+        "example": "Mi teléfono no funciona."
+    },
+    {
+        "id": 29,
+        "es": "Computadora",
+        "ko": "컴퓨터",
+        "category": "사물/환경",
+        "example": "Uso la computadora para trabajar."
+    },
+    {
+        "id": 30,
+        "es": "Bolígrafo",
+        "ko": "펜",
+        "category": "사물/환경",
+        "example": "Necesito un bolígrafo."
+    },
+    {
+        "id": 31,
+        "es": "Papel",
+        "ko": "종이",
+        "category": "사물/환경",
+        "example": "Escribe en el papel."
+    },
+    {
+        "id": 32,
+        "es": "Reloj",
+        "ko": "시계",
+        "category": "사물/환경",
+        "example": "El reloj es antiguo."
+    },
+    {
+        "id": 33,
+        "es": "Lápiz",
+        "ko": "연필",
+        "category": "사물/환경",
+        "example": "Tengo un lápiz negro."
+    },
+    {
+        "id": 34,
+        "es": "Mochila",
+        "ko": "배낭",
+        "category": "사물/환경",
+        "example": "La mochila es pesada."
+    },
+    {
+        "id": 35,
+        "es": "Llave",
+        "ko": "열쇠",
+        "category": "사물/환경",
+        "example": "No encuentro mi llave."
+    },
+    {
+        "id": 36,
+        "es": "Espejo",
+        "ko": "거울",
+        "category": "사물/환경",
+        "example": "El espejo está roto."
+    },
+    {
+        "id": 37,
+        "es": "Lámpara",
+        "ko": "램프",
+        "category": "사물/환경",
+        "example": "La lámpara da mucha luz."
+    },
+    {
+        "id": 38,
+        "es": "Cuaderno",
+        "ko": "공책",
+        "category": "사물/환경",
+        "example": "Escribo en el cuaderno."
+    },
+    {
+        "id": 39,
+        "es": "Gafas",
+        "ko": "안경",
+        "category": "사물/환경",
+        "example": "Mis gafas son nuevas."
+    },
+    {
+        "id": 40,
+        "es": "Televisor",
+        "ko": "텔레비전",
+        "category": "사물/환경",
+        "example": "El televisor es grande."
+    },
+    {
+        "id": 41,
+        "es": "Feliz",
+        "ko": "행복한",
+        "category": "상태/형용사",
+        "example": "Estoy muy feliz hoy."
+    },
+    {
+        "id": 42,
+        "es": "Cansado",
+        "ko": "피곤한",
+        "category": "상태/형용사",
+        "example": "Estoy un poco cansado."
+    },
+    {
+        "id": 43,
+        "es": "Grande",
+        "ko": "큰",
+        "category": "상태/형용사",
+        "example": "La ciudad es muy grande."
+    },
+    {
+        "id": 44,
+        "es": "Pequeño",
+        "ko": "작은",
+        "category": "상태/형용사",
+        "example": "El perro es pequeño."
+    },
+    {
+        "id": 45,
+        "es": "Bueno",
+        "ko": "좋은",
+        "category": "상태/형용사",
+        "example": "Este libro es muy bueno."
+    },
+    {
+        "id": 46,
+        "es": "Malo",
+        "ko": "나쁜",
+        "category": "상태/형용사",
+        "example": "El clima está malo hoy."
+    },
+    {
+        "id": 47,
+        "es": "Hermoso",
+        "ko": "아름다운",
+        "category": "상태/형용사",
+        "example": "La playa es hermosa."
+    },
+    {
+        "id": 48,
+        "es": "Difícil",
+        "ko": "어려운",
+        "category": "상태/형용사",
+        "example": "El examen es difícil."
+    },
+    {
+        "id": 49,
+        "es": "Fácil",
+        "ko": "쉬운",
+        "category": "상태/형용사",
+        "example": "El español es fácil."
+    },
+    {
+        "id": 50,
+        "es": "Rápido",
+        "ko": "빠른",
+        "category": "상태/형용사",
+        "example": "El tren es muy rápido."
+    },
+    {
+        "id": 51,
+        "es": "Lento",
+        "ko": "느린",
+        "category": "상태/형용사",
+        "example": "El caracol es lento."
+    },
+    {
+        "id": 52,
+        "es": "Caliente",
+        "ko": "뜨거운",
+        "category": "상태/형용사",
+        "example": "El café está caliente."
+    },
+    {
+        "id": 53,
+        "es": "Frío",
+        "ko": "차가운",
+        "category": "상태/형용사",
+        "example": "El agua está muy fría."
+    },
+    {
+        "id": 54,
+        "es": "Triste",
+        "ko": "슬픈",
+        "category": "상태/형용사",
+        "example": "Ella está triste hoy."
+    },
+    {
+        "id": 55,
+        "es": "Enojado",
+        "ko": "화난",
+        "category": "상태/형용사",
+        "example": "Él está muy enojado."
+    },
+    {
+        "id": 56,
+        "es": "Sano",
+        "ko": "건강한",
+        "category": "상태/형용사",
+        "example": "Mi abuelo está sano."
+    },
+    {
+        "id": 57,
+        "es": "Enfermo",
+        "ko": "아픈",
+        "category": "상태/형용사",
+        "example": "Estoy enfermo de la gripe."
+    },
+    {
+        "id": 58,
+        "es": "Rico",
+        "ko": "맛있는/부유한",
+        "category": "상태/형용사",
+        "example": "La comida está rica."
+    },
+    {
+        "id": 59,
+        "es": "Pobre",
+        "ko": "가난한",
+        "category": "상태/형용사",
+        "example": "Él es un hombre pobre."
+    },
+    {
+        "id": 60,
+        "es": "Limpio",
+        "ko": "깨끗한",
+        "category": "상태/형용사",
+        "example": "El cuarto está limpio."
+    },
+    {
+        "id": 61,
+        "es": "Comer",
+        "ko": "먹다",
+        "category": "동사/행동",
+        "example": "Quiero comer algo."
+    },
+    {
+        "id": 62,
+        "es": "Hablar",
+        "ko": "말하다",
+        "category": "동사/행동",
+        "example": "Hablo un poco de español."
+    },
+    {
+        "id": 63,
+        "es": "Vivir",
+        "ko": "살다",
+        "category": "동사/행동",
+        "example": "Vivo en Seúl."
+    },
+    {
+        "id": 64,
+        "es": "Beber",
+        "ko": "마시다",
+        "category": "동사/행동",
+        "example": "Bebo agua fría."
+    },
+    {
+        "id": 65,
+        "es": "Dormir",
+        "ko": "자다",
+        "category": "동사/행동",
+        "example": "Necesito dormir más."
+    },
+    {
+        "id": 66,
+        "es": "Estudiar",
+        "ko": "공부하다",
+        "category": "동사/행동",
+        "example": "Estudio español cada día."
+    },
+    {
+        "id": 67,
+        "es": "Trabajar",
+        "ko": "일하다",
+        "category": "동사/행동",
+        "example": "Trabajo en una oficina."
+    },
+    {
+        "id": 68,
+        "es": "Ir",
+        "ko": "가다",
+        "category": "동사/행동",
+        "example": "Voy al supermercado."
+    },
+    {
+        "id": 69,
+        "es": "Venir",
+        "ko": "오다",
+        "category": "동사/행동",
+        "example": "Ven aquí, por favor."
+    },
+    {
+        "id": 70,
+        "es": "Tener",
+        "ko": "가지다",
+        "category": "동사/행동",
+        "example": "Tengo un perro."
+    },
+    {
+        "id": 71,
+        "es": "Ser",
+        "ko": "이다",
+        "category": "동사/행동",
+        "example": "Yo soy coreano."
+    },
+    {
+        "id": 72,
+        "es": "Estar",
+        "ko": "있다/이다",
+        "category": "동사/행동",
+        "example": "Estoy en casa."
+    },
+    {
+        "id": 73,
+        "es": "Hacer",
+        "ko": "하다/만들다",
+        "category": "동사/행동",
+        "example": "Hago mi tarea."
+    },
+    {
+        "id": 74,
+        "es": "Decir",
+        "ko": "말하다",
+        "category": "동사/행동",
+        "example": "Dime la verdad."
+    },
+    {
+        "id": 75,
+        "es": "Poder",
+        "ko": "할 수 있다",
+        "category": "동사/행동",
+        "example": "Puedo hablar español."
+    },
+    {
+        "id": 76,
+        "es": "Querer",
+        "ko": "원하다",
+        "category": "동사/행동",
+        "example": "Quiero viajar a España."
+    },
+    {
+        "id": 77,
+        "es": "Saber",
+        "ko": "알다",
+        "category": "동사/행동",
+        "example": "No sé la respuesta."
+    },
+    {
+        "id": 78,
+        "es": "Ver",
+        "ko": "보다",
+        "category": "동사/행동",
+        "example": "Veo una película."
+    },
+    {
+        "id": 79,
+        "es": "Escuchar",
+        "ko": "듣다",
+        "category": "동사/행동",
+        "example": "Escucho música clásica."
+    },
+    {
+        "id": 80,
+        "es": "Leer",
+        "ko": "읽다",
+        "category": "동사/행동",
+        "example": "Leo un libro nuevo."
+    },
+    {
+        "id": 81,
+        "es": "Pan",
+        "ko": "빵",
+        "category": "음식/식사",
+        "example": "El pan es fresco."
+    },
+    {
+        "id": 82,
+        "es": "Agua",
+        "ko": "물",
+        "category": "음식/식사",
+        "example": "Bebo un vaso de agua."
+    },
+    {
+        "id": 83,
+        "es": "Leche",
+        "ko": "우유",
+        "category": "음식/식사",
+        "example": "La leche es blanca."
+    },
+    {
+        "id": 84,
+        "es": "Café",
+        "ko": "커피",
+        "category": "음식/식사",
+        "example": "Quiero un café negro."
+    },
+    {
+        "id": 85,
+        "es": "Té",
+        "ko": "차",
+        "category": "음식/식사",
+        "example": "El té verde es sano."
+    },
+    {
+        "id": 86,
+        "es": "Fruta",
+        "ko": "과일",
+        "category": "음식/식사",
+        "example": "Me gusta la fruta."
+    },
+    {
+        "id": 87,
+        "es": "Manzana",
+        "ko": "사과",
+        "category": "음식/식사",
+        "example": "La manzana es roja."
+    },
+    {
+        "id": 88,
+        "es": "Plátano",
+        "ko": "바나나",
+        "category": "음식/식사",
+        "example": "El plátano es amarillo."
+    },
+    {
+        "id": 89,
+        "es": "Carne",
+        "ko": "고기",
+        "category": "음식/식사",
+        "example": "Como carne de vaca."
+    },
+    {
+        "id": 90,
+        "es": "Pescado",
+        "ko": "생선",
+        "category": "음식/식사",
+        "example": "El pescado es fresco."
+    },
+    {
+        "id": 91,
+        "es": "Huevo",
+        "ko": "계란",
+        "category": "음식/식사",
+        "example": "Como un huevo cada día."
+    },
+    {
+        "id": 92,
+        "es": "Arroz",
+        "ko": "쌀/밥",
+        "category": "음식/식사",
+        "example": "El arroz es blanco."
+    },
+    {
+        "id": 93,
+        "es": "Queso",
+        "ko": "치즈",
+        "category": "음식/식사",
+        "example": "El queso es delicioso."
+    },
+    {
+        "id": 94,
+        "es": "Sal",
+        "ko": "소금",
+        "category": "음식/식사",
+        "example": "La comida tiene poca sal."
+    },
+    {
+        "id": 95,
+        "es": "Azúcar",
+        "ko": "설탕",
+        "category": "음식/식사",
+        "example": "No pongas azúcar."
+    },
+    {
+        "id": 96,
+        "es": "Vino",
+        "ko": "와인",
+        "category": "음식/식사",
+        "example": "El vino tinto es rico."
+    },
+    {
+        "id": 97,
+        "es": "Sopa",
+        "ko": "수프",
+        "category": "음식/식사",
+        "example": "La sopa está caliente."
+    },
+    {
+        "id": 98,
+        "es": "Ensalada",
+        "ko": "샐러드",
+        "category": "음식/식사",
+        "example": "Como una ensalada."
+    },
+    {
+        "id": 99,
+        "es": "Pastel",
+        "ko": "케이크",
+        "category": "음식/식사",
+        "example": "El pastel es dulce."
+    },
+    {
+        "id": 100,
+        "es": "Cena",
+        "ko": "저녁 식사",
+        "category": "음식/식사",
+        "example": "La cena es a las ocho."
+    },
+    {
+        "id": 101,
+        "es": "Ciudad",
+        "ko": "도시",
+        "category": "장소/여행",
+        "example": "Vivo en una ciudad grande."
+    },
+    {
+        "id": 102,
+        "es": "Calle",
+        "ko": "거리",
+        "category": "장소/여행",
+        "example": "La calle es ruidosa."
+    },
+    {
+        "id": 103,
+        "es": "Playa",
+        "ko": "해변",
+        "category": "장소/여행",
+        "example": "Me gusta ir a la playa."
+    },
+    {
+        "id": 104,
+        "es": "Montaña",
+        "ko": "산",
+        "category": "장소/여행",
+        "example": "La montaña es alta."
+    },
+    {
+        "id": 105,
+        "es": "Restaurante",
+        "ko": "식당",
+        "category": "장소/여행",
+        "example": "El restaurante es caro."
+    },
+    {
+        "id": 106,
+        "es": "Hotel",
+        "ko": "호텔",
+        "category": "장소/여행",
+        "example": "El hotel es cómodo."
+    },
+    {
+        "id": 107,
+        "es": "Aeropuerto",
+        "ko": "공항",
+        "category": "장소/여행",
+        "example": "Llego al aeropuerto tarde."
+    },
+    {
+        "id": 108,
+        "es": "Estación",
+        "ko": "역",
+        "category": "장소/여행",
+        "example": "La estación está cerca."
+    },
+    {
+        "id": 109,
+        "es": "Supermercado",
+        "ko": "마트",
+        "category": "장소/여행",
+        "example": "Voy al supermercado."
+    },
+    {
+        "id": 110,
+        "es": "Parque",
+        "ko": "공원",
+        "category": "장소/여행",
+        "example": "Camino por el parque."
+    },
+    {
+        "id": 111,
+        "es": "Museo",
+        "ko": "박물관",
+        "category": "장소/여행",
+        "example": "El museo es fascinante."
+    },
+    {
+        "id": 112,
+        "es": "Farmacia",
+        "ko": "약국",
+        "category": "장소/여행",
+        "example": "Busco la farmacia."
+    },
+    {
+        "id": 113,
+        "es": "Hospital",
+        "ko": "병원",
+        "category": "장소/여행",
+        "example": "El hospital es grande."
+    },
+    {
+        "id": 114,
+        "es": "Banco",
+        "ko": "은행",
+        "category": "장소/여행",
+        "example": "Voy al banco ahora."
+    },
+    {
+        "id": 115,
+        "es": "Biblioteca",
+        "ko": "도서관",
+        "category": "장소/여행",
+        "example": "Estudio en la biblioteca."
+    },
+    {
+        "id": 116,
+        "es": "Cine",
+        "ko": "영화관",
+        "category": "장소/여행",
+        "example": "Voy al cine el sábado."
+    },
+    {
+        "id": 117,
+        "es": "Plaza",
+        "ko": "광장",
+        "category": "장소/여행",
+        "example": "La plaza es muy bonita."
+    },
+    {
+        "id": 118,
+        "es": "Iglesia",
+        "ko": "교회",
+        "category": "장소/여행",
+        "example": "La iglesia es antigua."
+    },
+    {
+        "id": 119,
+        "es": "Taxis",
+        "ko": "택시",
+        "category": "장소/여행",
+        "example": "Tomo un taxi al hotel."
+    },
+    {
+        "id": 120,
+        "es": "Mapa",
+        "ko": "지도",
+        "category": "장소/여행",
+        "example": "Necesito un mapa."
+    },
+    {
+        "id": 121,
+        "es": "Padre",
+        "ko": "아버지",
+        "category": "가족/사람",
+        "example": "Mi padre es profesor."
+    },
+    {
+        "id": 122,
+        "es": "Madre",
+        "ko": "어머니",
+        "category": "가족/사람",
+        "example": "Mi madre es amable."
+    },
+    {
+        "id": 123,
+        "es": "Hijo",
+        "ko": "아들",
+        "category": "가족/사람",
+        "example": "Tengo un hijo pequeño."
+    },
+    {
+        "id": 124,
+        "es": "Hija",
+        "ko": "딸",
+        "category": "가족/사람",
+        "example": "Mi hija estudia mucho."
+    },
+    {
+        "id": 125,
+        "es": "Hermano",
+        "ko": "형제/남동생",
+        "category": "가족/사람",
+        "example": "Tengo un hermano mayor."
+    },
+    {
+        "id": 126,
+        "es": "Hermana",
+        "ko": "자매/여동생",
+        "category": "가족/사람",
+        "example": "Mi hermana es artista."
+    },
+    {
+        "id": 127,
+        "es": "Abuelo",
+        "ko": "할아버지",
+        "category": "가족/사람",
+        "example": "Mi abuelo vive solo."
+    },
+    {
+        "id": 128,
+        "es": "Abuela",
+        "ko": "할머니",
+        "category": "가족/사람",
+        "example": "Mi abuela cocina bien."
+    },
+    {
+        "id": 129,
+        "es": "Amigo",
+        "ko": "친구",
+        "category": "가족/사람",
+        "example": "Él es mi mejor amigo."
+    },
+    {
+        "id": 130,
+        "es": "Novio",
+        "ko": "남자친구",
+        "category": "가족/사람",
+        "example": "Mi novio es simpático."
+    },
+    {
+        "id": 131,
+        "es": "Novia",
+        "ko": "여자친구",
+        "category": "가족/사람",
+        "example": "Tengo una novia linda."
+    },
+    {
+        "id": 132,
+        "es": "Esposo",
+        "ko": "남편",
+        "category": "가족/사람",
+        "example": "Mi esposo trabaja aquí."
+    },
+    {
+        "id": 133,
+        "es": "Esposa",
+        "ko": "아내",
+        "category": "가족/사람",
+        "example": "Mi esposa es doctora."
+    },
+    {
+        "id": 134,
+        "es": "Tío",
+        "ko": "삼촌",
+        "category": "가족/사람",
+        "example": "Mi tío vive en Madrid."
+    },
+    {
+        "id": 135,
+        "es": "Tía",
+        "ko": "이모/고모",
+        "category": "가족/사람",
+        "example": "Mi tía es muy alegre."
+    },
+    {
+        "id": 136,
+        "es": "Primo",
+        "ko": "사촌",
+        "category": "가족/사람",
+        "example": "Mi primo es estudiante."
+    },
+    {
+        "id": 137,
+        "es": "Persona",
+        "ko": "사람",
+        "category": "가족/사람",
+        "example": "Es una buena persona."
+    },
+    {
+        "id": 138,
+        "es": "Hombre",
+        "ko": "남자",
+        "category": "가족/사람",
+        "example": "El hombre es alto."
+    },
+    {
+        "id": 139,
+        "es": "Mujer",
+        "ko": "여자",
+        "category": "가족/사람",
+        "example": "La mujer es inteligente."
+    },
+    {
+        "id": 140,
+        "es": "Niño",
+        "ko": "아이",
+        "category": "가족/사람",
+        "example": "El niño juega fútbol."
+    },
+    {
+        "id": 141,
+        "es": "Hoy",
+        "ko": "오늘",
+        "category": "시간/날짜",
+        "example": "Hoy es lunes."
+    },
+    {
+        "id": 142,
+        "es": "Mañana",
+        "ko": "내일",
+        "category": "시간/날짜",
+        "example": "Mañana es martes."
+    },
+    {
+        "id": 143,
+        "es": "Ayer",
+        "ko": "어제",
+        "category": "시간/날짜",
+        "example": "Ayer fue domingo."
+    },
+    {
+        "id": 144,
+        "es": "Ahora",
+        "ko": "지금",
+        "category": "시간/날짜",
+        "example": "Tengo que irme ahora."
+    },
+    {
+        "id": 145,
+        "es": "Tarde",
+        "ko": "늦게/오후",
+        "category": "시간/날짜",
+        "example": "Llego tarde al trabajo."
+    },
+    {
+        "id": 146,
+        "es": "Temprano",
+        "ko": "일찍",
+        "category": "시간/날짜",
+        "example": "Me levanto temprano."
+    },
+    {
+        "id": 147,
+        "es": "Día",
+        "ko": "날/낮",
+        "category": "시간/날짜",
+        "example": "Tengo un buen día."
+    },
+    {
+        "id": 148,
+        "es": "Noche",
+        "ko": "밤",
+        "category": "시간/날짜",
+        "example": "La noche es tranquila."
+    },
+    {
+        "id": 149,
+        "es": "Semana",
+        "ko": "주일",
+        "category": "시간/날짜",
+        "example": "Tengo una semana ocupada."
+    },
+    {
+        "id": 150,
+        "es": "Mes",
+        "ko": "달",
+        "category": "시간/날짜",
+        "example": "Estamos en mayo."
+    },
+    {
+        "id": 151,
+        "es": "Año",
+        "ko": "년",
+        "category": "시간/날짜",
+        "example": "Tengo treinta años."
+    },
+    {
+        "id": 152,
+        "es": "Hora",
+        "ko": "시간",
+        "category": "시간/날짜",
+        "example": "No tengo tiempo."
+    },
+    {
+        "id": 153,
+        "es": "Minuto",
+        "ko": "분",
+        "category": "시간/날짜",
+        "example": "Espera un minuto."
+    },
+    {
+        "id": 154,
+        "es": "Segundo",
+        "ko": "초",
+        "category": "시간/날짜",
+        "example": "Tarda un segundo."
+    },
+    {
+        "id": 155,
+        "es": "Lunes",
+        "ko": "월요일",
+        "category": "시간/날짜",
+        "example": "Lunes es el primer día."
+    },
+    {
+        "id": 156,
+        "es": "Martes",
+        "ko": "화요일",
+        "category": "시간/날짜",
+        "example": "Martes es el segundo día."
+    },
+    {
+        "id": 157,
+        "es": "Miércoles",
+        "ko": "수요일",
+        "category": "시간/날짜",
+        "example": "Miércoles es el tercer día."
+    },
+    {
+        "id": 158,
+        "es": "Jueves",
+        "ko": "목요일",
+        "category": "시간/날짜",
+        "example": "Jueves es el cuarto día."
+    },
+    {
+        "id": 159,
+        "es": "Viernes",
+        "ko": "금요일",
+        "category": "시간/날짜",
+        "example": "Viernes es el quinto día."
+    },
+    {
+        "id": 160,
+        "es": "Fin de semana",
+        "ko": "주말",
+        "category": "시간/날짜",
+        "example": "Me gusta el fin de semana."
+    },
+    {
+        "id": 161,
+        "es": "Sol",
+        "ko": "해",
+        "category": "날씨/자연",
+        "example": "El sol brilla mucho."
+    },
+    {
+        "id": 162,
+        "es": "Luna",
+        "ko": "달",
+        "category": "날씨/자연",
+        "example": "La luna es blanca."
+    },
+    {
+        "id": 163,
+        "es": "Estrella",
+        "ko": "별",
+        "category": "날씨/자연",
+        "example": "Veo muchas estrellas."
+    },
+    {
+        "id": 164,
+        "es": "Cielo",
+        "ko": "하늘",
+        "category": "날씨/자연",
+        "example": "El cielo es azul."
+    },
+    {
+        "id": 165,
+        "es": "Lluvia",
+        "ko": "비",
+        "category": "날씨/자연",
+        "example": "Me gusta la lluvia."
+    },
+    {
+        "id": 166,
+        "es": "Nieve",
+        "ko": "눈",
+        "category": "날씨/자연",
+        "example": "La nieve es fría."
+    },
+    {
+        "id": 167,
+        "es": "Viento",
+        "ko": "바람",
+        "category": "날씨/자연",
+        "example": "Hace mucho viento hoy."
+    },
+    {
+        "id": 168,
+        "es": "Nube",
+        "ko": "구름",
+        "category": "날씨/자연",
+        "example": "Hay muchas nubes."
+    },
+    {
+        "id": 169,
+        "es": "Calor",
+        "ko": "더위",
+        "category": "날씨/자연",
+        "example": "Hace mucho calor."
+    },
+    {
+        "id": 170,
+        "es": "Frío",
+        "ko": "추위",
+        "category": "날씨/자연",
+        "example": "Hace mucho frío."
+    },
+    {
+        "id": 171,
+        "es": "Árbol",
+        "ko": "나무",
+        "category": "날씨/자연",
+        "example": "El árbol es verde."
+    },
+    {
+        "id": 172,
+        "es": "Flor",
+        "ko": "꽃",
+        "category": "날씨/자연",
+        "example": "La flor es hermosa."
+    },
+    {
+        "id": 173,
+        "es": "Mar",
+        "ko": "바다",
+        "category": "날씨/자연",
+        "example": "El mar es profundo."
+    },
+    {
+        "id": 174,
+        "es": "Río",
+        "ko": "강",
+        "category": "날씨/자연",
+        "example": "El río es largo."
+    },
+    {
+        "id": 175,
+        "es": "Tierra",
+        "ko": "땅/지구",
+        "category": "날씨/자연",
+        "example": "La tierra es redonda."
+    },
+    {
+        "id": 176,
+        "es": "Fuego",
+        "ko": "불",
+        "category": "날씨/자연",
+        "example": "El fuego es peligroso."
+    },
+    {
+        "id": 177,
+        "es": "Aire",
+        "ko": "공기",
+        "category": "날씨/자연",
+        "example": "El aire es puro."
+    },
+    {
+        "id": 178,
+        "es": "Animal",
+        "ko": "동물",
+        "category": "날씨/자연",
+        "example": "Me gustan los animales."
+    },
+    {
+        "id": 179,
+        "es": "Perro",
+        "ko": "개",
+        "category": "날씨/자연",
+        "example": "Tengo un perro blanco."
+    },
+    {
+        "id": 180,
+        "es": "Gato",
+        "ko": "고양이",
+        "category": "날씨/자연",
+        "example": "El gato duerme mucho."
+    },
+    {
+        "id": 181,
+        "es": "Ropa",
+        "ko": "옷",
+        "category": "의류/쇼핑",
+        "example": "Compro ropa nueva."
+    },
+    {
+        "id": 182,
+        "es": "Camisa",
+        "ko": "셔츠",
+        "category": "의류/쇼핑",
+        "example": "La camisa es blanca."
+    },
+    {
+        "id": 183,
+        "es": "Pantalones",
+        "ko": "바지",
+        "category": "의류/쇼핑",
+        "example": "Los pantalones son azules."
+    },
+    {
+        "id": 184,
+        "es": "Vestido",
+        "ko": "드레스",
+        "category": "의류/쇼핑",
+        "example": "El vestido es rojo."
+    },
+    {
+        "id": 185,
+        "es": "Zapatos",
+        "ko": "신발",
+        "category": "의류/쇼핑",
+        "example": "Tengo zapatos negros."
+    },
+    {
+        "id": 186,
+        "es": "Sombrero",
+        "ko": "모자",
+        "category": "의류/쇼핑",
+        "example": "Uso un sombrero."
+    },
+    {
+        "id": 187,
+        "es": "Chaqueta",
+        "ko": "자켓",
+        "category": "의류/쇼핑",
+        "example": "La chaqueta es caliente."
+    },
+    {
+        "id": 188,
+        "es": "Falda",
+        "ko": "치마",
+        "category": "의류/쇼핑",
+        "example": "Ella lleva una falda."
+    },
+    {
+        "id": 189,
+        "es": "Calcetines",
+        "ko": "양말",
+        "category": "의류/쇼핑",
+        "example": "Mis calcetines son grises."
+    },
+    {
+        "id": 190,
+        "es": "Bolsa",
+        "ko": "가방",
+        "category": "의류/쇼핑",
+        "example": "La bolsa es pequeña."
+    },
+    {
+        "id": 191,
+        "es": "Precio",
+        "ko": "가격",
+        "category": "의류/쇼핑",
+        "example": "El precio es muy alto."
+    },
+    {
+        "id": 192,
+        "es": "Barato",
+        "ko": "저렴한",
+        "category": "의류/쇼핑",
+        "example": "Este reloj es barato."
+    },
+    {
+        "id": 193,
+        "es": "Caro",
+        "ko": "비싼",
+        "category": "의류/쇼핑",
+        "example": "El coche es muy caro."
+    },
+    {
+        "id": 194,
+        "es": "Tienda",
+        "ko": "가게",
+        "category": "의류/쇼핑",
+        "example": "Voy a la tienda."
+    },
+    {
+        "id": 195,
+        "es": "Comprar",
+        "ko": "사다",
+        "category": "의류/쇼핑",
+        "example": "Quiero comprar esto."
+    },
+    {
+        "id": 196,
+        "es": "Vender",
+        "ko": "팔다",
+        "category": "의류/쇼핑",
+        "example": "Él vende su casa."
+    },
+    {
+        "id": 197,
+        "es": "Dinero",
+        "ko": "돈",
+        "category": "의류/쇼핑",
+        "example": "No tengo mucho dinero."
+    },
+    {
+        "id": 198,
+        "es": "Tarjeta",
+        "ko": "카드",
+        "category": "의류/쇼핑",
+        "example": "Pago con tarjeta."
+    },
+    {
+        "id": 199,
+        "es": "Descuento",
+        "ko": "할인",
+        "category": "의류/쇼핑",
+        "example": "Hay un gran descuento."
+    },
+    {
+        "id": 200,
+        "es": "Talla",
+        "ko": "사이즈",
+        "category": "의류/쇼핑",
+        "example": "Necesito una talla M."
+    }
+]

@@ -1,0 +1,26 @@
+{
+    "id": "ar-verbs",
+    "title": "-ar 동사 기초",
+    "level": "Beginner",
+    "description": "스페인어의 가장 많은 비중을 차지하는 -ar 규칙 동사의 현재 변화입니다.",
+    "sections": [
+        {
+            "heading": "-ar 동사 변화",
+            "content": "끝의 -ar을 떼고 주어에 맞는 어미를 붙입니다.",
+            "examples": [
+                {
+                    "es": "Yo hablo",
+                    "ko": "나는 말한다"
+                },
+                {
+                    "es": "Tú hablas",
+                    "ko": "너는 말한다"
+                },
+                {
+                    "es": "Él habla",
+                    "ko": "그는 말한다"
+                }
+            ]
+        }
+    ]
+}

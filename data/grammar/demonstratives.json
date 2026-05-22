@@ -1,0 +1,26 @@
+{
+    "id": "demonstratives",
+    "title": "가까운 곳/먼 곳 (Este/Ese)",
+    "level": "Beginner",
+    "description": "지시 형용사를 사용하여 대상을 가리키는 방법입니다.",
+    "sections": [
+        {
+            "heading": "지시 형용사",
+            "content": "거리와 성/수에 따라 형태가 달라집니다.",
+            "examples": [
+                {
+                    "es": "Este libro",
+                    "ko": "이 책 (가까운 곳)"
+                },
+                {
+                    "es": "Ese libro",
+                    "ko": "그 책 (조금 먼 곳)"
+                },
+                {
+                    "es": "Aquel libro",
+                    "ko": "저 책 (아주 먼 곳)"
+                }
+            ]
+        }
+    ]
+}

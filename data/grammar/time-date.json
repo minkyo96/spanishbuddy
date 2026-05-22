@@ -1,0 +1,22 @@
+{
+    "id": "time-date",
+    "title": "시간과 날짜",
+    "level": "Beginner",
+    "description": "시간을 묻고 답하며 날짜를 표현하는 방법입니다.",
+    "sections": [
+        {
+            "heading": "시간 묻기",
+            "content": "시간을 물을 때는 '¿Qué hora es?'라고 합니다.",
+            "examples": [
+                {
+                    "es": "¿Qué hora es?",
+                    "ko": "몇 시인가요?"
+                },
+                {
+                    "es": "Son las tres.",
+                    "ko": "3시입니다."
+                }
+            ]
+        }
+    ]
+}

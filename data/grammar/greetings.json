@@ -1,0 +1,48 @@
+{
+    "id": "greetings",
+    "title": "인사와 안부",
+    "level": "Beginner",
+    "description": "스페인어의 가장 기초적인 인사말과 안부를 묻는 방법입니다.",
+    "sections": [
+        {
+            "heading": "기본 인사",
+            "content": "시간대나 상황에 상관없이 가장 많이 쓰이는 인사들입니다.",
+            "examples": [
+                {
+                    "es": "¡Hola!",
+                    "ko": "안녕! / 안녕하세요!"
+                },
+                {
+                    "es": "Buenos días.",
+                    "ko": "좋은 아침입니다. (오전)"
+                },
+                {
+                    "es": "Buenas tardes.",
+                    "ko": "좋은 오후입니다. (오후)"
+                },
+                {
+                    "es": "Buenas noches.",
+                    "ko": "안녕히 주무세요 / 좋은 밤입니다. (밤)"
+                }
+            ]
+        },
+        {
+            "heading": "안부 묻기",
+            "content": "상대방의 상태를 묻고 답하는 기본적인 표현입니다.",
+            "examples": [
+                {
+                    "es": "¿Cómo estás?",
+                    "ko": "어떻게 지내? / 잘 지내?"
+                },
+                {
+                    "es": "Estoy bien, gracias.",
+                    "ko": "잘 지내, 고마워."
+                },
+                {
+                    "es": "¿Y tú?",
+                    "ko": "너는?"
+                }
+            ]
+        }
+    ]
+}

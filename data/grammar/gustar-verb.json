@@ -1,0 +1,22 @@
+{
+    "id": "gustar-verb",
+    "title": "취미와 선호 (Gustar)",
+    "level": "Beginner",
+    "description": "좋아하는 것을 표현하는 독특한 동사인 Gustar의 사용법입니다.",
+    "sections": [
+        {
+            "heading": "Gustar 사용법",
+            "content": "주어가 '좋아하는 대상'이 되며, 'me gusta' 형태로 사용합니다.",
+            "examples": [
+                {
+                    "es": "Me gusta el café.",
+                    "ko": "나는 커피를 좋아해."
+                },
+                {
+                    "es": "Me gustan los libros.",
+                    "ko": "나는 책들을 좋아해."
+                }
+            ]
+        }
+    ]
+}

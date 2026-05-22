@@ -1,0 +1,22 @@
+{
+    "id": "week1-review",
+    "title": "1주차 복습 및 퀴즈",
+    "level": "Beginner",
+    "description": "1주차에 배운 인사, Ser 동사, 명사의 성/수를 총정리합니다.",
+    "sections": [
+        {
+            "heading": "핵심 요약",
+            "content": "인사말, Ser 동사의 쓰임, 명사-형용사 성수 일치를 다시 확인하세요.",
+            "examples": [
+                {
+                    "es": "¡Hola! Soy estudiante.",
+                    "ko": "안녕! 나는 학생이야."
+                },
+                {
+                    "es": "La casa es grande.",
+                    "ko": "그 집은 큽니다."
+                }
+            ]
+        }
+    ]
+}

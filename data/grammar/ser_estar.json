@@ -1,0 +1,36 @@
+{
+    "id": "ser-vs-estar",
+    "title": "Ser vs Estar",
+    "level": "Beginner",
+    "description": "The two Spanish verbs for 'to be' and how to distinguish them.",
+    "sections": [
+        {
+            "heading": "Ser (Permanent/Essential)",
+            "content": "Used for characteristics, nationality, profession, and time.",
+            "examples": [
+                {
+                    "es": "Yo soy coreano.",
+                    "ko": "나는 한국인입니다."
+                },
+                {
+                    "es": "Ella es inteligente.",
+                    "ko": "그녀는 똑똑합니다."
+                }
+            ]
+        },
+        {
+            "heading": "Estar (Temporary/State)",
+            "content": "Used for location, feelings, and temporary conditions.",
+            "examples": [
+                {
+                    "es": "Estoy feliz.",
+                    "ko": "나는 행복합니다."
+                },
+                {
+                    "es": "Estamos en Madrid.",
+                    "ko": "우리는 마드리드에 있습니다."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "id": "ir-verbs",
+    "title": "-ir 동사 기초",
+    "level": "Beginner",
+    "description": "-ir로 끝나는 규칙 동사의 현재 변화입니다.",
+    "sections": [
+        {
+            "heading": "-ir 동사 변화",
+            "content": "-er 동사와 유사하지만 일부 어미가 다릅니다.",
+            "examples": [
+                {
+                    "es": "Yo vivo",
+                    "ko": "나는 산다"
+                },
+                {
+                    "es": "Tú vives",
+                    "ko": "너는 산다"
+                },
+                {
+                    "es": "Él vive",
+                    "ko": "그는 산다"
+                }
+            ]
+        }
+    ]
+}

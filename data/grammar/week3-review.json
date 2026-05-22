@@ -1,0 +1,18 @@
+{
+    "id": "week3-review",
+    "title": "3주차 복습 및 퀴즈",
+    "level": "Beginner",
+    "description": "규칙 동사 변화와 부정/의문문을 복습합니다.",
+    "sections": [
+        {
+            "heading": "핵심 요약",
+            "content": "-ar, -er, -ir 동사의 변화를 완벽히 익혔는지 확인하세요.",
+            "examples": [
+                {
+                    "es": "No como carne.",
+                    "ko": "나는 고기를 먹지 않습니다."
+                }
+            ]
+        }
+    ]
+}

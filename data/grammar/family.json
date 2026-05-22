@@ -1,0 +1,26 @@
+{
+    "id": "family",
+    "title": "가족과 관계",
+    "level": "Beginner",
+    "description": "가족 구성원을 지칭하는 명사들을 배웁니다.",
+    "sections": [
+        {
+            "heading": "가족 명칭",
+            "content": "성별에 따른 기본 가족 명칭입니다.",
+            "examples": [
+                {
+                    "es": "Mi padre",
+                    "ko": "나의 아버지"
+                },
+                {
+                    "es": "Mi madre",
+                    "ko": "나의 어머니"
+                },
+                {
+                    "es": "Mi hermano",
+                    "ko": "나의 형제/남동생"
+                }
+            ]
+        }
+    ]
+}

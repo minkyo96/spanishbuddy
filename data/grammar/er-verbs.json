@@ -1,0 +1,26 @@
+{
+    "id": "er-verbs",
+    "title": "-er 동사 기초",
+    "level": "Beginner",
+    "description": "-er로 끝나는 규칙 동사의 현재 변화입니다.",
+    "sections": [
+        {
+            "heading": "-er 동사 변화",
+            "content": "끝의 -er을 떼고 어미를 붙입니다.",
+            "examples": [
+                {
+                    "es": "Yo como",
+                    "ko": "나는 먹는다"
+                },
+                {
+                    "es": "Tú comes",
+                    "ko": "너는 먹는다"
+                },
+                {
+                    "es": "Él come",
+                    "ko": "그는 먹는다"
+                }
+            ]
+        }
+    ]
+}

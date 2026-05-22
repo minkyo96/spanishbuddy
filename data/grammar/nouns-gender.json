@@ -1,0 +1,36 @@
+{
+    "id": "nouns-gender",
+    "title": "기초 명사와 성/수",
+    "level": "Beginner",
+    "description": "스페인어의 모든 명사는 성(남성/여성)과 수(단수/복수)가 있습니다.",
+    "sections": [
+        {
+            "heading": "명사의 성 (Gender)",
+            "content": "일반적으로 -o로 끝나면 남성, -a로 끝나면 여성 명사입니다.",
+            "examples": [
+                {
+                    "es": "El libro (남성)",
+                    "ko": "책"
+                },
+                {
+                    "es": "La mesa (여성)",
+                    "ko": "책상"
+                }
+            ]
+        },
+        {
+            "heading": "명사의 수 (Number)",
+            "content": "모음으로 끝나면 -s를, 자음으로 끝나면 -es를 붙여 복수형을 만듭니다.",
+            "examples": [
+                {
+                    "es": "Los libros",
+                    "ko": "책들"
+                },
+                {
+                    "es": "Las mesas",
+                    "ko": "책상들"
+                }
+            ]
+        }
+    ]
+}

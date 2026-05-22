@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Buddy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .app-container {
+            max-width: 500px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .fade-in { 
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        .btn-primary {
+            background-color: #3B82F6;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:active {
+            transform: scale(0.96);
+            background-color: #2563EB;
+        }
+        .btn-completed {
+            background-color: #10B981;
+        }
+        .curriculum-item {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .curriculum-item:active {
+            transform: scale(0.98);
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+        .transition-rotate {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-slate-900">
+
+    <div class="app-container shadow-2xl relative">
+        <!-- Navigation -->
+        <nav class="glass-nav sticky top-0 z-10 px-6 py-5 flex justify-between items-center border-b border-gray-100">
+            <h1 class="text-xl font-bold tracking-tight text-slate-900 cursor-pointer" onclick="showCurriculum()">
+                <span class="text-blue-600">Spanish</span> Buddy
+            </h1>
+            <div class="flex items-center space-x-4">
+                <button onclick="showBasics()" class="text-xs font-bold text-slate-400 hover:text-blue-600 transition-colors uppercase tracking-wider">Basics</button>
+                <button onclick="showVocab()" class="text-xs font-bold text-slate-400 hover:text-blue-600 transition-colors uppercase tracking-wider">Vocab</button>
+                <button onclick="startQuiz()" class="text-xs font-bold text-slate-400 hover:text-blue-600 transition-colors uppercase tracking-wider">Quiz</button>
+                <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-xs font-bold text-gray-400">
+                    👤
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="px-6 py-8">
+            <!-- Curriculum View -->
+            <div id="curriculum-view" class="fade-in">
+                <header class="mb-10">
+                    <h2 class="text-3xl font-bold leading-tight tracking-tight mb-2">나의 학습 지도</h2>
+                    <p class="text-slate-500 font-medium">한 달 완성 커리큘럼으로 기초를 마스터하세요.</p>
+                </header>
+                <div id="curriculum-content" class="space-y-6">
+                    <div class="animate-pulse space-y-4">
+                        <div class="h-12 bg-gray-100 rounded-xl"></div>
+                        <div class="h-40 bg-gray-50 rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lesson Detail View -->
+            <div id="lesson-view" class="hidden fade-in">
+                <button onclick="showCurriculum()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    커리큘럼으로 돌아가기
+                </button>
+                <div id="lesson-content"></div>
+            </div>
+
+            <!-- Basics View -->
+            <div id="basics-view" class="hidden fade-in">
+                <button onclick="showCurriculum()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    커리큘럼으로 돌아가기
+                </button>
+                <div id="basics-content"></div>
+            </div>
+
+            <!-- Vocab View -->
+            <div id="vocab-view" class="hidden fade-in">
+                <div class="flex justify-between items-end mb-10">
+                    <div>
+                        <h2 class="text-3xl font-bold leading-tight tracking-tight mb-2">단어장</h2>
+                        <p class="text-slate-500 font-medium">20개 단위로 학습하고 마스터하세요.</p>
+                    </div>
+                    <button onclick="startQuiz()" class="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all">퀴즈 시작</button>
+                </div>
+                <div id="vocab-list" class="space-y-4">
+                    <!-- Grouped Vocab items injected here -->
+                </div>
+            </div>
+
+            <!-- Quiz View -->
+            <div id="quiz-view" class="hidden fade-in">
+                <button onclick="showVocab()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    단어장으로 돌아가기
+                </button>
+                <div id="quiz-content" class="text-center">
+                    <!-- Dynamic Quiz content injected here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const API_CURRICULUM = '/curriculum';
+        const API_GRAMMAR = '/grammar';
+        const API_BASICS = '/basics';
+        const API_VOCAB = '/vocab';
+
+        function getCompletedLessons() {
+            const completed = localStorage.getItem('completed_lessons');
+            return completed ? JSON.parse(completed) : [];
+        }
+
+        function markLessonCompleted(lessonId) {
+            const completed = getCompletedLessons();
+            if (!completed.includes(lessonId)) {
+                completed.push(lessonId);
+                localStorage.setItem('completed_lessons', JSON.stringify(completed));
+            }
+        }
+
+        function isLessonCompleted(lessonId) {
+            return getCompletedLessons().includes(lessonId);
+        }
+
+        function getCompletedVocabGroups() {
+            const completed = localStorage.getItem('completed_vocab_groups');
+            return completed ? JSON.parse(completed) : [];
+        }
+
+        function markVocabGroupCompleted(groupIdx) {
+            const completed = getCompletedVocabGroups();
+            if (!completed.includes(groupIdx)) {
+                completed.push(groupIdx);
+                localStorage.setItem('completed_vocab_groups', JSON.stringify(completed));
+            }
+        }
+
+        async function showCurriculum() {
+            document.getElementById('curriculum-view').classList.remove('hidden');
+            document.getElementById('lesson-view').classList.add('hidden');
+            document.getElementById('basics-view').classList.add('hidden');
+            document.getElementById('vocab-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.add('hidden');
+            try {
+                const response = await fetch(`${API_CURRICULUM}/1`);
+                const data = await response.json();
+                const contentDiv = document.getElementById('curriculum-content');
+                contentDiv.innerHTML = `
+                    <div class="mb-6"><h3 class="text-xl font-bold text-slate-800">${data.title}</h3></div>
+                    ${data.weeks.map((week, wIdx) => {
+                        const weekCompletedCount = week.days.filter(d => isLessonCompleted(d.lesson_id)).length;
+                        const totalDays = week.days.length;
+                        return `
+                        <div class="border border-gray-100 rounded-2xl overflow-hidden shadow-sm bg-white">
+                            <div onclick="toggleWeek(${wIdx})" class="p-4 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Week ${week.week}</span>
+                                    <span class="text-xs text-slate-400 font-medium">${week.theme}</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="text-right mr-2">
+                                        <span class="text-[10px] font-bold text-slate-400 uppercase">진행도</span>
+                                        <div class="text-xs font-bold text-slate-700">${weekCompletedCount}/${totalDays}</div>
+                                    </div>
+                                    <svg id="arrow-${wIdx}" class="w-5 h-5 text-gray-300 transition-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                            </div>
+                            <div id="week-content-${wIdx}" class="hidden px-4 pb-4 space-y-3">
+                                ${week.days.map(day => {
+                                    const done = isLessonCompleted(day.lesson_id);
+                                    return `
+                                        <div onclick="showLesson('${day.lesson_id}')" class="curriculum-item group bg-white p-3 rounded-xl border ${done ? 'border-green-200 bg-green-50' : 'border-gray-100'} cursor-pointer hover:border-blue-200 flex items-center justify-between transition-all">
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-8 h-8 rounded-full ${done ? 'bg-green-500 text-white' : 'bg-gray-50 text-slate-400'} flex items-center justify-center text-xs font-bold transition-colors">
+                                                    ${done ? '✓' : `D${day.day}`}
+                                                </div>
+                                                <span class="font-semibold ${done ? 'text-green-700' : 'text-slate-700'} group-hover:text-slate-900">${day.topic}</span>
+                                            </div>
+                                            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                        `;
+                    }).join('')}
+                `;
+            } catch (e) { console.error(e); }
+        }
+
+        function toggleWeek(index) {
+            const content = document.getElementById(`week-content-${index}`);
+            const arrow = document.getElementById(`arrow-${index}`);
+            const isHidden = content.classList.contains('hidden');
+            if (isHidden) { content.classList.remove('hidden'); arrow.classList.add('rotate-180'); }
+            else { content.classList.add('hidden'); arrow.classList.remove('rotate-180'); }
+        }
+
+        async function showLesson(id) {
+            document.getElementById('curriculum-view').classList.add('hidden');
+            document.getElementById('lesson-view').classList.remove('hidden');
+            document.getElementById('basics-view').classList.add('hidden');
+            document.getElementById('vocab-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.add('hidden');
+            const contentDiv = document.getElementById('lesson-content');
+            contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">불러오는 중...</div>';
+            try {
+                const response = await fetch(`${API_GRAMMAR}/lesson/${id}`);
+                const lesson = await response.json();
+                const done = isLessonCompleted(id);
+                contentDiv.innerHTML = `
+                    <header class="mb-12">
+                        <div class="flex items-center space-x-2 mb-3"><span class="px-2 py-1 bg-blue-50 text-blue-600 rounded-md text-xs font-bold uppercase">${lesson.level}</span></div>
+                        <h2 class="text-4xl font-bold tracking-tight text-slate-900 mb-4">${lesson.title}</h2>
+                        <p class="text-lg text-slate-500 leading-relaxed">${lesson.description}</p>
+                    </header>
+                    <div class="space-y-12">
+                        ${lesson.sections.map(section => `
+                            <section>
+                                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center"><span class="w-1.5 h-6 bg-blue-600 rounded-full mr-3"></span>${section.heading}</h3>
+                                <p class="text-slate-600 leading-relaxed mb-6 text-lg">${section.content}</p>
+                                <div class="space-y-3">
+                                    ${section.examples.map(ex => `
+                                        <div class="p-4 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-200 transition-all">
+                                            <div class="text-blue-600 font-bold text-lg mb-1">${ex.es}</div>
+                                            <div class="text-slate-500 text-sm">${ex.ko}</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </section>
+                        `).join('')}
+                    </div>
+                    <div class="mt-16 pb-10">
+                        <button id="complete-btn" onclick="handleComplete('${id}')" class="btn-primary w-full py-4 rounded-2xl text-white font-bold text-lg shadow-lg shadow-blue-200 transition-all ${done ? 'btn-completed' : ''}">
+                            ${done ? '학습 완료됨!' : '학습 완료하기'}
+                        </button>
+                    </div>
+                `;
+            } catch (e) { contentDiv.innerHTML = '오류가 발생했습니다.'; }
+        }
+
+        function handleComplete(id) {
+            markLessonCompleted(id);
+            const btn = document.getElementById('complete-btn');
+            btn.innerText = '학습 완료됨!';
+            btn.classList.add('btn-completed');
+            btn.classList.remove('btn-primary');
+        }
+
+        async function showBasics() {
+            document.getElementById('curriculum-view').classList.add('hidden');
+            document.getElementById('lesson-view').classList.add('hidden');
+            document.getElementById('basics-view').classList.remove('hidden');
+            document.getElementById('vocab-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.add('hidden');
+            const contentDiv = document.getElementById('basics-content');
+            contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">불러오는 중...</div>';
+            try {
+                const response = await fetch(`${API_BASICS}/guide`);
+                const guide = await response.json();
+                contentDiv.innerHTML = `
+                    <header class="mb-12">
+                        <h2 class="text-4xl font-bold tracking-tight text-slate-900 mb-4">${guide.title}</h2>
+                        <p class="text-lg text-slate-500 leading-relaxed">${guide.description}</p>
+                    </header>
+                    <div class="space-y-12">
+                        ${guide.sections.map(section => `
+                            <section>
+                                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center"><span class="w-1.5 h-6 bg-blue-600 rounded-full mr-3"></span>${section.heading}</h3>
+                                <p class="text-slate-600 leading-relaxed mb-6 text-lg">${section.content}</p>
+                                <div class="space-y-3">
+                                    ${section.examples.map(ex => `
+                                        <div class="p-4 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-200 transition-all">
+                                            <div class="text-blue-600 font-bold text-lg mb-1">${ex.es}</div>
+                                            <div class="text-slate-500 text-sm">${ex.ko}</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </section>
+                        `).join('')}
+                    </div>
+                `;
+            } catch (e) { contentDiv.innerHTML = '오류가 발생했습니다.'; }
+        }
+
+        async function showVocab() {
+            document.getElementById('curriculum-view').classList.add('hidden');
+            document.getElementById('lesson-view').classList.add('hidden');
+            document.getElementById('basics-view').classList.add('hidden');
+            document.getElementById('vocab-view').classList.remove('hidden');
+            document.getElementById('quiz-view').classList.add('hidden');
+            const contentDiv = document.getElementById('vocab-list');
+            contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">불러오는 중...</div>';
+            try {
+                const response = await fetch(`${API_VOCAB}/list`);
+                const words = await response.json();
+                const completedGroups = getCompletedVocabGroups();
+                
+                let html = '';
+                for(let i = 0; i < words.length; i += 20) {
+                    const groupIdx = i / 20;
+                    const groupWords = words.slice(i, i + 20);
+                    const isDone = completedGroups.includes(groupIdx);
+                    
+                    html += `
+                        <div class="border border-gray-100 rounded-3xl overflow-hidden shadow-sm bg-white">
+                            <div class="p-4 bg-gray-50 border-b border-gray-100 flex justify-between items-center cursor-pointer" onclick="toggleVocabGroup(${groupIdx})">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Group ${groupIdx + 1}</span>
+                                    <span class="text-xs text-slate-400 font-medium">${groupWords.length} Words</span>
+                                    <svg id="vocab-arrow-${groupIdx}" class="w-4 h-4 text-gray-300 transition-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                                <button onclick="event.stopPropagation(); handleVocabComplete(${groupIdx})" class="text-xs font-bold px-3 py-1.5 rounded-lg transition-all ${isDone ? 'bg-green-500 text-white' : 'bg-blue-100 text-blue-600 hover:bg-blue-200'}">
+                                    ${isDone ? '학습 완료' : '학습 완료하기'}
+                                </button>
+                            </div>
+                            <div id="vocab-content-${groupIdx}" class="hidden p-4 space-y-2">
+                                ${groupWords.map(w => `
+                                    <div class="p-3 bg-white border border-gray-100 rounded-xl flex justify-between items-center hover:border-blue-200 transition-all">
+                                        <div class="flex flex-col">
+                                            <div class="text-blue-600 font-bold text-md">${w.es}</div>
+                                            <div class="text-slate-500 text-xs">${w.ko} <span class="ml-1 text-gray-300 font-normal">| ${w.category}</span></div>
+                                        </div>
+                                        <div class="text-right text-[10px] text-slate-400 italic max-w-[120px] leading-tight">${w.example}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                contentDiv.innerHTML = html;
+            } catch (e) { contentDiv.innerHTML = '오류가 발생했습니다.'; }
+        }
+
+        function toggleVocabGroup(index) {
+            const content = document.getElementById(`vocab-content-${index}`);
+            const arrow = document.getElementById(`vocab-arrow-${index}`);
+            const isHidden = content.classList.contains('hidden');
+            if (isHidden) { content.classList.remove('hidden'); arrow.classList.add('rotate-180'); }
+            else { content.classList.add('hidden'); arrow.classList.remove('rotate-180'); }
+        }
+
+        function handleVocabComplete(groupIdx) {
+            markVocabGroupCompleted(groupIdx);
+            showVocab();
+        }
+
+        async function startQuiz() {
+            document.getElementById('curriculum-view').classList.add('hidden');
+            document.getElementById('lesson-view').classList.add('hidden');
+            document.getElementById('basics-view').classList.add('hidden');
+            document.getElementById('vocab-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.remove('hidden');
+            loadQuizQuestion();
+        }
+
+        async function loadQuizQuestion() {
+            const contentDiv = document.getElementById('quiz-content');
+            contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">문제 생성 중...</div>';
+            try {
+                const completedGroups = getCompletedVocabGroups();
+                const queryParams = completedGroups.map(g => `completed_groups=${g}`).join('&');
+                const response = await fetch(`${API_VOCAB}/quiz?${queryParams}`);
+                const quiz = await response.json();
+                
+                if(quiz.error) {
+                    contentDiv.innerHTML = `
+                        <div class="py-20 px-6 text-center">
+                            <div class="text-5xl mb-6">📚</div>
+                            <h2 class="text-2xl font-bold text-slate-900 mb-4">${quiz.error}</h2>
+                            <p class="text-slate-500 mb-10">단어장에서 학습 완료한 그룹이 있어야 퀴즈를 풀 수 있습니다.</p>
+                            <button onclick="showVocab()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">단어장으로 이동</button>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = `<div class="mb-12">`;
+                if(quiz.type === 'multiple_choice') {
+                    html += `<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">뜻을 선택하세요</span>
+                             <h2 class="text-5xl font-bold text-slate-900 mt-4 mb-2">${quiz.question}</h2>`;
+                } else if(quiz.type === 'true_false') {
+                    html += `<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">맞는 뜻인가요?</span>
+                             <div class="flex items-center justify-center space-x-4 mt-4 mb-2">
+                                <h2 class="text-4xl font-bold text-slate-900">${quiz.question}</h2>
+                                <span class="text-3xl text-slate-400">→</span>
+                                <h2 class="text-4xl font-bold text-slate-900">${quiz.display_ko}</h2>
+                             </div>`;
+                } else if(quiz.type === 'spelling') {
+                    html += `<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">스페인어로 적으세요</span>
+                             <h2 class="text-5xl font-bold text-slate-900 mt-4 mb-2">${quiz.question}</h2>`;
+                }
+                html += `</div>`;
+
+                let inputArea = `<div class="space-y-3">`;
+                if(quiz.type === 'multiple_choice') {
+                    inputArea += quiz.options.map(opt => `
+                        <button onclick="checkAnswer('${opt}', '${quiz.correct_answer}', '${quiz.example}')" class="w-full p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">${opt}</button>
+                    `).join('');
+                } else if(quiz.type === 'true_false') {
+                    inputArea += `
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="checkAnswer('True', '${quiz.correct_answer}', '${quiz.example}')" class="p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">O (맞음)</button>
+                            <button onclick="checkAnswer('False', '${quiz.correct_answer}', '${quiz.example}')" class="p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">X (틀림)</button>
+                        </div>
+                    `;
+                } else if(quiz.type === 'spelling') {
+                    inputArea += `
+                        <div class="flex space-x-2">
+                            <input type="text" id="spelling-input" class="flex-1 p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold text-center focus:border-blue-500 outline-none transition-all" placeholder="정답 입력...">
+                            <button onclick="checkSpelling('${quiz.correct_answer}', '${quiz.example}')" class="bg-blue-600 text-white px-6 rounded-2xl font-bold">확인</button>
+                        </div>
+                    `;
+                }
+                inputArea += `</div>`;
+                
+                contentDiv.innerHTML = html + inputArea;
+            } catch (e) { contentDiv.innerHTML = '퀴즈를 불러오지 못했습니다.'; }
+        }
+
+        function checkAnswer(selected, correct, example) {
+            const buttons = document.querySelectorAll('#quiz-content button');
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                if(btn.innerText.trim() === correct || (btn.innerText.trim() === 'O (맞음)' && correct === 'True') || (btn.innerText.trim() === 'X (틀림)' && correct === 'False')) {
+                    btn.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+                }
+                if(btn.innerText.trim() === selected && selected !== correct) btn.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
+            });
+            showQuizResult(selected === correct, correct, example);
+        }
+
+        function checkSpelling(correct, example) {
+            const input = document.getElementById('spelling-input').value.trim();
+            const isCorrect = input.toLowerCase() === correct.toLowerCase();
+            showQuizResult(isCorrect, correct, example);
+        }
+
+        function showQuizResult(isCorrect, correct, example) {
+            const contentDiv = document.getElementById('quiz-content');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = 'mt-8 fade-in';
+            resultDiv.innerHTML = `
+                <div class="mb-6">
+                    <p class="text-lg font-bold ${isCorrect ? 'text-green-600' : 'text-red-600'}">${isCorrect ? '정답입니다! 🎉' : '아쉬워요! 정답은 ' + correct + ' 입니다.'}</p>
+                    <p class="text-slate-500 text-sm mt-1">${example}</p>
+                </div>
+                <button onclick="loadQuizQuestion()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">다음 문제 풀기</button>
+            `;
+            contentDiv.appendChild(resultDiv);
+        }
+
+        showCurriculum();
+    </script>
+</body>
+</html>

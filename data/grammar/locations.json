@@ -1,0 +1,22 @@
+{
+    "id": "locations",
+    "title": "장소 말하기",
+    "level": "Beginner",
+    "description": "특정 장소에 있음을 표현하는 방법입니다.",
+    "sections": [
+        {
+            "heading": "장소 표현",
+            "content": "Estar 동사와 장소 명사를 함께 사용합니다.",
+            "examples": [
+                {
+                    "es": "Estoy en casa.",
+                    "ko": "나는 집에 있습니다."
+                },
+                {
+                    "es": "El libro está en la mesa.",
+                    "ko": "책이 책상 위에 있습니다."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "id": "month1-final",
+    "title": "한달 완성 최종 리뷰",
+    "level": "Beginner",
+    "description": "한 달 동안 배운 모든 기초 내용을 총정리합니다.",
+    "sections": [
+        {
+            "heading": "종합 복습",
+            "content": "인사 $\rightarrow$ 명사 $\rightarrow$ Ser/Estar $\rightarrow$ 규칙동사 $\rightarrow$ 실전 표현까지 흐름을 복습하세요.",
+            "examples": [
+                {
+                    "es": "¡Hola! Me llamo Juan y soy de España.",
+                    "ko": "안녕! 내 이름은 후안이고 스페인 사람이야."
+                }
+            ]
+        }
+    ]
+}

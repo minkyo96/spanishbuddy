@@ -1,0 +1,150 @@
+{
+    "month": 1,
+    "title": "스페인어 기초 다지기",
+    "weeks": [
+        {
+            "week": 1,
+            "theme": "기초 인사 및 정체성",
+            "days": [
+                {
+                    "day": 1,
+                    "topic": "인사와 안부",
+                    "lesson_id": "greetings",
+                    "is_completed": false
+                },
+                {
+                    "day": 2,
+                    "topic": "나를 소개하기 (Ser)",
+                    "lesson_id": "ser-vs-estar",
+                    "is_completed": false
+                },
+                {
+                    "day": 3,
+                    "topic": "기초 명사와 성/수",
+                    "lesson_id": "nouns-gender",
+                    "is_completed": false
+                },
+                {
+                    "day": 4,
+                    "topic": "기초 형용사",
+                    "lesson_id": "adjectives",
+                    "is_completed": false
+                },
+                {
+                    "day": 5,
+                    "topic": "1주차 복습 및 퀴즈",
+                    "lesson_id": "week1-review",
+                    "is_completed": false
+                }
+            ]
+        },
+        {
+            "week": 2,
+            "theme": "상태와 장소 표현",
+            "days": [
+                {
+                    "day": 6,
+                    "topic": "현재 상태 표현 (Estar)",
+                    "lesson_id": "estar-basics",
+                    "is_completed": false
+                },
+                {
+                    "day": 7,
+                    "topic": "장소 말하기",
+                    "lesson_id": "locations",
+                    "is_completed": false
+                },
+                {
+                    "day": 8,
+                    "topic": "감정과 기분",
+                    "lesson_id": "feelings",
+                    "is_completed": false
+                },
+                {
+                    "day": 9,
+                    "topic": "가까운 곳/먼 곳 (Este/Ese)",
+                    "lesson_id": "demonstratives",
+                    "is_completed": false
+                },
+                {
+                    "day": 10,
+                    "topic": "2주차 복습 및 퀴즈",
+                    "lesson_id": "week2-review",
+                    "is_completed": false
+                }
+            ]
+        },
+        {
+            "week": 3,
+            "theme": "일상 동작과 규칙 동사",
+            "days": [
+                {
+                    "day": 11,
+                    "topic": "-ar 동사 기초",
+                    "lesson_id": "ar-verbs",
+                    "is_completed": false
+                },
+                {
+                    "day": 12,
+                    "topic": "-er 동사 기초",
+                    "lesson_id": "er-verbs",
+                    "is_completed": false
+                },
+                {
+                    "day": 13,
+                    "topic": "-ir 동사 기초",
+                    "lesson_id": "ir-verbs",
+                    "is_completed": false
+                },
+                {
+                    "day": 14,
+                    "topic": "부정문과 의문문",
+                    "lesson_id": "negation-questions",
+                    "is_completed": false
+                },
+                {
+                    "day": 15,
+                    "topic": "3주차 복습 및 퀴즈",
+                    "lesson_id": "week3-review",
+                    "is_completed": false
+                }
+            ]
+        },
+        {
+            "week": 4,
+            "theme": "실전 대화 응용",
+            "days": [
+                {
+                    "day": 16,
+                    "topic": "시간과 날짜",
+                    "lesson_id": "time-date",
+                    "is_completed": false
+                },
+                {
+                    "day": 17,
+                    "topic": "취미와 선호 (Gustar)",
+                    "lesson_id": "gustar-verb",
+                    "is_completed": false
+                },
+                {
+                    "day": 18,
+                    "topic": "가족과 관계",
+                    "lesson_id": "family",
+                    "is_completed": false
+                },
+                {
+                    "day": 19,
+                    "topic": "기초 문장 연결하기",
+                    "lesson_id": "basic-conjunctions",
+                    "is_completed": false
+                },
+                {
+                    "day": 20,
+                    "topic": "한달 완성 최종 리뷰",
+                    "lesson_id": "month1-final",
+                    "is_completed": false
+                }
+            ]
+        }
+    ]
+}

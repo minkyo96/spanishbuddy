@@ -1,0 +1,28 @@
+{
+    "id": "negation-questions",
+    "title": "부정문과 의문문",
+    "level": "Beginner",
+    "description": "문장을 부정하거나 질문으로 만드는 기본 방법입니다.",
+    "sections": [
+        {
+            "heading": "부정문",
+            "content": "동사 앞에 'no'만 붙이면 됩니다.",
+            "examples": [
+                {
+                    "es": "No hablo español.",
+                    "ko": "나는 스페인어를 못 합니다."
+                }
+            ]
+        },
+        {
+            "heading": "의문문",
+            "content": "문장 앞뒤에 ¿ ? 를 붙이고 억양을 올립니다.",
+            "examples": [
+                {
+                    "es": "¿Hablas español?",
+                    "ko": "스페인어 할 줄 알아?"
+                }
+            ]
+        }
+    ]
+}

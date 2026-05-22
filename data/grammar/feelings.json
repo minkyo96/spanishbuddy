@@ -1,0 +1,22 @@
+{
+    "id": "feelings",
+    "title": "감정과 기분",
+    "level": "Beginner",
+    "description": "현재의 감정이나 기분 상태를 표현합니다.",
+    "sections": [
+        {
+            "heading": "감정 표현",
+            "content": "기분이나 감정은 일시적이므로 Estar를 사용합니다.",
+            "examples": [
+                {
+                    "es": "Estoy cansado.",
+                    "ko": "나는 피곤합니다."
+                },
+                {
+                    "es": "Estamos emocionados.",
+                    "ko": "우리는 설렙니다."
+                }
+            ]
+        }
+    ]
+}

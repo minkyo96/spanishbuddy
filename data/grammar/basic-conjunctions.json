@@ -1,0 +1,22 @@
+{
+    "id": "basic-conjunctions",
+    "title": "기초 문장 연결하기",
+    "level": "Beginner",
+    "description": "단순한 문장을 연결하여 더 풍부하게 만드는 접속사입니다.",
+    "sections": [
+        {
+            "heading": "기본 접속사",
+            "content": "y(그리고), pero(하지만), porque(왜냐하면) 등이 있습니다.",
+            "examples": [
+                {
+                    "es": "Hablo inglés y español.",
+                    "ko": "나는 영어와 스페인어를 합니다."
+                },
+                {
+                    "es": "Estudio, pero es difícil.",
+                    "ko": "공부하지만, 어렵습니다."
+                }
+            ]
+        }
+    ]
+}
