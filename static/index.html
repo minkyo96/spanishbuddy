@@ -36,6 +36,7 @@
             `;
             
             input.value = '';
+            input.style.height = 'auto';
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
             try {
@@ -63,12 +64,30 @@
                 messagesDiv.innerHTML += `
                     <div class="flex items-start space-x-2 fade-in">
                         <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">AI</div>
-                        <div class="bg-yellow-50 border border-yellow-100 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[80%] text-sm leading-relaxed text-yellow-800">
-                            <span class="font-bold">💡 피드백:</span> ${data.feedback}
-                        </div>
+                        <details class="group bg-yellow-50 border border-yellow-100 rounded-2xl rounded-tl-none shadow-sm max-w-[80%] text-sm leading-relaxed text-yellow-800 overflow-hidden">
+                            <summary class="cursor-pointer list-none px-3 py-3 flex items-center justify-between gap-3 text-yellow-900">
+                                <span class="font-bold">💡 피드백</span>
+                                <span class="text-xs font-semibold text-yellow-600 group-open:hidden">펼치기</span>
+                                <span class="hidden text-xs font-semibold text-yellow-600 group-open:inline">접기</span>
+                            </summary>
+                            <div class="border-t border-yellow-100 px-3 py-3">
+                                ${data.feedback}
+                            </div>
+                        </details>
                     </div>
                 `;
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                const latestMessage = messagesDiv.lastElementChild;
+                const latestDetails = latestMessage?.querySelector('details');
+                if (latestDetails) {
+                    latestDetails.addEventListener('toggle', () => {
+                        if (latestDetails.open) {
+                            requestAnimationFrame(() => {
+                                latestDetails.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                            });
+                        }
+                    });
+                }
             } catch (e) {
                 messagesDiv.innerHTML += `
                     <div class="flex items-start space-x-2 text-red-500 text-xs">
@@ -86,12 +105,17 @@
         body { 
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
             -webkit-font-smoothing: antialiased;
+            overflow: hidden;
         }
         .app-container {
             max-width: 500px;
             margin: 0 auto;
-            min-height: 100vh;
+            height: 100dvh;
+            min-height: 100dvh;
             background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
         .glass-nav {
             background: rgba(255, 255, 255, 0.8);
@@ -104,6 +128,41 @@
         @keyframes fadeIn { 
             from { opacity: 0; transform: translateY(10px); } 
             to { opacity: 1; transform: translateY(0); } 
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-18px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(18px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .slide-in-left { animation: slideInLeft 0.25s ease; }
+        .slide-in-right { animation: slideInRight 0.25s ease; }
+        .home-card {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+            border: 1px solid #e5eefc;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+        }
+        .home-progress-bar {
+            height: 10px;
+            border-radius: 999px;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+        .home-progress-bar > span {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        }
+        .modal-overlay {
+            background: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .modal-sheet {
+            box-shadow: 0 -20px 50px rgba(15, 23, 42, 0.18);
         }
         .btn-primary {
             background-color: #3B82F6;
@@ -213,7 +272,7 @@
         <!-- Navigation -->
         
         <nav class="glass-nav sticky top-0 z-10 px-6 py-5 flex justify-between items-center border-b border-gray-100">
-            <h1 class="text-xl font-bold tracking-tight text-slate-900 cursor-pointer" onclick="showCurriculum()">
+            <h1 class="text-xl font-bold tracking-tight text-slate-900 cursor-pointer" onclick="showHome()">
                 <span class="text-blue-600">Spanish</span> Buddy
             </h1>
             <div class="flex items-center space-x-4">
@@ -226,6 +285,10 @@
                             <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">My Account</p>
                             <p class="text-sm font-bold text-slate-800">Spanish Learner</p>
                         </div>
+                        <button onclick="showBasics()" class="w-full text-left px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
+                            Basics
+                        </button>
                         <button onclick="showSettings()" class="w-full text-left px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.82 2.293 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.82 3.31-2.37 2.293a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.82-2.293-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.82-3.31 2.37-2.293.996.18 2.064.861 2.064 1.8C10.325 4.317 10.325 4.317 10.325 4.317z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Settings
@@ -241,9 +304,103 @@
 
 
         <!-- Main Content -->
-        <main class="px-6 py-8">
+        <main class="flex-1 min-h-0 px-5 py-4 pb-24 overflow-hidden">
+            <!-- Home Dashboard View -->
+            <div id="home-view" class="fade-in h-full min-h-0 overflow-y-auto pb-2">
+                <header class="mb-5">
+                    <div class="flex items-center justify-between gap-4 mb-3">
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-[0.24em] text-blue-600 mb-2">Home</p>
+                            <h2 class="text-2xl font-bold leading-tight tracking-tight text-slate-900">오늘의 학습 현황</h2>
+                        </div>
+                        <div class="w-12 h-12 rounded-3xl bg-blue-50 flex items-center justify-center text-blue-600 shadow-sm">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        </div>
+                    </div>
+                    <p id="home-subtitle" class="text-slate-500 text-sm font-medium leading-relaxed">진행도와 다음 학습 목표를 한눈에 확인하세요.</p>
+                </header>
+
+                <section class="grid grid-cols-2 gap-3 mb-4" id="home-stats">
+                    <div class="home-card rounded-3xl p-3.5">
+                        <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2">Lessons</p>
+                        <div class="flex items-end justify-between gap-2">
+                            <div>
+                                <div class="text-2xl font-bold text-slate-900" id="home-lesson-completed">0</div>
+                                <div class="text-xs text-slate-500 font-medium">완료 / 전체</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm font-bold text-blue-600" id="home-lesson-rate">0%</div>
+                                <div class="text-[11px] text-slate-400">학습 진행도</div>
+                            </div>
+                        </div>
+                        <div class="home-progress-bar mt-3"><span id="home-lesson-progress" style="width: 0%"></span></div>
+                    </div>
+                    <div class="home-card rounded-3xl p-3.5">
+                        <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-2">Vocab</p>
+                        <div class="flex items-end justify-between gap-2">
+                            <div>
+                                <div class="text-2xl font-bold text-slate-900" id="home-vocab-completed">0</div>
+                                <div class="text-xs text-slate-500 font-medium">그룹 완료</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm font-bold text-blue-600" id="home-vocab-rate">0%</div>
+                                <div class="text-[11px] text-slate-400">단어 진행도</div>
+                            </div>
+                        </div>
+                        <div class="home-progress-bar mt-3"><span id="home-vocab-progress" style="width: 0%"></span></div>
+                    </div>
+                </section>
+
+                <section class="home-card rounded-3xl p-4 mb-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Next up</p>
+                            <h3 class="text-lg font-bold text-slate-900">다음 추천 학습</h3>
+                        </div>
+                        <span id="home-goal-badge" class="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[11px] font-bold">Goal --</span>
+                    </div>
+                    <div id="home-next-card" class="space-y-2 text-slate-600 text-xs leading-relaxed">
+                        <div class="animate-pulse space-y-2">
+                            <div class="h-3.5 bg-slate-100 rounded-full w-2/3"></div>
+                            <div class="h-3.5 bg-slate-100 rounded-full w-1/2"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="grid grid-cols-2 gap-3">
+                    <button onclick="showCurriculum()" class="home-card rounded-3xl p-4 text-left active:scale-[0.98] transition-transform">
+                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011-.982l5.447-2.724m0 17.296l5.447-2.724A1 1 0 0016 16.382V5.618a1 1 0 00-1-.982L9 2.296m0 17.296V2.296"></path></svg>
+                        </div>
+                        <div class="font-bold text-sm text-slate-900 mb-1">커리큘럼</div>
+                        <div class="text-[11px] text-slate-500 leading-snug">주차별 학습 내용을 확인</div>
+                    </button>
+                    <button onclick="showVocab()" class="home-card rounded-3xl p-4 text-left active:scale-[0.98] transition-transform">
+                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+                        </div>
+                        <div class="font-bold text-sm text-slate-900 mb-1">단어장</div>
+                        <div class="text-[11px] text-slate-500 leading-snug">20개 그룹으로 학습</div>
+                    </button>
+                    <button onclick="showChat()" class="home-card rounded-3xl p-4 text-left active:scale-[0.98] transition-transform">
+                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        </div>
+                        <div class="font-bold text-sm text-slate-900 mb-1">AI 채팅</div>
+                        <div class="text-[11px] text-slate-500 leading-snug">실시간 교정 받기</div>
+                    </button>
+                    <button onclick="showSettings()" class="home-card rounded-3xl p-4 text-left active:scale-[0.98] transition-transform">
+                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.82 2.293 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.82 3.31-2.37 2.293a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.82-2.293-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.82-3.31 2.37-2.293.996.18 2.064.861 2.064 1.8C10.325 4.317 10.325 4.317 10.325 4.317z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div class="font-bold text-sm text-slate-900 mb-1">설정</div>
+                        <div class="text-[11px] text-slate-500 leading-snug">목표와 속도 조절</div>
+                    </button>
+                </section>
+            </div>
+
             <!-- Curriculum View -->
-            <div id="curriculum-view" class="fade-in">
+            <div id="curriculum-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
                 <header class="mb-10">
                     <div class="flex items-center space-x-3 mb-2">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011-.982l5.447-2.724m0 17.296l5.447-2.724A1 1 0 0016 16.382V5.618a1 1 0 00-1-.982L9 2.296m0 17.296V2.296"></path></svg>
@@ -260,7 +417,7 @@
             </div>
 
             <!-- Lesson Detail View -->
-            <div id="lesson-view" class="hidden fade-in">
+            <div id="lesson-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
                 <button onclick="showCurriculum()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     커리큘럼으로 돌아가기
@@ -269,16 +426,21 @@
             </div>
 
             <!-- Basics View -->
-            <div id="basics-view" class="hidden fade-in">
-                <button onclick="showCurriculum()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
-                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    커리큘럼으로 돌아가기
+            <div id="basics-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
+                <button onclick="showHome()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    홈으로 돌아가기
                 </button>
+                <div class="mb-8">
+                    <p class="text-xs font-bold uppercase tracking-[0.24em] text-blue-600 mb-2">Basics</p>
+                    <h2 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 mb-2">기초 학습</h2>
+                    <p class="text-slate-500 font-medium">발음, 알파벳, 강세 같은 시작 단계를 따로 정리했어요.</p>
+                </div>
                 <div id="basics-content"></div>
             </div>
 
             <!-- Vocab View -->
-            <div id="vocab-view" class="hidden fade-in">
+            <div id="vocab-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
                 <div class="flex justify-between items-end mb-10">
                     <div>
                         <div class="flex items-center space-x-3 mb-2">
@@ -295,7 +457,7 @@
             </div>
 
             <!-- Quiz View -->
-            <div id="quiz-view" class="hidden fade-in">
+            <div id="quiz-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
                 <button onclick="showVocab()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     단어장으로 돌아가기
@@ -307,7 +469,7 @@
 
             
             <!-- Vocab Detail View (Flashcards) -->
-            <div id="vocab-detail-view" class="hidden fade-in">
+            <div id="vocab-detail-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
                 <button onclick="showVocab()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     단어장 목록으로 돌아가기
@@ -360,8 +522,8 @@
 
 
             <!-- Chat View -->
-            <div id="chat-view" class="hidden fade-in h-full flex flex-col">
-                <header class="mb-8">
+            <div id="chat-view" class="hidden fade-in h-full min-h-0 flex flex-col overflow-hidden">
+                <header class="mb-6 shrink-0">
                     <div class="flex items-center space-x-3 mb-2">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
                         <h2 class="text-3xl font-bold leading-tight tracking-tight">AI 튜터 채팅</h2>
@@ -369,7 +531,7 @@
                     <p class="text-slate-500 font-medium">스페인어로 대화하며 실력을 키우세요.</p>
                 </header>
                 
-                <div id="chat-messages" class="flex-1 overflow-y-auto space-y-4 mb-24 px-2" style="max-height: calc(100vh - 300px);">
+                <div id="chat-messages" class="flex-1 min-h-0 overflow-y-auto space-y-4 px-2 pb-3">
                     <!-- Welcome Message -->
                     <div class="flex items-start space-x-2">
                         <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">AI</div>
@@ -378,20 +540,29 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="fixed bottom-20 left-0 right-0 max-w-[500px] mx-auto px-6">
-                    <div class="relative flex items-center space-x-2 bg-white p-2 rounded-2xl border border-gray-200 shadow-lg">
-                        <input type="text" id="chat-input" class="flex-1 p-3 bg-transparent outline-none text-sm" placeholder="스페인어로 메시지를 입력하세요...">
-                        <button onclick="sendChatMessage()" class="bg-blue-600 text-white p-3 rounded-xl hover:bg-blue-700 transition-all shadow-md shadow-blue-100">
+
+                <div class="shrink-0 pt-3 pb-1">
+                    <div class="mb-2 flex items-center gap-2 overflow-x-auto pb-1 px-1">
+                        <button type="button" onclick="insertChatSymbol('¿')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">¿</button>
+                        <button type="button" onclick="insertChatSymbol('¡')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">¡</button>
+                        <button type="button" onclick="insertChatSymbol('á')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">á</button>
+                        <button type="button" onclick="insertChatSymbol('é')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">é</button>
+                        <button type="button" onclick="insertChatSymbol('í')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">í</button>
+                        <button type="button" onclick="insertChatSymbol('ó')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ó</button>
+                        <button type="button" onclick="insertChatSymbol('ú')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ú</button>
+                        <button type="button" onclick="insertChatSymbol('ñ')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ñ</button>
+                    </div>
+                    <div class="relative flex items-end space-x-2 bg-white p-2 rounded-2xl border border-gray-200 shadow-lg">
+                        <textarea id="chat-input" rows="1" class="flex-1 p-3 bg-transparent outline-none text-sm resize-none leading-relaxed max-h-32" placeholder="스페인어로 메시지를 입력하세요..."></textarea>
+                        <button onclick="sendChatMessage()" class="bg-blue-600 text-white p-3 rounded-xl hover:bg-blue-700 transition-all shadow-md shadow-blue-100 shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                         </button>
                     </div>
                 </div>
-            </div>
 
 <!-- Settings View -->
-            <div id="settings-view" class="hidden fade-in">
-                <button onclick="showCurriculum()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
+            <div id="settings-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
+                <button onclick="showHome()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     홈으로 돌아가기
                 </button>
@@ -441,6 +612,7 @@
                         </div>
                     </section>
 
+
                     <div class="pt-6">
                         <button onclick="saveSettings()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold text-lg shadow-lg shadow-blue-200 transition-all">
                             설정 저장하기
@@ -456,6 +628,141 @@
         const API_GRAMMAR = '/grammar';
         const API_BASICS = '/basics';
         const API_VOCAB = '/vocab';
+
+        let basicsGuide = null;
+        let basicsSectionIndex = 0;
+        let basicsSlideDirection = 1;
+
+        function hideAllViews() {
+            ['home-view', 'curriculum-view', 'lesson-view', 'chat-view', 'vocab-detail-view', 'basics-view', 'vocab-view', 'quiz-view', 'settings-view']
+                .forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.classList.add('hidden');
+                });
+        }
+
+        function getSettings() {
+            return JSON.parse(localStorage.getItem('user_settings') || '{}');
+        }
+
+        function getProgressStats(totalLessons, totalVocabGroups) {
+            const completedLessons = getCompletedLessons();
+            const completedGroups = getCompletedVocabGroups();
+            const lessonRate = totalLessons ? Math.round((completedLessons.length / totalLessons) * 100) : 0;
+            const vocabRate = totalVocabGroups ? Math.round((completedGroups.length / totalVocabGroups) * 100) : 0;
+            return {
+                completedLessons: completedLessons.length,
+                totalLessons,
+                lessonRate,
+                completedGroups: completedGroups.length,
+                totalVocabGroups,
+                vocabRate,
+                settings: getSettings()
+            };
+        }
+
+        async function loadBasicsGuide() {
+            if (basicsGuide) return basicsGuide;
+            const response = await fetch(`${API_BASICS}/guide`);
+            basicsGuide = await response.json();
+            return basicsGuide;
+        }
+
+        function renderBasicsInline(guide) {
+            return `
+                <div class="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-4 shadow-sm">
+                    <div class="flex items-start justify-between gap-3 mb-4">
+                        <div>
+                            <p class="text-[11px] font-bold uppercase tracking-[0.24em] text-blue-600 mb-1">Basics</p>
+                            <h3 class="text-lg font-bold text-slate-900">${guide.title}</h3>
+                        </div>
+                        <div class="px-3 py-1.5 rounded-full bg-white text-slate-500 text-[11px] font-bold border border-blue-100">기초 학습</div>
+                    </div>
+                    <div class="space-y-3">
+                        ${guide.sections.map((section, index) => `
+                            <div class="rounded-2xl border border-slate-100 bg-white p-4">
+                                <div class="flex items-center justify-between gap-3 mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-7 h-7 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[11px] font-bold">${index + 1}</span>
+                                        <h4 class="font-bold text-slate-900 text-sm">${section.heading}</h4>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-slate-600 leading-relaxed mb-3">${section.content}</p>
+                                <div class="space-y-2">
+                                    ${section.examples.map(ex => `
+                                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                            <div class="text-blue-600 font-bold text-sm mb-1">${ex.es}</div>
+                                            <div class="text-slate-500 text-xs leading-relaxed">${ex.ko}</div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        async function showHome() {
+            hideAllViews();
+            document.getElementById('home-view').classList.remove('hidden');
+            document.getElementById('home-view').classList.add('fade-in');
+            try {
+                const [curriculumRes, vocabRes] = await Promise.all([
+                    fetch(`${API_CURRICULUM}/1`),
+                    fetch(`${API_VOCAB}/list`)
+                ]);
+                const curriculum = await curriculumRes.json();
+                const words = await vocabRes.json();
+                const totalLessons = curriculum.weeks.reduce((sum, week) => sum + week.days.length, 0);
+                const totalVocabGroups = Math.max(1, Math.ceil(words.length / 20));
+                const stats = getProgressStats(totalLessons, totalVocabGroups);
+                const nextLesson = curriculum.weeks.flatMap(week => week.days).find(day => !getCompletedLessons().includes(day.lesson_id));
+                const nextGroupIndex = (() => {
+                    const completed = getCompletedVocabGroups();
+                    for (let i = 0; i < totalVocabGroups; i += 1) {
+                        if (!completed.includes(i)) return i;
+                    }
+                    return null;
+                })();
+                const subtitle = document.getElementById('home-subtitle');
+                const goalLabel = stats.settings.goal ? `목표 ${stats.settings.goal}개/일` : '목표 미설정';
+                subtitle.innerText = stats.settings.nickname ? `${stats.settings.nickname}님, ${goalLabel} 기준으로 오늘도 이어서 학습해볼까요?` : `오늘도 ${goalLabel} 기준으로 이어서 학습해볼까요?`;
+                document.getElementById('home-goal-badge').innerText = goalLabel;
+                document.getElementById('home-lesson-completed').innerText = `${stats.completedLessons}/${stats.totalLessons}`;
+                document.getElementById('home-lesson-rate').innerText = `${stats.lessonRate}%`;
+                document.getElementById('home-lesson-progress').style.width = `${stats.lessonRate}%`;
+                document.getElementById('home-vocab-completed').innerText = `${stats.completedGroups}/${stats.totalVocabGroups}`;
+                document.getElementById('home-vocab-rate').innerText = `${stats.vocabRate}%`;
+                document.getElementById('home-vocab-progress').style.width = `${stats.vocabRate}%`;
+                document.getElementById('home-next-card').innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-3-3v6"></path></svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 mb-1">${nextLesson ? nextLesson.topic : '커리큘럼을 모두 완료했어요!'}</div>
+                            <div>${nextLesson ? `다음 커리큘럼: Day ${nextLesson.day} · ${nextLesson.lesson_id}` : '이제 복습하거나 단어장/채팅으로 이어가면 좋아요.'}</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-slate-900 mb-1">${nextGroupIndex !== null ? `Group ${nextGroupIndex + 1}` : '모든 단어장을 완료했어요!'}</div>
+                            <div>${nextGroupIndex !== null ? '다음으로 학습할 단어 그룹이 남아 있어요.' : '퀴즈나 AI 채팅으로 복습을 이어갈 수 있어요.'}</div>
+                        </div>
+                    </div>
+                `;
+            } catch (e) {
+                document.getElementById('home-next-card').innerHTML = '<div class="text-red-500">홈 정보를 불러오지 못했어요.</div>';
+            }
+        }
+
+        async function moveBasics(step) {
+            return showSettings();
+        }
 
         // --- TTS Logic ---
         function speak(text) {
@@ -502,14 +809,8 @@
         }
 
         async function showCurriculum() {
+            hideAllViews();
             document.getElementById('curriculum-view').classList.remove('hidden');
-            document.getElementById('lesson-view').classList.add('hidden');
-            document.getElementById('chat-view').classList.add('hidden');
-            document.getElementById('vocab-detail-view').classList.add('hidden');
-            document.getElementById('basics-view').classList.add('hidden');
-            document.getElementById('vocab-view').classList.add('hidden');
-            document.getElementById('quiz-view').classList.add('hidden');
-            document.getElementById('settings-view').classList.add('hidden');
             try {
                 const response = await fetch(`${API_CURRICULUM}/1`);
                 const data = await response.json();
@@ -566,12 +867,8 @@
         }
 
         async function showLesson(id) {
-            document.getElementById('curriculum-view').classList.add('hidden');
+            hideAllViews();
             document.getElementById('lesson-view').classList.remove('hidden');
-            document.getElementById('basics-view').classList.add('hidden');
-            document.getElementById('vocab-view').classList.add('hidden');
-            document.getElementById('quiz-view').classList.add('hidden');
-            document.getElementById('settings-view').classList.add('hidden');
             const contentDiv = document.getElementById('lesson-content');
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">불러오는 중...</div>';
             try {
@@ -623,47 +920,10 @@
         }
 
         async function showBasics() {
-            document.getElementById('curriculum-view').classList.add('hidden');
-            document.getElementById('chat-view').classList.add('hidden');
-            document.getElementById('vocab-detail-view').classList.add('hidden');
-            document.getElementById('lesson-view').classList.add('hidden');
+            hideAllViews();
             document.getElementById('basics-view').classList.remove('hidden');
-            document.getElementById('vocab-view').classList.add('hidden');
-            document.getElementById('quiz-view').classList.add('hidden');
-            document.getElementById('settings-view').classList.add('hidden');
-            const contentDiv = document.getElementById('basics-content');
-            contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">불러오는 중...</div>';
-            try {
-                const response = await fetch(`${API_BASICS}/guide`);
-                const guide = await response.json();
-                contentDiv.innerHTML = `
-                    <header class="mb-12">
-                        <h2 class="text-4xl font-bold tracking-tight text-slate-900 mb-4">${guide.title}</h2>
-                        <p class="text-lg text-slate-500 leading-relaxed">${guide.description}</p>
-                    </header>
-                    <div class="space-y-12">
-                        ${guide.sections.map(section => `
-                            <section>
-                                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center"><span class="w-1.5 h-6 bg-blue-600 rounded-full mr-3"></span>${section.heading}</h3>
-                                <p class="text-slate-600 leading-relaxed mb-6 text-lg">${section.content}</p>
-                                <div class="space-y-3">
-                                    ${section.examples.map(ex => `
-                                        <div class="p-4 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-200 transition-all flex justify-between items-start">
-                                            <div>
-                                                <div class="text-blue-600 font-bold text-lg mb-1">${ex.es}</div>
-                                                <div class="text-slate-500 text-sm">${ex.ko}</div>
-                                            </div>
-                                            <button onclick="speak('${ex.es.replace(/'/g, "\\'")}')" class="speaker-btn text-gray-400 hover:text-blue-500 p-1">
-                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.14m-5.656-5.656a1 1 0 10-1.414-1.414m1.414 1.414a1 1 0 101.414 1.414"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3-3 3"></path></svg>
-                                            </button>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </section>
-                        `).join('')}
-                    </div>
-                `;
-            } catch (e) { contentDiv.innerHTML = '오류가 발생했습니다.'; }
+            document.getElementById('user-menu').classList.add('hidden');
+            await renderBasicsView();
         }
 
         
@@ -672,14 +932,8 @@
         let currentGroupId = -1;
 
         async function showVocab() {
-            document.getElementById('curriculum-view').classList.add('hidden');
-            document.getElementById('chat-view').classList.add('hidden');
-            document.getElementById('lesson-view').classList.add('hidden');
-            document.getElementById('basics-view').classList.add('hidden');
+            hideAllViews();
             document.getElementById('vocab-view').classList.remove('hidden');
-            document.getElementById('quiz-view').classList.add('hidden');
-            document.getElementById('settings-view').classList.add('hidden');
-            document.getElementById('vocab-detail-view').classList.add('hidden');
             
             const contentDiv = document.getElementById('vocab-list');
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">불러오는 중...</div>';
@@ -775,14 +1029,8 @@
             showVocab();
         }
 async function startQuiz() {
-            document.getElementById('curriculum-view').classList.add('hidden');
-            document.getElementById('chat-view').classList.add('hidden');
-            document.getElementById('vocab-detail-view').classList.add('hidden');
-            document.getElementById('lesson-view').classList.add('hidden');
-            document.getElementById('basics-view').classList.add('hidden');
-            document.getElementById('vocab-view').classList.add('hidden');
+            hideAllViews();
             document.getElementById('quiz-view').classList.remove('hidden');
-            document.getElementById('settings-view').classList.add('hidden');
             loadQuizQuestion();
         }
 
@@ -904,14 +1152,20 @@ async function startQuiz() {
             }, { once: true });
         }
 
+        async function renderBasicsView() {
+            const basicsRoot = document.getElementById('basics-content');
+            if (!basicsRoot) return;
+            basicsRoot.innerHTML = '<div class="animate-pulse space-y-3"><div class="h-24 bg-slate-100 rounded-2xl"></div><div class="h-24 bg-slate-100 rounded-2xl"></div></div>';
+            try {
+                const guide = await loadBasicsGuide();
+                basicsRoot.innerHTML = renderBasicsInline(guide);
+            } catch (e) {
+                basicsRoot.innerHTML = '<div class="text-red-500 text-sm">기초 학습 내용을 불러오지 못했어요.</div>';
+            }
+        }
+
         function showSettings() {
-            document.getElementById('curriculum-view').classList.add('hidden');
-            document.getElementById('chat-view').classList.add('hidden');
-            document.getElementById('vocab-detail-view').classList.add('hidden');
-            document.getElementById('lesson-view').classList.add('hidden');
-            document.getElementById('basics-view').classList.add('hidden');
-            document.getElementById('vocab-view').classList.add('hidden');
-            document.getElementById('quiz-view').classList.add('hidden');
+            hideAllViews();
             document.getElementById('settings-view').classList.remove('hidden');
             document.getElementById('user-menu').classList.add('hidden');
 
@@ -932,7 +1186,7 @@ async function startQuiz() {
             };
             localStorage.setItem('user_settings', JSON.stringify(settings));
             alert('설정이 저장되었습니다!');
-            showCurriculum();
+            showHome();
         }
 
         function resetAllProgress() {
@@ -940,29 +1194,70 @@ async function startQuiz() {
                 localStorage.removeItem('completed_lessons');
                 localStorage.removeItem('completed_vocab_groups');
                 alert('모든 진행도가 초기화되었습니다.');
-                showCurriculum();
+                showHome();
             }
         }
 
         document.addEventListener('input', function(e) {
-            if(e.target.id === 'setting-tts-speed') {
+            if (e.target && e.target.id === 'chat-input') {
+                e.target.style.height = 'auto';
+                e.target.style.height = Math.min(e.target.scrollHeight, 128) + 'px';
+            }
+
+            if (e.target.id === 'setting-tts-speed') {
                 document.getElementById('tts-speed-val').innerText = e.target.value + 'x';
             }
         });
 
-        showCurriculum();
+        showHome();
     
         async function showChat() {
-            document.getElementById('curriculum-view').classList.add('hidden');
-            document.getElementById('lesson-view').classList.add('hidden');
-            document.getElementById('basics-view').classList.add('hidden');
-            document.getElementById('vocab-view').classList.add('hidden');
-            document.getElementById('quiz-view').classList.add('hidden');
-            document.getElementById('settings-view').classList.add('hidden');
-            document.getElementById('vocab-detail-view').classList.add('hidden');
+            hideAllViews();
             document.getElementById('chat-view').classList.remove('hidden');
+            requestAnimationFrame(() => {
+                const messagesDiv = document.getElementById('chat-messages');
+                if (messagesDiv) {
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }
+            });
         }
 
+        function insertChatSymbol(symbol) {
+            const input = document.getElementById('chat-input');
+            if (!input) return;
+            input.focus();
+            const start = input.selectionStart ?? input.value.length;
+            const end = input.selectionEnd ?? input.value.length;
+            input.setRangeText(symbol, start, end, 'end');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.target && e.target.id === 'chat-input') {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendChatMessage();
+                    return;
+                }
+
+                if (e.key === '`') {
+                    const input = e.target;
+                    const start = input.selectionStart;
+                    const end = input.selectionEnd;
+                    if (start === end && start > 0) {
+                        const accentMap = {
+                            a: 'á', e: 'é', i: 'í', o: 'ó', u: 'ú', n: 'ñ',
+                            A: 'Á', E: 'É', I: 'Í', O: 'Ó', U: 'Ú', N: 'Ñ'
+                        };
+                        const previousChar = input.value[start - 1];
+                        const accentedChar = accentMap[previousChar];
+                        if (accentedChar) {
+                            e.preventDefault();
+                            input.setRangeText(accentedChar, start - 1, start, 'end');
+                        }
+                    }
+                }
+            }
+        });
         async function sendChatMessage() {
             const input = document.getElementById('chat-input');
             const text = input.value.trim();
@@ -980,6 +1275,7 @@ async function startQuiz() {
             `;
             
             input.value = '';
+            input.style.height = 'auto';
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
             try {
@@ -1007,12 +1303,30 @@ async function startQuiz() {
                 messagesDiv.innerHTML += `
                     <div class="flex items-start space-x-2 fade-in">
                         <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">AI</div>
-                        <div class="bg-yellow-50 border border-yellow-100 p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[80%] text-sm leading-relaxed text-yellow-800">
-                            <span class="font-bold">💡 피드백:</span> ${data.feedback}
-                        </div>
+                        <details class="group bg-yellow-50 border border-yellow-100 rounded-2xl rounded-tl-none shadow-sm max-w-[80%] text-sm leading-relaxed text-yellow-800 overflow-hidden">
+                            <summary class="cursor-pointer list-none px-3 py-3 flex items-center justify-between gap-3 text-yellow-900">
+                                <span class="font-bold">💡 피드백</span>
+                                <span class="text-xs font-semibold text-yellow-600 group-open:hidden">펼치기</span>
+                                <span class="hidden text-xs font-semibold text-yellow-600 group-open:inline">접기</span>
+                            </summary>
+                            <div class="border-t border-yellow-100 px-3 py-3">
+                                ${data.feedback}
+                            </div>
+                        </details>
                     </div>
                 `;
                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                const latestMessage = messagesDiv.lastElementChild;
+                const latestDetails = latestMessage?.querySelector('details');
+                if (latestDetails) {
+                    latestDetails.addEventListener('toggle', () => {
+                        if (latestDetails.open) {
+                            requestAnimationFrame(() => {
+                                latestDetails.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                            });
+                        }
+                    });
+                }
             } catch (e) {
                 messagesDiv.innerHTML += `
                     <div class="flex items-start space-x-2 text-red-500 text-xs">
@@ -1027,14 +1341,14 @@ async function startQuiz() {
 </script>
 
         <!-- Bottom Navigation -->
-        <div class="fixed bottom-0 left-0 right-0 max-w-[500px] mx-auto glass-nav border-t border-gray-100 px-6 py-3 flex justify-between items-center z-20">
-            <button onclick="showCurriculum()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
+        <div class="fixed bottom-0 left-0 right-0 max-w-[500px] mx-auto glass-nav border-t border-gray-100 px-4 py-3 flex justify-between items-center z-20">
+            <button onclick="showHome()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                 <span class="text-[10px] font-bold uppercase tracking-tighter">Home</span>
             </button>
-            <button onclick="showBasics()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
-                <span class="text-[10px] font-bold uppercase tracking-tighter">Basics</span>
+            <button onclick="showCurriculum()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011-.982l5.447-2.724m0 17.296l5.447-2.724A1 1 0 0016 16.382V5.618a1 1 0 00-1-.982L9 2.296m0 17.296V2.296"></path></svg>
+                <span class="text-[10px] font-bold uppercase tracking-tighter">Curriculum</span>
             </button>
             <button onclick="showVocab()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
