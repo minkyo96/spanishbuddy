@@ -16,6 +16,7 @@
             document.getElementById('quiz-view').classList.add('hidden');
             document.getElementById('settings-view').classList.add('hidden');
             document.getElementById('vocab-detail-view').classList.add('hidden');
+            setActiveBottomNav('chat');
             document.getElementById('chat-view').classList.remove('hidden');
         }
 
@@ -263,6 +264,13 @@
             background-color: #e2e8f0;
             border-radius: 10px;
         }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
 
     </style>
 </head>
@@ -357,7 +365,7 @@
                             <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Next up</p>
                             <h3 class="text-lg font-bold text-slate-900">다음 추천 학습</h3>
                         </div>
-                        <span id="home-goal-badge" class="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[11px] font-bold">Goal --</span>
+                        <span id="home-goal-badge" class="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-[11px] font-bold">목표 --</span>
                     </div>
                     <div id="home-next-card" class="space-y-2 text-slate-600 text-xs leading-relaxed">
                         <div class="animate-pulse space-y-2">
@@ -462,6 +470,22 @@
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     단어장으로 돌아가기
                 </button>
+                <div class="mb-5 bg-white border border-gray-100 rounded-2xl shadow-sm px-4 py-3">
+                    <div class="flex items-center justify-between gap-3 mb-2">
+                        <div>
+                            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-1">20문제 챌린지</p>
+                            <p class="text-xs text-slate-500">설정에서 선택한 난이도로 진행됩니다.</p>
+                        </div>
+                        <span id="quiz-difficulty-badge" class="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold">보통</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs text-slate-500 mb-2">
+                        <span id="quiz-progress-text">문제 1/20</span>
+                        <span id="quiz-score-text">정답 0개</span>
+                    </div>
+                    <div class="h-2 rounded-full bg-slate-100 overflow-hidden">
+                        <span id="quiz-progress-bar" class="block h-full rounded-full bg-blue-500 transition-all" style="width: 0%"></span>
+                    </div>
+                </div>
                 <div id="quiz-content" class="text-center">
                     <!-- Dynamic Quiz content injected here -->
                 </div>
@@ -477,7 +501,7 @@
                 
                 <div class="flex justify-between items-center mb-6">
                     <div id="vocab-progress" class="text-sm font-bold text-slate-400 uppercase tracking-widest">
-                        Word 1 / 20
+                        단어 1 / 20
                     </div>
                     <button onclick="handleVocabCompleteCurrentGroup()" class="text-xs font-bold px-3 py-1.5 rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-200 transition-all">
                         학습 완료하기
@@ -553,12 +577,13 @@
                         <button type="button" onclick="insertChatSymbol('ñ')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ñ</button>
                     </div>
                     <div class="relative flex items-end space-x-2 bg-white p-2 rounded-2xl border border-gray-200 shadow-lg">
-                        <textarea id="chat-input" rows="1" class="flex-1 p-3 bg-transparent outline-none text-sm resize-none leading-relaxed max-h-32" placeholder="스페인어로 메시지를 입력하세요..."></textarea>
+                        <textarea id="chat-input" rows="1" class="flex-1 p-3 bg-transparent outline-none text-sm resize-none leading-relaxed max-h-32" placeholder="스페인어로 메시지를 입력하세요..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
                         <button onclick="sendChatMessage()" class="bg-blue-600 text-white p-3 rounded-xl hover:bg-blue-700 transition-all shadow-md shadow-blue-100 shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                         </button>
                     </div>
                 </div>
+            </div>
 
 <!-- Settings View -->
             <div id="settings-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
@@ -580,7 +605,7 @@
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">닉네임</label>
-                                <input type="text" id="setting-nickname" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-blue-500 transition-all" placeholder="닉네임을 입력하세요">
+                                <input type="text" id="setting-nickname" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-blue-500 transition-all" placeholder="닉네임을 입력하세요" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">일일 학습 목표</label>
@@ -595,10 +620,19 @@
 
                     <section class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
                         <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-6a2 2 0 110 4m-6 0a2 2 0 100-4m0 4a2 2 0 110-4m0 4V8m//6 0a2 2 0 100-4m0 4a2 2 0 110-4m0 4V8"></path></svg>
+                            <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-6a2 2 0 110 4m0-6a2 2 0 100-4m0 4a2 2 0 110-4m0 4V8m//6 0a2 2 0 100-4m0 4a2 2 0 110-4m0 4V8"></path></svg>
                             학습 설정
                         </h3>
                         <div class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">퀴즈 난이도</label>
+                                <select id="setting-quiz-difficulty" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-blue-500 transition-all">
+                                    <option value="easy">쉬움</option>
+                                    <option value="medium">보통</option>
+                                    <option value="hard">어려움</option>
+                                </select>
+                                <p class="text-xs text-slate-400 mt-2">퀴즈 시작 시 20문제 전체에 적용됩니다.</p>
+                            </div>
                             <div class="flex items-center justify-between">
                                 <div>
                                     <p class="font-bold text-slate-700">음성 재생 속도</p>
@@ -630,8 +664,14 @@
         const API_VOCAB = '/vocab';
 
         let basicsGuide = null;
+        let curriculumCache = null;
         let basicsSectionIndex = 0;
         let basicsSlideDirection = 1;
+        const QUIZ_TOTAL_QUESTIONS = 20;
+        let quizSession = null;
+        let quizReviewMode = false;
+        let currentQuizAnswered = false;
+        let currentWordOrderSelection = [];
 
         function hideAllViews() {
             ['home-view', 'curriculum-view', 'lesson-view', 'chat-view', 'vocab-detail-view', 'basics-view', 'vocab-view', 'quiz-view', 'settings-view']
@@ -641,10 +681,33 @@
                 });
         }
 
+        function setActiveBottomNav(active) {
+            const items = [
+                ['nav-home', 'home'],
+                ['nav-curriculum', 'curriculum'],
+                ['nav-vocab', 'vocab'],
+                ['nav-chat', 'chat'],
+                ['nav-quiz', 'quiz'],
+            ];
+            items.forEach(([id, key]) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const isActive = key === active;
+                el.classList.toggle('text-blue-600', isActive);
+                el.classList.toggle('text-slate-400', !isActive);
+                el.classList.toggle('bg-blue-50', isActive);
+                el.classList.toggle('shadow-sm', isActive);
+                el.classList.toggle('scale-[1.04]', isActive);
+                el.classList.toggle('text-slate-500', !isActive);
+                el.setAttribute('aria-current', isActive ? 'page' : 'false');
+            });
+        }
+
         function getSettings() {
             return JSON.parse(localStorage.getItem('user_settings') || '{}');
         }
 
+        document.addEventListener('DOMContentLoaded', () => setActiveBottomNav('home'));
         function getProgressStats(totalLessons, totalVocabGroups) {
             const completedLessons = getCompletedLessons();
             const completedGroups = getCompletedVocabGroups();
@@ -659,6 +722,54 @@
                 vocabRate,
                 settings: getSettings()
             };
+        }
+
+        function flattenCurriculumLessons(curriculum) {
+            return curriculum.weeks.flatMap((week, weekIndex) =>
+                week.days.map((day, dayIndex) => ({
+                    ...day,
+                    weekIndex,
+                    dayIndex,
+                    weekNumber: week.week,
+                    weekTheme: week.theme
+                }))
+            );
+        }
+
+        async function loadCurriculum() {
+            if (curriculumCache) return curriculumCache;
+            const response = await fetch(`${API_CURRICULUM}/1`);
+            curriculumCache = await response.json();
+            return curriculumCache;
+        }
+
+        function getFirstIncompleteLessonId(curriculum) {
+            const completed = new Set(getCompletedLessons());
+            for (const lesson of flattenCurriculumLessons(curriculum)) {
+                if (!completed.has(lesson.lesson_id)) {
+                    return lesson.lesson_id;
+                }
+            }
+            return null;
+        }
+
+        function canOpenLesson(lessonId, curriculum) {
+            const lessons = flattenCurriculumLessons(curriculum);
+            const targetIndex = lessons.findIndex(item => item.lesson_id === lessonId);
+            if (targetIndex < 0) return false;
+            const firstIncompleteIndex = lessons.findIndex(item => !getCompletedLessons().includes(item.lesson_id));
+            if (firstIncompleteIndex < 0) return true;
+            return targetIndex <= firstIncompleteIndex;
+        }
+
+        function getLessonMeta(curriculum, lessonId) {
+            return flattenCurriculumLessons(curriculum).find(item => item.lesson_id === lessonId) || null;
+        }
+
+        function getNextLessonId(curriculum, lessonId) {
+            const lessons = flattenCurriculumLessons(curriculum);
+            const index = lessons.findIndex(item => item.lesson_id === lessonId);
+            return index >= 0 && index + 1 < lessons.length ? lessons[index + 1].lesson_id : null;
         }
 
         async function loadBasicsGuide() {
@@ -705,19 +816,19 @@
 
         async function showHome() {
             hideAllViews();
+            setActiveBottomNav('home');
             document.getElementById('home-view').classList.remove('hidden');
             document.getElementById('home-view').classList.add('fade-in');
             try {
-                const [curriculumRes, vocabRes] = await Promise.all([
-                    fetch(`${API_CURRICULUM}/1`),
+                const [curriculum, vocabRes] = await Promise.all([
+                    loadCurriculum(),
                     fetch(`${API_VOCAB}/list`)
                 ]);
-                const curriculum = await curriculumRes.json();
                 const words = await vocabRes.json();
                 const totalLessons = curriculum.weeks.reduce((sum, week) => sum + week.days.length, 0);
                 const totalVocabGroups = Math.max(1, Math.ceil(words.length / 20));
                 const stats = getProgressStats(totalLessons, totalVocabGroups);
-                const nextLesson = curriculum.weeks.flatMap(week => week.days).find(day => !getCompletedLessons().includes(day.lesson_id));
+                const nextLesson = flattenCurriculumLessons(curriculum).find(day => !getCompletedLessons().includes(day.lesson_id));
                 const nextGroupIndex = (() => {
                     const completed = getCompletedVocabGroups();
                     for (let i = 0; i < totalVocabGroups; i += 1) {
@@ -742,7 +853,7 @@
                         </div>
                         <div>
                             <div class="font-bold text-slate-900 mb-1">${nextLesson ? nextLesson.topic : '커리큘럼을 모두 완료했어요!'}</div>
-                            <div>${nextLesson ? `다음 커리큘럼: Day ${nextLesson.day} · ${nextLesson.lesson_id}` : '이제 복습하거나 단어장/채팅으로 이어가면 좋아요.'}</div>
+                            <div>${nextLesson ? `${nextLesson.weekTheme} · Day ${nextLesson.day}${nextLesson.objective ? ` · ${nextLesson.objective}` : ''}` : '이제 복습하거나 단어장/채팅으로 이어가면 좋아요.'}</div>
                         </div>
                     </div>
                     <div class="flex items-start gap-3">
@@ -810,43 +921,48 @@
 
         async function showCurriculum() {
             hideAllViews();
+            setActiveBottomNav('curriculum');
             document.getElementById('curriculum-view').classList.remove('hidden');
             try {
-                const response = await fetch(`${API_CURRICULUM}/1`);
-                const data = await response.json();
+                const data = await loadCurriculum();
                 const contentDiv = document.getElementById('curriculum-content');
+                const lessons = flattenCurriculumLessons(data);
+                const completedLessons = getCompletedLessons();
+                const firstIncompleteId = getFirstIncompleteLessonId(data);
                 contentDiv.innerHTML = `
                     <div class="mb-6"><h3 class="text-xl font-bold text-slate-800">${data.title}</h3></div>
                     ${data.weeks.map((week, wIdx) => {
-                        const weekCompletedCount = week.days.filter(d => isLessonCompleted(d.lesson_id)).length;
-                        const totalDays = week.days.length;
                         return `
                         <div class="border border-gray-100 rounded-2xl overflow-hidden shadow-sm bg-white">
                             <div onclick="toggleWeek(${wIdx})" class="p-4 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors">
                                 <div class="flex items-center space-x-3">
-                                    <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Week ${week.week}</span>
+                                    <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">${week.week}주차</span>
                                     <span class="text-xs text-slate-400 font-medium">${week.theme}</span>
                                 </div>
-                                <div class="flex items-center space-x-3">
-                                    <div class="text-right mr-2">
-                                        <span class="text-[10px] font-bold text-slate-400 uppercase">진행도</span>
-                                        <div class="text-xs font-bold text-slate-700">${weekCompletedCount}/${totalDays}</div>
-                                    </div>
-                                    <svg id="arrow-${wIdx}" class="w-5 h-5 text-gray-300 transition-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                                </div>
+                                <svg id="arrow-${wIdx}" class="w-5 h-5 text-gray-300 transition-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </div>
                             <div id="week-content-${wIdx}" class="hidden px-4 pt-4 pb-4 space-y-3">
                                 ${week.days.map(day => {
                                     const done = isLessonCompleted(day.lesson_id);
+                                    const locked = !done && !canOpenLesson(day.lesson_id, data);
+                                    const stateLabel = done ? '완료' : locked ? '잠김' : '진행 가능';
+                                    const stateClass = done ? 'bg-green-50 text-green-700 border-green-100' : locked ? 'bg-slate-100 text-slate-400 border-slate-100' : 'bg-blue-50 text-blue-600 border-blue-100';
                                     return `
-                                        <div onclick="showLesson('${day.lesson_id}')" class="curriculum-item group bg-white p-3 rounded-xl border ${done ? 'border-green-200 bg-green-50' : 'border-gray-100'} cursor-pointer hover:border-blue-200 flex items-center justify-between transition-all">
-                                            <div class="flex items-center space-x-3">
-                                                <div class="w-8 h-8 rounded-full ${done ? 'bg-green-500 text-white' : 'bg-gray-50 text-slate-400'} flex items-center justify-center text-xs font-bold transition-colors">
-                                                    ${done ? '✓' : `D${day.day}`}
+                                        <div class="curriculum-item group bg-white p-4 rounded-xl border ${done ? 'border-green-200 bg-green-50' : locked ? 'border-slate-100 bg-slate-50 opacity-70' : 'border-gray-100'} ${locked ? 'cursor-not-allowed' : 'cursor-pointer hover:border-blue-200'} transition-all" ${locked ? '' : `onclick="showLesson('${day.lesson_id}')"`}>
+                                            <div class="flex items-start justify-between gap-3">
+                                                <div>
+                                                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                                                        <div class="font-semibold ${done ? 'text-green-700' : locked ? 'text-slate-500' : 'text-slate-800'} group-hover:text-slate-900">${day.topic}</div>
+                                                        <span class="shrink-0 px-2.5 py-1 rounded-full text-[10px] font-bold border ${stateClass}">${stateLabel}</span>
+                                                    </div>
+                                                    <div class="text-[11px] text-slate-400">${day.estimated_minutes ? `${day.estimated_minutes}분 · ` : ''}${day.objective || '핵심 패턴을 익혀요.'}</div>
                                                 </div>
-                                                <span class="font-semibold ${done ? 'text-green-700' : 'text-slate-700'} group-hover:text-slate-900">${day.topic}</span>
                                             </div>
-                                            <svg class="w-4 h-4 text-gray-300 group-hover:text-blue-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                            ${day.checkpoints && day.checkpoints.length ? `
+                                                <div class="mt-3 flex flex-wrap gap-2">
+                                                    ${day.checkpoints.slice(0, 2).map(point => `<span class="px-2 py-1 rounded-full bg-white border border-slate-100 text-[11px] text-slate-500">${point}</span>`).join('')}
+                                                </div>
+                                            ` : ''}
                                         </div>
                                     `;
                                 }).join('')}
@@ -868,55 +984,189 @@
 
         async function showLesson(id) {
             hideAllViews();
+            setActiveBottomNav('curriculum');
+            const curriculum = await loadCurriculum();
+            if (!canOpenLesson(id, curriculum) && !isLessonCompleted(id)) {
+                document.getElementById('curriculum-view').classList.remove('hidden');
+                await showCurriculum();
+                alert('이전 과정을 먼저 완료해야 다음 과정이 열려요.');
+                return;
+            }
             document.getElementById('lesson-view').classList.remove('hidden');
             const contentDiv = document.getElementById('lesson-content');
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">불러오는 중...</div>';
             try {
                 const response = await fetch(`${API_GRAMMAR}/lesson/${id}`);
                 const lesson = await response.json();
+                const lessonMeta = getLessonMeta(curriculum, id);
+                const nextLessonId = getNextLessonId(curriculum, id);
+                const nextLesson = nextLessonId ? getLessonMeta(curriculum, nextLessonId) : null;
                 const done = isLessonCompleted(id);
+                const checkpointHtml = lessonMeta?.checkpoints && lessonMeta.checkpoints.length
+                    ? lessonMeta.checkpoints.map(point => `<span class="px-3 py-1 rounded-full bg-white border border-blue-100 text-[11px] text-slate-500">${point}</span>`).join('')
+                    : '<span class="px-3 py-1 rounded-full bg-white border border-blue-100 text-[11px] text-slate-500">핵심 패턴을 반복해요.</span>';
+                const lessonSlides = [
+                    {
+                        type: 'point',
+                        title: '레슨 포인트',
+                        label: '레슨 포인트',
+                        heading: lessonMeta?.objective || lesson.description,
+                        body: `<div class="mt-4 rounded-2xl bg-white p-3 border border-slate-100">
+                            <p class="text-xs font-bold text-slate-500 mb-2">확인할 것</p>
+                            <div class="flex flex-wrap gap-2">${checkpointHtml}</div>
+                        </div>`
+                    },
+                    ...lesson.sections.map((section, index) => ({
+                        type: 'content',
+                        title: `내용 ${index + 1}`,
+                        label: `내용 ${index + 1}`,
+                        heading: section.heading,
+                        content: section.content,
+                        examples: section.examples,
+                    }))
+                ];
                 contentDiv.innerHTML = `
-                    <header class="mb-12">
-                        <div class="flex items-center space-x-2 mb-3"><span class="px-2 py-1 bg-blue-50 text-blue-600 rounded-md text-xs font-bold uppercase">${lesson.level}</span></div>
+                    <header class="mb-10">
+                        <div class="flex flex-wrap items-center gap-2 mb-3">
+                            <span class="px-2 py-1 bg-blue-50 text-blue-600 rounded-md text-xs font-bold uppercase">${lesson.level}</span>
+                            ${lessonMeta?.estimated_minutes ? `<span class="px-2 py-1 bg-slate-100 text-slate-500 rounded-md text-xs font-bold">${lessonMeta.estimated_minutes}분</span>` : ''}
+                            ${done ? '<span class="px-2 py-1 bg-green-50 text-green-700 rounded-md text-xs font-bold">완료</span>' : ''}
+                        </div>
                         <h2 class="text-4xl font-bold tracking-tight text-slate-900 mb-4">${lesson.title}</h2>
                         <p class="text-lg text-slate-500 leading-relaxed">${lesson.description}</p>
                     </header>
-                    <div class="space-y-12">
-                        ${lesson.sections.map(section => `
-                            <section>
-                                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center"><span class="w-1.5 h-6 bg-blue-600 rounded-full mr-3"></span>${section.heading}</h3>
-                                <p class="text-slate-600 leading-relaxed mb-6 text-lg">${section.content}</p>
-                                <div class="space-y-3">
-                                    ${section.examples.map(ex => `
-                                        <div class="p-4 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-200 transition-all flex justify-between items-start">
-                                            <div>
-                                                <div class="text-blue-600 font-bold text-lg mb-1">${ex.es}</div>
-                                                <div class="text-slate-500 text-sm">${ex.ko}</div>
-                                            </div>
-                                            <button onclick="speak('${ex.es.replace(/'/g, "\\'")}')" class="speaker-btn text-gray-400 hover:text-blue-500 p-1">
-                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.14m-5.656-5.656a1 1 0 10-1.414-1.414m1.414 1.414a1 1 0 101.414 1.414"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3-3 3"></path></svg>
-                                            </button>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            </section>
-                        `).join('')}
+                    <div class="flex items-center justify-between gap-3 mb-4">
+                        <div>
+                            <p class="text-[11px] font-bold tracking-[0.22em] text-slate-400 mb-1">내용</p>
+                            <p id="lesson-carousel-status-${id}" class="text-sm font-bold text-slate-900">레슨 포인트</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button id="lesson-carousel-prev-${id}" onclick="scrollLessonCarousel('${id}', -1)" class="w-9 h-9 rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-all disabled:opacity-40 disabled:cursor-not-allowed" aria-label="이전 내용">
+                                <svg class="w-4 h-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button id="lesson-carousel-next-${id}" onclick="scrollLessonCarousel('${id}', 1)" class="w-9 h-9 rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-all disabled:opacity-40 disabled:cursor-not-allowed" aria-label="다음 내용">
+                                <svg class="w-4 h-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
                     </div>
-                    <div class="mt-16 pb-10">
+                    <div class="overflow-hidden">
+                        <div id="lesson-carousel-track-${id}" class="flex transition-transform duration-300 ease-out will-change-transform">
+                            ${lessonSlides.map((slide, index) => `
+                                <section data-lesson-slide="${index}" data-lesson-slide-label="${slide.label}" class="w-full shrink-0 px-1">
+                                    <div class="rounded-3xl border ${slide.type === 'point' ? 'border-blue-100 bg-gradient-to-b from-blue-50 to-white' : 'border-slate-100 bg-white'} p-5 shadow-sm">
+                                        <div class="flex items-start justify-between gap-3 mb-4">
+                                            <div>
+                                                <p class="text-[11px] font-bold tracking-[0.22em] ${slide.type === 'point' ? 'text-blue-500' : 'text-blue-500'} mb-2">${slide.title}</p>
+                                                <h3 class="text-xl font-bold text-slate-800 leading-tight ${slide.type === 'point' ? 'text-base' : ''}">${slide.heading}</h3>
+                                            </div>
+                                            <span class="px-2 py-1 rounded-full bg-slate-50 text-[11px] font-bold text-slate-500 whitespace-nowrap">${index + 1} / ${lessonSlides.length}</span>
+                                        </div>
+                                        ${slide.type === 'point' ? slide.body : `
+                                            <p class="text-slate-600 leading-relaxed mb-6 text-lg">${slide.content}</p>
+                                            <div class="space-y-3">
+                                                ${slide.examples.map(ex => `
+                                                    <div class="p-4 bg-gray-50 rounded-2xl border border-transparent hover:border-gray-200 transition-all flex justify-between items-start">
+                                                        <div>
+                                                            <div class="text-blue-600 font-bold text-lg mb-1">${ex.es}</div>
+                                                            <div class="text-slate-500 text-sm">${ex.ko}</div>
+                                                        </div>
+                                                        <button onclick="speak('${ex.es.replace(/'/g, "\\'")}')" class="speaker-btn text-gray-400 hover:text-blue-500 p-1">
+                                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.14m-5.656-5.656a1 1 0 10-1.414-1.414m1.414 1.414a1 1 0 101.414 1.414"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3-3 3"></path></svg>
+                                                        </button>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        `}
+                                    </div>
+                                </section>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mt-4" id="lesson-carousel-dots-${id}">
+                        ${lessonSlides.map((slide, index) => `<button onclick="jumpToLessonSlide('${id}', ${index})" class="lesson-carousel-dot w-2.5 h-2.5 rounded-full transition-all ${index === 0 ? 'bg-blue-600 w-6' : 'bg-slate-200'}" data-lesson-dot="${index}" aria-label="${slide.label}로 이동"></button>`).join('')}
+                    </div>
+                    <div class="mt-16 pb-10 space-y-3">
                         <button id="complete-btn" onclick="handleComplete('${id}')" class="btn-primary w-full py-4 rounded-2xl text-white font-bold text-lg shadow-lg shadow-blue-200 transition-all ${done ? 'btn-completed' : ''}">
                             ${done ? '학습 완료됨!' : '학습 완료하기'}
                         </button>
+                        ${done && nextLesson ? `<button onclick="showLesson('${nextLesson.lesson_id}')" class="w-full py-4 rounded-2xl border border-blue-100 bg-white text-blue-600 font-bold hover:bg-blue-50 transition-all">다음 과정으로 이동</button>` : ''}
                     </div>
                 `;
+                setupLessonCarousel(id);
             } catch (e) { contentDiv.innerHTML = '오류가 발생했습니다.'; }
         }
 
         function handleComplete(id) {
             markLessonCompleted(id);
-            const btn = document.getElementById('complete-btn');
-            btn.innerText = '학습 완료됨!';
-            btn.classList.add('btn-completed');
-            btn.classList.remove('btn-primary');
+            showLesson(id);
+        }
+
+        function getLessonCarouselElements(id) {
+            const track = document.getElementById(`lesson-carousel-track-${id}`);
+            if (!track) return null;
+            const slides = Array.from(track.querySelectorAll('[data-lesson-slide]'));
+            return { track, slides };
+        }
+
+        function getLessonCarouselIndex(track, slides) {
+            const total = slides.length;
+            if (!total) return 0;
+            const stored = Number(track.dataset.activeIndex ?? 0);
+            return Math.max(0, Math.min(total - 1, Number.isFinite(stored) ? stored : 0));
+        }
+
+        function updateLessonCarouselUI(id) {
+            const elements = getLessonCarouselElements(id);
+            if (!elements) return;
+            const { track, slides } = elements;
+            const total = slides.length;
+            if (!total) return;
+            const index = getLessonCarouselIndex(track, slides);
+            track.dataset.activeIndex = String(index);
+            track.style.transform = `translateX(-${index * 100}%)`;
+            const status = document.getElementById(`lesson-carousel-status-${id}`);
+            const prev = document.getElementById(`lesson-carousel-prev-${id}`);
+            const next = document.getElementById(`lesson-carousel-next-${id}`);
+            const activeSlide = slides[index];
+            const slideLabel = activeSlide?.dataset.lessonSlideLabel || `내용 ${index + 1}`;
+            if (status) status.innerText = slideLabel;
+            if (prev) prev.disabled = index === 0;
+            if (next) next.disabled = index === total - 1;
+            document.querySelectorAll(`#lesson-carousel-dots-${id} .lesson-carousel-dot`).forEach((dot, dotIndex) => {
+                dot.classList.toggle('bg-blue-600', dotIndex === index);
+                dot.classList.toggle('w-6', dotIndex === index);
+                dot.classList.toggle('bg-slate-200', dotIndex !== index);
+                dot.classList.toggle('w-2.5', dotIndex !== index);
+            });
+        }
+
+        function setupLessonCarousel(id) {
+            const elements = getLessonCarouselElements(id);
+            if (!elements) return;
+            const { track } = elements;
+            if (track.dataset.bound === 'true') return;
+            track.dataset.bound = 'true';
+            track.dataset.activeIndex = track.dataset.activeIndex || '0';
+            updateLessonCarouselUI(id);
+        }
+
+        function scrollLessonCarousel(id, direction) {
+            const elements = getLessonCarouselElements(id);
+            if (!elements) return;
+            const { track, slides } = elements;
+            const currentIndex = getLessonCarouselIndex(track, slides);
+            const nextIndex = Math.max(0, Math.min(slides.length - 1, currentIndex + direction));
+            track.dataset.activeIndex = String(nextIndex);
+            updateLessonCarouselUI(id);
+        }
+
+        function jumpToLessonSlide(id, index) {
+            const elements = getLessonCarouselElements(id);
+            if (!elements) return;
+            const { track, slides } = elements;
+            const targetIndex = Math.max(0, Math.min(slides.length - 1, index));
+            track.dataset.activeIndex = String(targetIndex);
+            updateLessonCarouselUI(id);
         }
 
         async function showBasics() {
@@ -930,9 +1180,11 @@
         let currentVocabGroupWords = [];
         let currentVocabIndex = 0;
         let currentGroupId = -1;
+        let currentQuiz = null;
 
         async function showVocab() {
             hideAllViews();
+            setActiveBottomNav('vocab');
             document.getElementById('vocab-view').classList.remove('hidden');
             
             const contentDiv = document.getElementById('vocab-list');
@@ -1028,22 +1280,218 @@
             alert('그룹 학습이 완료되었습니다!');
             showVocab();
         }
-async function startQuiz() {
+        function getQuizDifficulty() {
+            const settings = JSON.parse(localStorage.getItem('user_settings') || '{}');
+            return settings.quizDifficulty || 'medium';
+        }
+
+        function setQuizDifficulty(difficulty) {
+            const settings = JSON.parse(localStorage.getItem('user_settings') || '{}');
+            settings.quizDifficulty = difficulty;
+            localStorage.setItem('user_settings', JSON.stringify(settings));
+            updateQuizDifficultyBadge();
+        }
+
+        function getQuizDifficultyLabel(difficulty = getQuizDifficulty()) {
+            return ({ easy: '쉬움', medium: '보통', hard: '어려움' })[difficulty] || '보통';
+        }
+
+        function escapeHtml(text) {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function escapeAttr(text) {
+            return escapeHtml(text);
+        }
+
+        function normalizeQuizText(text) {
+            return String(text || '').trim().replace(/\s+/g, ' ');
+        }
+
+        function normalizeWordOrderSentence(text) {
+            return normalizeQuizText(text).replace(/\s+([.,!?;:])/g, '$1');
+        }
+
+        function normalizeWordOrderTokenValue(value) {
+            const text = String(value ?? '');
+            if (!text) return '';
+            try {
+                return JSON.parse(text);
+            } catch (e) {
+                return text;
+            }
+        }
+
+        function clearWordOrderSelection() {
+            currentWordOrderSelection = [];
+            const display = document.getElementById('word-order-selection');
+            if (display) display.innerText = '';
+            const hidden = document.getElementById('word-order-answer');
+            if (hidden) hidden.value = '';
+        }
+
+        function syncWordOrderSelection() {
+            const display = document.getElementById('word-order-selection');
+            const hidden = document.getElementById('word-order-answer');
+            const current = currentWordOrderSelection.join(' ');
+            if (display) display.innerText = current || '단어를 눌러 문장을 만들어 보세요.';
+            if (hidden) hidden.value = current;
+        }
+
+        function appendWordOrderToken(token, button) {
+            if (currentQuizAnswered || !button || button.disabled) return;
+            currentWordOrderSelection.push(token);
+            button.disabled = true;
+            button.classList.add('opacity-40', 'scale-95');
+            syncWordOrderSelection();
+        }
+
+        function removeWordOrderLastToken() {
+            if (currentQuizAnswered || currentWordOrderSelection.length === 0) return;
+            const token = currentWordOrderSelection.pop();
+            const buttons = Array.from(document.querySelectorAll('[data-word-token]'));
+            const restored = buttons.reverse().find(btn => normalizeWordOrderTokenValue(btn.dataset.wordToken) === token && btn.disabled);
+            if (restored) {
+                restored.disabled = false;
+                restored.classList.remove('opacity-40', 'scale-95');
+            }
+            syncWordOrderSelection();
+        }
+
+        function resetWordOrderButtons() {
+            document.querySelectorAll('[data-word-token]').forEach(btn => {
+                btn.disabled = false;
+                btn.classList.remove('opacity-40', 'scale-95');
+            });
+            currentWordOrderSelection = [];
+            syncWordOrderSelection();
+        }
+
+        function getWordOrderAnswerValue() {
+            const hidden = document.getElementById('word-order-answer');
+            return hidden ? normalizeWordOrderSentence(hidden.value) : '';
+        }
+
+        function getQuizAnswerButtons() {
+            return document.querySelectorAll('#quiz-content button');
+        }
+
+        function buildQuizCheckLabel(nextLabel = '다음 문제 풀기') {
+            return nextLabel;
+        }
+
+        function updateQuizDifficultyBadge() {
+            const badge = document.getElementById('quiz-difficulty-badge');
+            if (badge) badge.innerText = getQuizDifficultyLabel();
+            const settingSelect = document.getElementById('setting-quiz-difficulty');
+            if (settingSelect) settingSelect.value = getQuizDifficulty();
+        }
+
+        function initializeQuizSession() {
+            quizSession = {
+                total: QUIZ_TOTAL_QUESTIONS,
+                current: 1,
+                correct: 0,
+                completed: false,
+            };
+            quizReviewMode = false;
+            currentQuiz = null;
+            currentQuizAnswered = false;
+            currentWordOrderSelection = [];
+            updateQuizProgressUI();
+        }
+
+        async function startQuiz() {
             hideAllViews();
+            setActiveBottomNav('quiz');
             document.getElementById('quiz-view').classList.remove('hidden');
+            initializeQuizSession();
+            updateQuizDifficultyBadge();
+            loadQuizQuestion();
+        }
+
+        function updateQuizProgressUI() {
+            const progressText = document.getElementById('quiz-progress-text');
+            const scoreText = document.getElementById('quiz-score-text');
+            const progressBar = document.getElementById('quiz-progress-bar');
+
+            if (!quizSession) {
+                if (progressText) progressText.innerText = '문제 1/20';
+                if (scoreText) scoreText.innerText = '정답 0개';
+                if (progressBar) progressBar.style.width = '0%';
+                return;
+            }
+
+            const currentQuestion = Math.min(quizSession.current, quizSession.total);
+            const percent = quizSession.completed ? 100 : Math.round(((currentQuestion - 1) / quizSession.total) * 100);
+            const displayQuestion = quizSession.completed ? quizSession.total : currentQuestion;
+            if (progressText) progressText.innerText = `문제 ${displayQuestion}/${quizSession.total}`;
+            if (scoreText) scoreText.innerText = `정답 ${quizSession.correct}개`;
+            if (progressBar) progressBar.style.width = `${percent}%`;
+        }
+
+        function showQuizFinalResult() {
+            if (!quizSession) return;
+            const contentDiv = document.getElementById('quiz-content');
+            const scorePercent = Math.round((quizSession.correct / quizSession.total) * 100);
+            contentDiv.innerHTML = `
+                <div class="py-16 px-6 text-center">
+                    <div class="text-5xl mb-4">🏁</div>
+                    <p class="text-sm font-bold uppercase tracking-widest text-blue-600 mb-3">퀴즈 완료</p>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-3">${quizSession.total}문제를 모두 풀었어요</h2>
+                    <div class="bg-white border border-gray-100 rounded-3xl p-5 shadow-sm max-w-sm mx-auto mb-6">
+                        <div class="text-sm text-slate-500 mb-2">최종 점수</div>
+                        <div class="text-5xl font-bold text-slate-900 mb-2">${quizSession.correct}<span class="text-2xl text-slate-400"> / ${quizSession.total}</span></div>
+                        <div class="text-sm font-semibold ${scorePercent >= 80 ? 'text-green-600' : scorePercent >= 60 ? 'text-blue-600' : 'text-amber-600'}">정답률 ${scorePercent}%</div>
+                    </div>
+                    <div class="space-y-3">
+                        <button onclick="restartQuizSession()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">다시 20문제 풀기</button>
+                        <button onclick="showVocab()" class="w-full py-4 rounded-2xl bg-white border border-gray-200 text-slate-700 font-bold">단어장으로 돌아가기</button>
+                    </div>
+                </div>
+            `;
+            quizSession.completed = true;
+            updateQuizProgressUI();
+        }
+
+        function restartQuizSession() {
+            initializeQuizSession();
             loadQuizQuestion();
         }
 
         async function loadQuizQuestion() {
+            if (!quizSession) initializeQuizSession();
+            if (quizSession.completed) return showQuizFinalResult();
+            if (quizSession.current > quizSession.total) {
+                return showQuizFinalResult();
+            }
+
             const contentDiv = document.getElementById('quiz-content');
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">문제 생성 중...</div>';
+            currentQuiz = null;
+            currentQuizAnswered = false;
+            updateQuizProgressUI();
+            
             try {
                 const completedGroups = getCompletedVocabGroups();
-                const queryParams = completedGroups.map(g => `completed_groups=${g}`).join('&');
+                const difficulty = getQuizDifficulty();
+                const queryParams = [
+                    ...completedGroups.map(g => `completed_groups=${g}`),
+                    `difficulty=${encodeURIComponent(difficulty)}`
+                ].join('&');
                 const response = await fetch(`${API_VOCAB}/quiz?${queryParams}`);
                 const quiz = await response.json();
+                currentQuiz = quiz;
+                currentQuizAnswered = false;
                 
                 if(quiz.error) {
+                    currentQuiz = null;
+                    currentQuizAnswered = false;
                     contentDiv.innerHTML = `
                         <div class="py-20 px-6 text-center">
                             <div class="text-5xl mb-6">📚</div>
@@ -1056,58 +1504,123 @@ async function startQuiz() {
                 }
                 
                 let html = `<div class="mb-12">`;
-                if(quiz.type === 'multiple_choice') {
+                if (quiz.type === 'multiple_choice') {
                     html += `<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">뜻을 선택하세요</span>
                              <div class="flex items-center justify-center space-x-4 mt-4 mb-2">
-                                <h2 class="text-5xl font-bold text-slate-900">${quiz.question}</h2>
+                                <h2 class="text-5xl font-bold text-slate-900">${escapeHtml(quiz.question)}</h2>
                                 <button onclick="speak('${quiz.question.replace(/'/g, "\\'")}')" class="speaker-btn text-gray-400 hover:text-blue-500">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.14m-5.656-5.656a1 1 0 10-1.414-1.414m1.414 1.414a1 1 0 101.414 1.414"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3-3 3"></path></svg>
                                 </button>
                              </div>`;
-                } else if(quiz.type === 'true_false') {
+                } else if (quiz.type === 'true_false') {
                     html += `<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">맞는 뜻인가요?</span>
                              <div class="flex items-center justify-center space-x-4 mt-4 mb-2">
-                                <h2 class="text-4xl font-bold text-slate-900">${quiz.question}</h2>
+                                <h2 class="text-4xl font-bold text-slate-900">${escapeHtml(quiz.question)}</h2>
                                 <span class="text-3xl text-slate-400">→</span>
-                                <h2 class="text-4xl font-bold text-slate-900">${quiz.display_ko}</h2>
+                                <h2 class="text-4xl font-bold text-slate-900">${escapeHtml(quiz.display_ko)}</h2>
                              </div>`;
-                } else if(quiz.type === 'spelling') {
+                } else if (quiz.type === 'spelling') {
                     html += `<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">스페인어로 적으세요</span>
-                             <h2 class="text-5xl font-bold text-slate-900 mt-4 mb-2">${quiz.question}</h2>`;
+                             <h2 class="text-5xl font-bold text-slate-900 mt-4 mb-2">${escapeHtml(quiz.question)}</h2>`;
+                } else if (quiz.type === 'fill_blank') {
+                    html += `<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">빈칸 채우기</span>
+                             <div class="mt-4 mb-2 space-y-3">
+                                <p class="text-xs font-semibold text-slate-400">${escapeHtml(quiz.prompt || '빈칸에 들어갈 단어를 입력하세요.')}</p>
+                                <div class="rounded-3xl bg-slate-50 border border-slate-100 px-4 py-5">
+                                    <p class="text-3xl font-bold text-slate-900 leading-relaxed">${escapeHtml(quiz.question)}</p>
+                                </div>
+                             </div>`;
+                } else if (quiz.type === 'word_order') {
+                    html += `<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">단어 배열하기</span>
+                             <div class="mt-4 mb-2 space-y-3">
+                                <p class="text-xs font-semibold text-slate-400">${escapeHtml(quiz.prompt || '아래 단어를 눌러 올바른 문장을 완성하세요.')}</p>
+                                <div class="rounded-3xl bg-slate-50 border border-slate-100 px-4 py-5 space-y-3 text-left">
+                                    <p class="text-sm font-semibold text-slate-500">${escapeHtml(quiz.question)}</p>
+                                    <p class="text-sm font-medium text-slate-400">아래에서 단어를 하나씩 눌러 문장을 만들어 보세요.</p>
+                                </div>
+                             </div>`;
                 }
                 html += `</div>`;
 
-                if(quiz.type === 'multiple_choice' || quiz.type === 'true_false') {
+                if (quiz.type === 'multiple_choice' || quiz.type === 'true_false') {
                     setTimeout(() => speak(quiz.question), 500);
                 }
 
                 let inputArea = `<div class="space-y-3">`;
-                if(quiz.type === 'multiple_choice') {
+                if (quiz.type === 'multiple_choice') {
                     inputArea += quiz.options.map(opt => `
-                        <button onclick="checkAnswer('${opt}', '${quiz.correct_answer}', '${quiz.example}')" class="w-full p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">${opt}</button>
+                        <button type="button" onclick="checkAnswer(${escapeAttr(JSON.stringify(opt))}, ${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="w-full p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">${escapeHtml(opt)}</button>
                     `).join('');
-                } else if(quiz.type === 'true_false') {
+                } else if (quiz.type === 'true_false') {
                     inputArea += `
                         <div class="grid grid-cols-2 gap-3">
-                            <button onclick="checkAnswer('True', '${quiz.correct_answer}', '${quiz.example}')" class="p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">O (맞음)</button>
-                            <button onclick="checkAnswer('False', '${quiz.correct_answer}', '${quiz.example}')" class="p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">X (틀림)</button>
+                            <button type="button" onclick="checkAnswer('True', ${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">O (맞음)</button>
+                            <button type="button" onclick="checkAnswer('False', ${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">X (틀림)</button>
                         </div>
                     `;
-                } else if(quiz.type === 'spelling') {
+                } else if (quiz.type === 'spelling') {
                     inputArea += `
-                        <div class="flex space-x-2">
-                            <input type="text" id="spelling-input" class="flex-1 p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold text-center focus:border-blue-500 outline-none transition-all" placeholder="정답 입력...">
-                            <button onclick="checkSpelling('${quiz.correct_answer}', '${quiz.example}')" class="bg-blue-600 text-white px-6 rounded-2xl font-bold">확인</button>
+                        <div class="space-y-2 text-left">
+                            <div class="flex items-center gap-2 overflow-x-auto pb-1 px-1">
+                                <button type="button" onclick="insertQuizSymbol('¿')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">¿</button>
+                                <button type="button" onclick="insertQuizSymbol('¡')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">¡</button>
+                                <button type="button" onclick="insertQuizSymbol('á')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">á</button>
+                                <button type="button" onclick="insertQuizSymbol('é')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">é</button>
+                                <button type="button" onclick="insertQuizSymbol('í')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">í</button>
+                                <button type="button" onclick="insertQuizSymbol('ó')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ó</button>
+                                <button type="button" onclick="insertQuizSymbol('ú')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ú</button>
+                                <button type="button" onclick="insertQuizSymbol('ñ')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ñ</button>
+                            </div>
+                            <div class="flex space-x-2">
+                                <input type="text" id="spelling-input" class="flex-1 p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold text-center focus:border-blue-500 outline-none transition-all" placeholder="정답 입력..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+                                <button type="button" onclick="checkSpelling(${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="bg-blue-600 text-white px-6 rounded-2xl font-bold">확인</button>
+                            </div>
+                        </div>
+                    `;
+                } else if (quiz.type === 'fill_blank') {
+                    inputArea += `
+                        <div class="space-y-2 text-left">
+                            <div class="flex space-x-2">
+                                <input type="text" id="fill-blank-input" class="flex-1 p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold text-center focus:border-blue-500 outline-none transition-all" placeholder="빈칸 정답 입력..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+                                <button type="button" onclick="checkFillBlank(${escapeAttr(JSON.stringify(quiz.answer))}, ${escapeAttr(JSON.stringify(quiz.sentence))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.hint))})" class="bg-blue-600 text-white px-6 rounded-2xl font-bold">확인</button>
+                            </div>
+                            <p class="text-xs text-slate-400 font-semibold">힌트: ${escapeHtml(quiz.hint || '')}</p>
+                        </div>
+                    `;
+                } else if (quiz.type === 'word_order') {
+                    inputArea += `
+                        <div class="space-y-3 text-left">
+                            <div class="rounded-2xl bg-white border border-gray-100 px-4 py-3 text-sm font-semibold text-slate-500">
+                                선택된 문장: <span id="word-order-selection" class="text-slate-900">단어를 눌러 문장을 만들어 보세요.</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                ${quiz.tokens.map(token => `
+                                    <button type="button" data-word-token=${escapeAttr(JSON.stringify(token))} onclick='appendWordOrderToken(${escapeAttr(JSON.stringify(token))}, this)' class="px-3 py-2 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">${escapeHtml(token)}</button>
+                                `).join('')}
+                            </div>
+                            <input type="hidden" id="word-order-answer" value="">
+                            <div class="grid grid-cols-2 gap-2 pt-1">
+                                <button type="button" onclick="removeWordOrderLastToken()" class="p-4 bg-white border-2 border-gray-100 rounded-2xl text-base font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">한 단어 지우기</button>
+                                <button type="button" onclick="checkWordOrder(${escapeAttr(JSON.stringify(quiz.answer))}, ${escapeAttr(JSON.stringify(quiz.sentence))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.translation))})" class="bg-blue-600 text-white p-4 rounded-2xl font-bold">확인</button>
+                            </div>
                         </div>
                     `;
                 }
                 inputArea += `</div>`;
                 
                 contentDiv.innerHTML = html + inputArea;
-            } catch (e) { contentDiv.innerHTML = '퀴즈를 불러오지 못했습니다.'; }
+                if (quiz.type === 'word_order') {
+                    resetWordOrderButtons();
+                }
+                updateQuizProgressUI();
+            } catch (e) {
+                contentDiv.innerHTML = '퀴즈를 불러오지 못했습니다.';
+            }
         }
 
         function checkAnswer(selected, correct, example) {
+            if (currentQuizAnswered) return;
+            currentQuizAnswered = true;
             const buttons = document.querySelectorAll('#quiz-content button');
             buttons.forEach(btn => {
                 btn.disabled = true;
@@ -1116,29 +1629,80 @@ async function startQuiz() {
                 }
                 if(btn.innerText.trim() === selected && selected !== correct) btn.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
             });
+            if (selected === correct && quizSession) quizSession.correct += 1;
             showQuizResult(selected === correct, correct, example);
         }
 
         function checkSpelling(correct, example) {
-            const input = document.getElementById('spelling-input').value.trim();
+            if (currentQuizAnswered) return;
+            currentQuizAnswered = true;
+            const spellingInput = document.getElementById('spelling-input');
+            const input = spellingInput.value.trim();
             const isCorrect = input.toLowerCase() === correct.toLowerCase();
+            spellingInput.readOnly = true;
+            const confirmButton = spellingInput?.parentElement?.querySelector('button');
+            if (confirmButton) confirmButton.disabled = true;
+            if (isCorrect && quizSession) quizSession.correct += 1;
             showQuizResult(isCorrect, correct, example);
+        }
+
+        function checkFillBlank(correct, sentence, example) {
+            if (currentQuizAnswered) return;
+            currentQuizAnswered = true;
+            const fillBlankInput = document.getElementById('fill-blank-input');
+            const input = normalizeQuizText(fillBlankInput.value);
+            const isCorrect = input.toLowerCase() === normalizeQuizText(correct).toLowerCase();
+            fillBlankInput.readOnly = true;
+            const confirmButton = fillBlankInput?.parentElement?.querySelector('button');
+            if (confirmButton) confirmButton.disabled = true;
+            if (isCorrect && quizSession) quizSession.correct += 1;
+            showQuizResult(isCorrect, correct, example || sentence);
+        }
+
+        function checkWordOrder(correct, sentence, example) {
+            if (currentQuizAnswered) return;
+            currentQuizAnswered = true;
+            const buttons = document.querySelectorAll('[data-word-token]');
+            buttons.forEach(btn => btn.disabled = true);
+            const userAnswer = normalizeWordOrderSentence(getWordOrderAnswerValue());
+            const expected = normalizeWordOrderSentence(correct);
+            const isCorrect = userAnswer.toLowerCase() === expected.toLowerCase();
+            if (isCorrect && quizSession) quizSession.correct += 1;
+            showQuizResult(isCorrect, correct, example || sentence);
         }
 
         function showQuizResult(isCorrect, correct, example) {
             const contentDiv = document.getElementById('quiz-content');
+            const existingResult = contentDiv.querySelector('#quiz-result');
+            if (existingResult) existingResult.remove();
             const resultDiv = document.createElement('div');
+            resultDiv.id = 'quiz-result';
             resultDiv.className = 'mt-8 fade-in';
+            const nextLabel = quizSession && quizSession.current >= quizSession.total ? '결과 보기' : '다음 문제 풀기';
             resultDiv.innerHTML = `
                 <div class="mb-6">
+                    <p class="text-sm font-bold uppercase tracking-widest ${isCorrect ? 'text-green-600' : 'text-red-600'} mb-2">${quizSession ? `문제 ${quizSession.current}/${quizSession.total}` : '퀴즈'}</p>
                     <p class="text-lg font-bold ${isCorrect ? 'text-green-600' : 'text-red-600'}">${isCorrect ? '정답입니다! 🎉' : '아쉬워요! 정답은 ' + correct + ' 입니다.'}</p>
+                    <p class="text-slate-500 text-sm mt-2 font-semibold">현재 점수: ${quizSession ? `${quizSession.correct}/${quizSession.total}` : '-'}</p>
                     <p class="text-slate-500 text-sm mt-1">${example}</p>
                 </div>
-                <button onclick="loadQuizQuestion()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">다음 문제 풀기</button>
+                <button onclick="advanceQuizFlow()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">${nextLabel}</button>
             `;
             contentDiv.appendChild(resultDiv);
             
             setTimeout(() => speak(correct), 500);
+        }
+
+        function advanceQuizFlow() {
+            if (!quizSession) return loadQuizQuestion();
+            quizSession.current += 1;
+            currentQuizAnswered = false;
+            currentQuiz = null;
+            if (quizSession.current > quizSession.total) {
+                showQuizFinalResult();
+                return;
+            }
+            loadQuizQuestion();
         }
 
         function toggleUserMenu() {
@@ -1172,20 +1736,21 @@ async function startQuiz() {
             const settings = JSON.parse(localStorage.getItem('user_settings') || '{}');
             if(settings.nickname) document.getElementById('setting-nickname').value = settings.nickname;
             if(settings.goal) document.getElementById('setting-goal').value = settings.goal;
+            if(settings.quizDifficulty) document.getElementById('setting-quiz-difficulty').value = settings.quizDifficulty;
             if(settings.ttsSpeed) {
                 document.getElementById('setting-tts-speed').value = settings.ttsSpeed;
                 document.getElementById('tts-speed-val').innerText = settings.ttsSpeed + 'x';
             }
         }
-
         function saveSettings() {
-            const settings = {
-                nickname: document.getElementById('setting-nickname').value,
-                goal: document.getElementById('setting-goal').value,
-                ttsSpeed: document.getElementById('setting-tts-speed').value
-            };
+            const settings = JSON.parse(localStorage.getItem('user_settings') || '{}');
+            settings.nickname = document.getElementById('setting-nickname').value;
+            settings.goal = document.getElementById('setting-goal').value;
+            settings.quizDifficulty = document.getElementById('setting-quiz-difficulty').value;
+            settings.ttsSpeed = document.getElementById('setting-tts-speed').value;
             localStorage.setItem('user_settings', JSON.stringify(settings));
             alert('설정이 저장되었습니다!');
+            updateQuizDifficultyBadge();
             showHome();
         }
 
@@ -1213,6 +1778,7 @@ async function startQuiz() {
     
         async function showChat() {
             hideAllViews();
+            setActiveBottomNav('chat');
             document.getElementById('chat-view').classList.remove('hidden');
             requestAnimationFrame(() => {
                 const messagesDiv = document.getElementById('chat-messages');
@@ -1222,8 +1788,8 @@ async function startQuiz() {
             });
         }
 
-        function insertChatSymbol(symbol) {
-            const input = document.getElementById('chat-input');
+        function insertTextAtCursor(targetId, symbol) {
+            const input = document.getElementById(targetId);
             if (!input) return;
             input.focus();
             const start = input.selectionStart ?? input.value.length;
@@ -1231,31 +1797,100 @@ async function startQuiz() {
             input.setRangeText(symbol, start, end, 'end');
         }
 
-        document.addEventListener('keydown', function(e) {
-            if (e.target && e.target.id === 'chat-input') {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    sendChatMessage();
-                    return;
-                }
+        function insertChatSymbol(symbol) {
+            insertTextAtCursor('chat-input', symbol);
+        }
 
-                if (e.key === '`') {
-                    const input = e.target;
-                    const start = input.selectionStart;
-                    const end = input.selectionEnd;
-                    if (start === end && start > 0) {
-                        const accentMap = {
-                            a: 'á', e: 'é', i: 'í', o: 'ó', u: 'ú', n: 'ñ',
-                            A: 'Á', E: 'É', I: 'Í', O: 'Ó', U: 'Ú', N: 'Ñ'
-                        };
-                        const previousChar = input.value[start - 1];
-                        const accentedChar = accentMap[previousChar];
-                        if (accentedChar) {
-                            e.preventDefault();
-                            input.setRangeText(accentedChar, start - 1, start, 'end');
-                        }
-                    }
+        function insertQuizSymbol(symbol) {
+            const activeTarget = document.activeElement;
+            if (activeTarget && activeTarget.id === 'spelling-input') {
+                insertTextAtCursor('spelling-input', symbol);
+            }
+        }
+
+        function isEditableTextTarget(target) {
+            if (!target) return false;
+            if (target.disabled || target.readOnly) return false;
+            return target.matches('textarea, input[type="text"], input[type="search"], input[type="email"], input[type="url"], input[type="tel"], input:not([type]), [contenteditable="true"]');
+        }
+
+        function applyAccentOnBacktick(target) {
+            if (!isEditableTextTarget(target)) return false;
+
+            const accentMap = {
+                a: 'á',
+                e: 'é',
+                i: 'í',
+                o: 'ó',
+                u: 'ú',
+                n: 'ñ',
+                A: 'Á',
+                E: 'É',
+                I: 'Í',
+                O: 'Ó',
+                U: 'Ú',
+                N: 'Ñ',
+            };
+
+            const start = target.selectionStart ?? target.value.length;
+            const end = target.selectionEnd ?? target.value.length;
+            if (start !== end) {
+                const selected = target.value.slice(start, end);
+                const replacement = selected
+                    .split('')
+                    .map(ch => accentMap[ch] || ch)
+                    .join('');
+                target.setRangeText(replacement, start, end, 'end');
+                return true;
+            }
+
+            const prevIndex = start > 0 ? start - 1 : -1;
+            if (prevIndex < 0) return false;
+            const prevChar = target.value[prevIndex];
+            const accented = accentMap[prevChar];
+            if (!accented) return false;
+
+            target.setRangeText(accented, prevIndex, start, 'end');
+            return true;
+        }
+
+        function triggerSpellingCheck() {
+            const confirmButton = document.querySelector('#quiz-content button[onclick^="checkSpelling("]');
+            if (confirmButton) {
+                confirmButton.click();
+                return true;
+            }
+            return false;
+        }
+
+        function triggerFillBlankCheck() {
+            const confirmButton = document.querySelector('#quiz-content button[onclick^="checkFillBlank("]');
+            if (confirmButton) {
+                confirmButton.click();
+                return true;
+            }
+            return false;
+        }
+
+        document.addEventListener('keydown', function(e) {
+
+            const target = e.target;
+            if (!isEditableTextTarget(target)) return;
+
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                if (target.id === 'chat-input') {
+                    sendChatMessage();
+                } else if (target.id === 'spelling-input') {
+                    triggerSpellingCheck();
+                } else if (target.id === 'fill-blank-input') {
+                    triggerFillBlankCheck();
                 }
+                return;
+            }
+
+            if (e.key === '`' && applyAccentOnBacktick(target)) {
+                e.preventDefault();
             }
         });
         async function sendChatMessage() {
@@ -1341,24 +1976,24 @@ async function startQuiz() {
 </script>
 
         <!-- Bottom Navigation -->
-        <div class="fixed bottom-0 left-0 right-0 max-w-[500px] mx-auto glass-nav border-t border-gray-100 px-4 py-3 flex justify-between items-center z-20">
-            <button onclick="showHome()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
+        <div class="fixed bottom-0 left-0 right-0 max-w-[500px] mx-auto glass-nav border-t border-gray-100 px-6 py-3.5 flex justify-evenly items-center z-20 gap-1">
+            <button id="nav-home" onclick="showHome()" class="flex flex-col items-center space-y-1 px-2.5 py-1.5 rounded-2xl text-slate-400 hover:text-blue-600 transition-all">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                 <span class="text-[10px] font-bold uppercase tracking-tighter">Home</span>
             </button>
-            <button onclick="showCurriculum()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
+            <button id="nav-curriculum" onclick="showCurriculum()" class="flex flex-col items-center space-y-1 px-2.5 py-1.5 rounded-2xl text-slate-400 hover:text-blue-600 transition-all">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011-.982l5.447-2.724m0 17.296l5.447-2.724A1 1 0 0016 16.382V5.618a1 1 0 00-1-.982L9 2.296m0 17.296V2.296"></path></svg>
                 <span class="text-[10px] font-bold uppercase tracking-tighter">Curriculum</span>
             </button>
-            <button onclick="showVocab()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
+            <button id="nav-vocab" onclick="showVocab()" class="flex flex-col items-center space-y-1 px-2.5 py-1.5 rounded-2xl text-slate-400 hover:text-blue-600 transition-all">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
                 <span class="text-[10px] font-bold uppercase tracking-tighter">Vocab</span>
             </button>
-            <button onclick="showChat()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
+            <button id="nav-chat" onclick="showChat()" class="flex flex-col items-center space-y-1 px-2.5 py-1.5 rounded-2xl text-slate-400 hover:text-blue-600 transition-all">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
                 <span class="text-[10px] font-bold uppercase tracking-tighter">Chat</span>
             </button>
-            <button onclick="startQuiz()" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-blue-600 transition-colors">
+            <button id="nav-quiz" onclick="startQuiz()" class="flex flex-col items-center space-y-1 px-2.5 py-1.5 rounded-2xl text-slate-400 hover:text-blue-600 transition-all">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6-7M12 14l-6-7M12 14v7"></path></svg>
                 <span class="text-[10px] font-bold uppercase tracking-tighter">Quiz</span>
             </button>

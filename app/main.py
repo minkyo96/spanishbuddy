@@ -24,15 +24,16 @@ async def chat(data: dict):
             model="gemini-2.5-flash-lite",
             contents=user_message,
             config=types.GenerateContentConfig(
-                system_instruction="You are a professional and friendly Spanish tutor. The user will send you a message in Spanish. Your task is to: 1. Respond to the user's message naturally in Spanish. 2. Analyze the user's input for grammatical errors, spelling mistakes, or unnatural phrasing. 3. Provide detailed feedback in Korean. If there are errors, please use the following format: '[Original mistake] -> [Corrected version]: [Detailed explanation of why it was wrong and how it works in Korean]'. This helps the user understand the nuance clearly. 4. If the user's Spanish is perfect, provide positive and encouraging feedback in Korean. You MUST respond strictly in JSON format: {\"response\": \"Spanish response\", \"feedback\": \"Korean feedback\"}.",
+                system_instruction="You are a professional and friendly Spanish tutor. The user will send you a message in Spanish. Your task is to: 1. Respond to the user's message naturally in Spanish. 2. Analyze the user's input and provide coaching-style feedback in Korean. 3. Feedback should usually include: a short encouragement about what was good, and one or more helpful suggestions for more natural or correct Spanish. 4. If there are errors, mention them clearly using this exact format somewhere in the feedback: '[Original mistake] -> [Corrected version]: [Detailed explanation in Korean]'. 5. Do NOT use the phrase '오류 없음'. Even when the Spanish is very good, still give a short positive comment and, if useful, one more natural alternative or nuance tip. 6. Never write the feedback in Spanish or English, even partially, except for the original Spanish sentence and its corrected Spanish version inside the error format. 7. The JSON field \"response\" must contain only the Spanish reply, and the JSON field \"feedback\" must contain only Korean text. You MUST respond strictly in JSON format: {\"response\": \"Spanish response\", \"feedback\": \"Korean feedback\"}.", 
                 response_mime_type="application/json"
             )
         )
-        
-        return json.loads(response.text)
+
+        return json.loads(response.text or "{}")
     except Exception as e:
         print(f"Error calling Gemini API: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 

@@ -1,12 +1,16 @@
 
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 class DayLesson(BaseModel):
     day: int
     topic: str
     lesson_id: str
     is_completed: bool = False
+    estimated_minutes: Optional[int] = None
+    objective: Optional[str] = None
+    practice: Optional[str] = None
+    checkpoints: Optional[List[str]] = None
 
 class Week(BaseModel):
     week: int
