@@ -2,25 +2,41 @@
     "id": "negation-questions",
     "title": "부정문과 의문문",
     "level": "초급",
-    "description": "문장을 부정하거나 질문으로 만드는 기본 방법입니다.",
+    "description": "아니라고 말하는 법과, 질문을 만드는 기본 방식을 배웁니다.",
     "sections": [
         {
-            "heading": "부정문",
-            "content": "동사 앞에 'no'만 붙이면 됩니다.",
+            "heading": "부정문은 No로 시작",
+            "content": "스페인어 부정문은 보통 no를 동사 앞에 둡니다. 아주 단순하지만, 영어와 비슷하면서도 위치가 중요하다는 점을 기억하세요.",
             "examples": [
                 {
-                    "es": "No hablo español.",
-                    "ko": "나는 스페인어를 못 합니다."
+                    "es": "No estudio hoy.",
+                    "ko": "나는 오늘 공부하지 않는다."
+                },
+                {
+                    "es": "No está aquí.",
+                    "ko": "그는 여기 없다."
+                },
+                {
+                    "es": "No tengo tiempo.",
+                    "ko": "나는 시간이 없다."
                 }
             ]
         },
         {
-            "heading": "의문문",
-            "content": "문장 앞뒤에 ¿ ? 를 붙이고 억양을 올립니다.",
+            "heading": "질문은 질문부호와 억양",
+            "content": "스페인어 질문은 보통 물음표와 함께 쓰고, 문장의 시작과 끝을 모두 질문 모양으로 표시합니다. 초보자는 짧은 질문부터 익히는 것이 좋습니다.",
             "examples": [
                 {
-                    "es": "¿Hablas español?",
-                    "ko": "스페인어 할 줄 알아?"
+                    "es": "¿Estudias español?",
+                    "ko": "너는 스페인어를 공부하니?"
+                },
+                {
+                    "es": "¿Dónde vives?",
+                    "ko": "너는 어디에 사니?"
+                },
+                {
+                    "es": "¿Trabajas hoy?",
+                    "ko": "너는 오늘 일하니?"
                 }
             ]
         }

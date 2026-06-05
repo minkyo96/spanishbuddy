@@ -1,24 +1,42 @@
 {
     "id": "er-verbs",
-    "title": "-er 동사 기초",
+    "title": "-er 규칙동사",
     "level": "초급",
-    "description": "-er로 끝나는 규칙 동사의 현재 변화입니다.",
+    "description": "-er 동사의 현재형 변화와 일상에서 자주 쓰는 예문을 배웁니다.",
     "sections": [
         {
-            "heading": "-er 동사 변화",
-            "content": "끝의 -er을 떼고 어미를 붙입니다.",
+            "heading": "현재형 변화 패턴",
+            "content": "-er 동사도 -er를 떼고 어미를 붙입니다. -ar과 모양이 비슷하지만 어미가 다르기 때문에, 유형별로 따로 익히는 것이 좋습니다.",
             "examples": [
                 {
-                    "es": "Yo como",
-                    "ko": "나는 먹는다"
+                    "es": "comer → como",
+                    "ko": "먹다 → 나는 먹는다"
                 },
                 {
-                    "es": "Tú comes",
-                    "ko": "너는 먹는다"
+                    "es": "beber → bebes",
+                    "ko": "마시다 → 너는 마신다"
                 },
                 {
-                    "es": "Él come",
-                    "ko": "그는 먹는다"
+                    "es": "aprender → aprende",
+                    "ko": "배우다 → 그는 배운다"
+                }
+            ]
+        },
+        {
+            "heading": "일상 동작에 자주 쓰인다",
+            "content": "-er 동사는 먹다, 마시다, 읽다처럼 정말 자주 쓰는 행동과 연결됩니다. 실생활 문장과 함께 외우면 훨씬 오래 기억됩니다.",
+            "examples": [
+                {
+                    "es": "como pan",
+                    "ko": "나는 빵을 먹는다"
+                },
+                {
+                    "es": "bebes agua",
+                    "ko": "너는 물을 마신다"
+                },
+                {
+                    "es": "lee un libro",
+                    "ko": "그는 책을 읽는다"
                 }
             ]
         }

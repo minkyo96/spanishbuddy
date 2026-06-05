@@ -1,34 +1,78 @@
 {
     "id": "ser-vs-estar",
-    "title": "Ser와 Estar",
+    "title": "ser / estar의 기본",
     "level": "초급",
-    "description": "스페인어의 두 가지 ‘~이다’ 표현인 ser와 estar를 구분하는 방법을 배웁니다.",
+    "description": "스페인어의 두 가지 “~이다”가 왜 필요한지, 각각 어떤 뜻으로 쓰이는지 설명합니다.",
     "sections": [
         {
-            "heading": "Ser (영속적 성질 / 본질)",
-            "content": "성격, 국적, 직업, 시간처럼 비교적 변하지 않는 정보에 사용합니다.",
+            "heading": "ser는 무엇일까?",
+            "content": "ser는 정체성, 국적, 직업, 성격처럼 비교적 변하지 않는 정보를 말할 때 씁니다. 한국어의 “~이다”와 비슷하지만, “누구인가 / 무엇인가”를 말하는 느낌이 강합니다.",
             "examples": [
                 {
-                    "es": "Yo soy coreano.",
+                    "es": "Soy coreano.",
                     "ko": "나는 한국인입니다."
                 },
                 {
-                    "es": "Ella es inteligente.",
-                    "ko": "그녀는 똑똑합니다."
+                    "es": "Ella es profesora.",
+                    "ko": "그녀는 선생님입니다."
+                },
+                {
+                    "es": "Somos estudiantes.",
+                    "ko": "우리는 학생들입니다."
                 }
             ]
         },
         {
-            "heading": "Estar (일시적 상태 / 위치)",
-            "content": "장소, 감정, 일시적인 상태를 말할 때 사용합니다.",
+            "heading": "estar는 무엇일까?",
+            "content": "estar는 위치, 감정, 일시적인 상태처럼 “지금 어떤 상태인지”를 말할 때 씁니다. 같은 사람이라도 상황에 따라 계속 바뀌는 정보에는 estar가 자연스럽습니다.",
             "examples": [
                 {
                     "es": "Estoy feliz.",
-                    "ko": "나는 행복합니다."
+                    "ko": "나는 행복한 상태입니다."
                 },
                 {
-                    "es": "Estamos en Madrid.",
-                    "ko": "우리는 마드리드에 있습니다."
+                    "es": "Estamos en casa.",
+                    "ko": "우리는 집에 있습니다."
+                },
+                {
+                    "es": "Está cansado.",
+                    "ko": "그는 피곤합니다."
+                }
+            ]
+        },
+        {
+            "heading": "왜 차이가 중요할까?",
+            "content": "초보자는 “둘 다 ~이다인데 왜 나뉘지?”라고 느끼기 쉽습니다. 핵심은 한국어 번역보다 상황입니다. “이 사람이 누구인가”를 말하면 ser, “지금 어떤 상태인가 / 어디에 있는가”를 말하면 estar라고 먼저 구분하세요.",
+            "examples": [
+                {
+                    "es": "Soy estudiante.",
+                    "ko": "나는 학생입니다."
+                },
+                {
+                    "es": "Estoy en la escuela.",
+                    "ko": "나는 학교에 있습니다."
+                },
+                {
+                    "es": "Estoy triste.",
+                    "ko": "나는 슬픕니다."
+                }
+            ]
+        },
+        {
+            "heading": "가장 먼저 외울 패턴",
+            "content": "ser와 estar 자체보다 먼저 yo soy, yo estoy처럼 “누가 말하는지에 따라 동사가 바뀐다”는 사실을 익히는 것이 중요합니다. 처음에는 완벽한 설명보다 대표 패턴을 몸에 익히는 것이 좋습니다.",
+            "examples": [
+                {
+                    "es": "Yo soy...",
+                    "ko": "나는 ~이다."
+                },
+                {
+                    "es": "Yo estoy...",
+                    "ko": "나는 ~한 상태다."
+                },
+                {
+                    "es": "Tú eres...",
+                    "ko": "너는 ~이다."
                 }
             ]
         }

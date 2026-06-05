@@ -1,16 +1,42 @@
 {
     "id": "month1-final",
-    "title": "한달 완성 최종 리뷰",
+    "title": "한 달 종합 정리",
     "level": "초급",
-    "description": "한 달 동안 배운 모든 기초 내용을 총정리합니다.",
+    "description": "한 달 동안 배운 문법을 다시 묶어 실제 문장으로 말해 보는 최종 정리입니다.",
     "sections": [
         {
-            "heading": "종합 복습",
-            "content": "인사 $\rightarrow$ 명사 $\rightarrow$ Ser/Estar $\rightarrow$ 규칙동사 $\rightarrow$ 실전 표현까지 흐름을 복습하세요.",
+            "heading": "가장 중요한 문법 축",
+            "content": "이 한 달의 핵심은 “명사와 관사를 보고, ser/estar를 구분하고, 현재형 동사를 조금씩 움직여 보는 것”입니다. 처음부터 완벽할 필요는 없고, 구조를 아는 것이 더 중요합니다.",
             "examples": [
                 {
-                    "es": "¡Hola! Me llamo Juan y soy de España.",
-                    "ko": "안녕! 내 이름은 후안이고 스페인 사람이야."
+                    "es": "Soy estudiante y estoy en casa.",
+                    "ko": "나는 학생이고 집에 있다."
+                },
+                {
+                    "es": "La casa es grande.",
+                    "ko": "그 집은 크다."
+                },
+                {
+                    "es": "Me gusta estudiar español.",
+                    "ko": "나는 스페인어 공부를 좋아한다."
+                }
+            ]
+        },
+        {
+            "heading": "미니 발표 연습",
+            "content": "마지막에는 짧은 자기소개, 현재 상태, 취향, 가족, 일상을 섞어 4~5문장 정도를 말해 보세요. 학습의 목표는 “아는 것”이 아니라 “꺼내 쓸 수 있는 것”입니다.",
+            "examples": [
+                {
+                    "es": "Me llamo Minho.",
+                    "ko": "내 이름은 민호입니다."
+                },
+                {
+                    "es": "Soy coreano.",
+                    "ko": "나는 한국인입니다."
+                },
+                {
+                    "es": "Vivo en Seúl.",
+                    "ko": "나는 서울에 삽니다."
                 }
             ]
         }

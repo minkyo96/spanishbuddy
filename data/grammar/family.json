@@ -1,24 +1,42 @@
 {
     "id": "family",
-    "title": "가족과 관계",
+    "title": "가족과 소유 표현",
     "level": "초급",
-    "description": "가족 구성원을 지칭하는 명사들을 배웁니다.",
+    "description": "가족 관계를 말하는 어휘와, 내/네/그의 같은 소유 표현을 배웁니다.",
     "sections": [
         {
-            "heading": "가족 명칭",
-            "content": "성별에 따른 기본 가족 명칭입니다.",
+            "heading": "가족 어휘",
+            "content": "가족 표현은 자기소개와 연결되어 자주 쓰입니다. 아버지, 어머니, 형제자매처럼 기본 단어를 먼저 익혀두면 대화가 쉬워집니다.",
             "examples": [
                 {
-                    "es": "Mi padre",
-                    "ko": "나의 아버지"
-                },
-                {
-                    "es": "Mi madre",
+                    "es": "mi madre",
                     "ko": "나의 어머니"
                 },
                 {
-                    "es": "Mi hermano",
-                    "ko": "나의 형제/남동생"
+                    "es": "mi padre",
+                    "ko": "나의 아버지"
+                },
+                {
+                    "es": "mis hermanos",
+                    "ko": "나의 형제들"
+                }
+            ]
+        },
+        {
+            "heading": "소유 표현",
+            "content": "mi, tu, su 같은 짧은 소유 표현은 아주 자주 쓰입니다. 문장 안에서 “누구의 것인지”를 바로 알려 주므로 초보 단계에서 꼭 익혀야 합니다.",
+            "examples": [
+                {
+                    "es": "Mi familia es grande.",
+                    "ko": "내 가족은 큽니다."
+                },
+                {
+                    "es": "Tu hermano estudia.",
+                    "ko": "네 형제는 공부한다."
+                },
+                {
+                    "es": "Su casa está aquí.",
+                    "ko": "그의 집은 여기에 있습니다."
                 }
             ]
         }

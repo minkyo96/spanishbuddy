@@ -1,203 +1,203 @@
 {
     "month": 1,
-    "title": "스페인어 기초 다지기",
+    "title": "스페인어 기초 문법 4주 코스",
     "weeks": [
         {
             "week": 1,
-            "theme": "기초 인사 및 정체성",
+            "theme": "문장 구조, 인사, 명사 기초",
             "days": [
                 {
                     "day": 1,
-                    "topic": "인사와 안부",
+                    "topic": "스페인어 문장의 시작",
                     "lesson_id": "greetings",
                     "is_completed": false,
-                    "estimated_minutes": 8,
-                    "objective": "시간대에 맞는 인사와 기본 안부 문장을 자연스럽게 쓸 수 있다.",
-                    "practice": "¡Hola! / Buenos días / ¿Cómo estás?를 소리 내어 3번씩 말해보기.",
+                    "estimated_minutes": 10,
+                    "objective": "스페인어 문장의 기본 흐름과 가장 기초적인 인사 표현을 이해한다.",
+                    "practice": "주어와 동사를 바꿔가며 “나는 공부한다 / 너는 말한다 / 그는 인사한다” 같은 짧은 문장을 소리 내어 말해 보기.",
                     "checkpoints": [
-                        "Hola와 Buenos días를 구분한다",
-                        "¿Cómo estás?에 짧게 답한다",
-                        "아침/오후/밤 인사를 상황에 맞게 고른다"
+                        "주어-동사 흐름을 본다",
+                        "인사 표현을 상황에 맞게 고른다",
+                        "짧은 자기소개 문장을 시작한다"
                     ]
                 },
                 {
                     "day": 2,
-                    "topic": "나를 소개하기 (Ser)",
+                    "topic": "ser와 처음 만나는 날",
                     "lesson_id": "ser-vs-estar",
                     "is_completed": false,
-                    "estimated_minutes": 10,
-                    "objective": "ser와 estar를 쓰는 상황을 구분하고 대표 패턴을 말할 수 있다.",
-                    "practice": "나는 한국인이다 / 나는 지금 행복하다를 각각 스페인어로 만들어 보기.",
+                    "estimated_minutes": 12,
+                    "objective": "ser가 무엇인지 먼저 이해하고, yo soy / tú eres / él es 패턴을 익힌다.",
+                    "practice": "직업, 국적, 성격을 넣어 “나는 ~이다” 문장 3개 만들기.",
                     "checkpoints": [
-                        "정체성·속성에는 ser를 쓴다",
-                        "상태·위치에는 estar를 쓴다",
-                        "예문에서 동사를 먼저 찾는다"
+                        "ser의 기본 의미를 안다",
+                        "soy / eres / es를 구분한다",
+                        "정체성 문장을 만든다"
                     ]
                 },
                 {
                     "day": 3,
-                    "topic": "기초 명사와 성/수",
+                    "topic": "명사와 관사",
                     "lesson_id": "nouns-gender",
                     "is_completed": false,
-                    "estimated_minutes": 10,
-                    "objective": "명사의 성/수를 보고 관사와 형용사까지 함께 맞출 수 있다.",
-                    "practice": "명사 5개를 고르고 el/la와 복수형을 같이 적어보기.",
+                    "estimated_minutes": 12,
+                    "objective": "명사에 성과 수가 있다는 점, 그리고 관사가 함께 움직인다는 점을 이해한다.",
+                    "practice": "책상, 책, 학교 같은 사물을 el/la/los/las와 함께 읽어 보기.",
                     "checkpoints": [
-                        "명사의 성을 관사와 함께 본다",
-                        "복수형 변화(-s/-es)를 확인한다",
-                        "형용사 일치를 문장 전체로 점검한다"
+                        "명사와 관사를 함께 본다",
+                        "남성/여성을 구분한다",
+                        "단수/복수 변화를 확인한다"
                     ]
                 },
                 {
                     "day": 4,
-                    "topic": "기초 형용사",
+                    "topic": "형용사와 일치",
                     "lesson_id": "adjectives",
                     "is_completed": false,
-                    "estimated_minutes": 9,
-                    "objective": "기본 형용사를 명사에 맞게 활용해 짧은 문장을 만들 수 있다.",
-                    "practice": "큰/작은/좋은/새로운을 사용해 물건 설명문 3개 만들기.",
+                    "estimated_minutes": 10,
+                    "objective": "형용사가 명사를 설명하는 방식과 성·수 일치를 이해한다.",
+                    "practice": "작은/큰/새로운/친절한을 써서 명사 4개를 설명하는 문장 만들기.",
                     "checkpoints": [
-                        "형용사의 위치를 확인한다",
-                        "성·수를 명사와 맞춘다",
-                        "짧은 묘사 문장을 완성한다"
+                        "형용사의 역할을 안다",
+                        "명사와 일치시킨다",
+                        "명사 뒤 형용사 순서를 익힌다"
                     ]
                 },
                 {
                     "day": 5,
-                    "topic": "1주차 복습 및 퀴즈",
+                    "topic": "1주차 복습",
                     "lesson_id": "week1-review",
                     "is_completed": false,
                     "estimated_minutes": 12,
-                    "objective": "1주차 핵심 패턴을 복습하며 스스로 문장을 조립할 수 있다.",
-                    "practice": "인사 2문장, ser 문장 2문장, 성/수 일치 문장 2문장을 스스로 써보기.",
+                    "objective": "인사, ser, 명사, 관사, 형용사를 한 문장 안에 연결해 본다.",
+                    "practice": "“나는 학생이다 / 그 책은 새것이다 / 그 소녀는 친절하다”를 스페인어로 바꿔 보기.",
                     "checkpoints": [
-                        "인사말을 상황에 맞게 고른다",
-                        "ser와 명사 성수를 함께 점검한다",
-                        "복습 퀴즈로 약한 부분을 확인한다"
+                        "기본 문장 구조를 기억한다",
+                        "ser와 명사 성수를 함께 본다",
+                        "짧은 문장을 스스로 만든다"
                     ]
                 }
             ]
         },
         {
             "week": 2,
-            "theme": "상태와 장소 표현",
+            "theme": "estar, 위치, 감정, 지시형용사",
             "days": [
                 {
                     "day": 6,
-                    "topic": "현재 상태 표현 (Estar)",
+                    "topic": "estar의 기본 의미",
                     "lesson_id": "estar-basics",
                     "is_completed": false,
-                    "estimated_minutes": 9,
-                    "objective": "estar의 기본 용법을 상태와 위치 중심으로 익힌다.",
-                    "practice": "지금 기분과 위치를 나타내는 문장을 각각 1개씩 만들어 보기.",
+                    "estimated_minutes": 10,
+                    "objective": "estar가 위치와 일시적 상태를 나타낸다는 점을 이해한다.",
+                    "practice": "지금 위치와 현재 기분을 각각 한 문장씩 말해 보기.",
                     "checkpoints": [
-                        "현재 상태를 말할 때 estar를 쓴다",
-                        "위치 표현과 함께 자주 나온다",
-                        "ser와 헷갈리는 예문을 비교한다"
+                        "상태는 estar를 쓴다",
+                        "위치는 estar와 잘 어울린다",
+                        "ser와 비교할 수 있다"
                     ]
                 },
                 {
                     "day": 7,
-                    "topic": "장소 말하기",
+                    "topic": "장소와 위치 표현",
                     "lesson_id": "locations",
                     "is_completed": false,
-                    "estimated_minutes": 9,
-                    "objective": "장소를 묻고 답하는 기본 표현을 익힌다.",
-                    "practice": "학교, 집, 카페 위치를 묻고 답하는 대화 3줄 만들기.",
+                    "estimated_minutes": 10,
+                    "objective": "en과 dónde를 이용해 위치를 묻고 답하는 기본 패턴을 익힌다.",
+                    "practice": "집/학교/카페 위치를 묻고 답하는 3줄 대화 만들기.",
                     "checkpoints": [
-                        "en + 장소 구조를 익힌다",
-                        "어디 있니? 질문을 연습한다",
-                        "짧은 위치 문장을 빠르게 만든다"
+                        "en의 의미를 안다",
+                        "위치 질문을 말한다",
+                        "짧은 위치 답변을 만든다"
                     ]
                 },
                 {
                     "day": 8,
-                    "topic": "감정과 기분",
+                    "topic": "감정과 상태 형용사",
                     "lesson_id": "feelings",
                     "is_completed": false,
-                    "estimated_minutes": 8,
-                    "objective": "기분과 상태를 표현하는 핵심 형용사를 말할 수 있다.",
-                    "practice": "기쁨/피곤함/배고픔을 스페인어 짧은 문장으로 바꿔보기.",
+                    "estimated_minutes": 9,
+                    "objective": "감정과 몸 상태를 나타내는 표현을 익히고 estar와 함께 쓴다.",
+                    "practice": "기쁨, 피곤함, 긴장함, 배고픔을 넣어 짧은 문장 만들기.",
                     "checkpoints": [
-                        "감정 형용사를 상황에 맞게 고른다",
-                        "estar와 함께 쓰는 패턴을 익힌다",
-                        "자기 상태를 한 문장으로 말한다"
+                        "상태 형용사를 고른다",
+                        "estar와 함께 쓴다",
+                        "자기 상태를 말할 수 있다"
                     ]
                 },
                 {
                     "day": 9,
-                    "topic": "가까운 곳/먼 곳 (Este/Ese)",
+                    "topic": "지시형용사",
                     "lesson_id": "demonstratives",
                     "is_completed": false,
                     "estimated_minutes": 10,
-                    "objective": "este/ese/aquel 계열 지시형용사의 거리 차이를 이해한다.",
-                    "practice": "가까운 것, 중간 거리, 먼 것을 각각 스페인어로 가리키며 말해보기.",
+                    "objective": "este, ese, aquel의 거리 차이를 이해하고 명사와 맞춘다.",
+                    "practice": "가까운 것, 조금 먼 것, 아주 먼 것을 각각 스페인어로 가리켜 말하기.",
                     "checkpoints": [
-                        "거리 기준을 먼저 생각한다",
-                        "명사 성/수와 일치시킨다",
+                        "거리 개념을 이해한다",
+                        "명사 성수와 맞춘다",
                         "대상을 가리키는 문장을 만든다"
                     ]
                 },
                 {
                     "day": 10,
-                    "topic": "2주차 복습 및 퀴즈",
+                    "topic": "2주차 복습",
                     "lesson_id": "week2-review",
                     "is_completed": false,
                     "estimated_minutes": 12,
-                    "objective": "2주차의 상태·장소·감정 표현을 묶어서 복습한다.",
-                    "practice": "나는 마드리드에 있다 / 나는 기쁘다 같은 혼합 문장 4개 만들어 보기.",
+                    "objective": "상태, 위치, 감정, 지시형용사를 묶어서 복습한다.",
+                    "practice": "“나는 집에 있다 / 나는 행복하다 / 이 책은 새것이다”를 섞어 말하기.",
                     "checkpoints": [
-                        "estar 사용 상황을 구분한다",
-                        "위치와 감정을 한 번에 말한다",
-                        "지시형용사까지 같이 점검한다"
+                        "estar의 쓰임을 구분한다",
+                        "위치와 감정을 연결한다",
+                        "지시형용사를 함께 쓴다"
                     ]
                 }
             ]
         },
         {
             "week": 3,
-            "theme": "일상 동작과 규칙 동사",
+            "theme": "현재형 동사와 문장 만들기",
             "days": [
                 {
                     "day": 11,
-                    "topic": "-ar 동사 기초",
+                    "topic": "-ar 규칙동사",
                     "lesson_id": "ar-verbs",
                     "is_completed": false,
                     "estimated_minutes": 10,
-                    "objective": "-ar 규칙 동사의 현재형 활용을 익힌다.",
-                    "practice": "hablar, estudiar, trabajar를 주어별로 1회씩 변화시키기.",
+                    "objective": "-ar 동사의 현재형 변화와 주어 일치를 익힌다.",
+                    "practice": "hablar, estudiar, trabajar를 주어별로 한 번씩 바꿔 보기.",
                     "checkpoints": [
-                        "어간과 어미를 분리해서 본다",
-                        "주어별 어미 변화를 익힌다",
-                        "동사 원형과 활용형을 구분한다"
+                        "동사 어간과 어미를 구분한다",
+                        "주어별 변화 패턴을 기억한다",
+                        "짧은 현재형 문장을 만든다"
                     ]
                 },
                 {
                     "day": 12,
-                    "topic": "-er 동사 기초",
+                    "topic": "-er 규칙동사",
                     "lesson_id": "er-verbs",
                     "is_completed": false,
                     "estimated_minutes": 10,
-                    "objective": "-er 규칙 동사의 현재형 패턴을 익힌다.",
-                    "practice": "comer, beber, aprender를 주어별로 변화시키기.",
+                    "objective": "-er 동사의 현재형 패턴을 익히고 자주 쓰는 예문으로 연결한다.",
+                    "practice": "comer, beber, aprender를 문장으로 바꿔 보기.",
                     "checkpoints": [
-                        "-er 어미 패턴을 기억한다",
-                        "자주 쓰는 동사를 반복해서 연습한다",
-                        "문장 속 주어와 동사를 맞춘다"
+                        "-er 어미를 익힌다",
+                        "동사를 문장으로 쓴다",
+                        "일상 동작과 연결한다"
                     ]
                 },
                 {
                     "day": 13,
-                    "topic": "-ir 동사 기초",
+                    "topic": "-ir 규칙동사",
                     "lesson_id": "ir-verbs",
                     "is_completed": false,
                     "estimated_minutes": 10,
-                    "objective": "-ir 규칙 동사의 현재형 패턴을 익힌다.",
-                    "practice": "vivir, escribir, abrir를 이용해 짧은 문장 3개 만들기.",
+                    "objective": "-ir 동사의 현재형을 익히고 -ar/-er과 비교한다.",
+                    "practice": "vivir, escribir, abrir를 이용해 짧은 문장 만들기.",
                     "checkpoints": [
                         "-ir 어미를 구분한다",
-                        "주어별 활용을 빠르게 만든다",
-                        "동사 선택을 문맥에 맞춘다"
+                        "다른 규칙동사와 비교한다",
+                        "현재형 문장을 만든다"
                     ]
                 },
                 {
@@ -206,33 +206,33 @@
                     "lesson_id": "negation-questions",
                     "is_completed": false,
                     "estimated_minutes": 10,
-                    "objective": "부정문과 의문문의 기본 어순을 익힌다.",
-                    "practice": "긍정문 3개를 부정문과 질문으로 각각 바꿔보기.",
+                    "objective": "no를 이용한 부정문과 기본 의문문을 만든다.",
+                    "practice": "긍정문 3개를 부정문과 질문으로 각각 바꿔 보기.",
                     "checkpoints": [
-                        "No의 위치를 확인한다",
-                        "의문부호와 억양을 함께 생각한다",
-                        "짧은 질문-대답 흐름을 연습한다"
+                        "no의 위치를 안다",
+                        "질문부호를 쓴다",
+                        "짧은 질문-대답 흐름을 익힌다"
                     ]
                 },
                 {
                     "day": 15,
-                    "topic": "3주차 복습 및 퀴즈",
+                    "topic": "3주차 복습",
                     "lesson_id": "week3-review",
                     "is_completed": false,
                     "estimated_minutes": 12,
-                    "objective": "규칙 동사와 문장형을 묶어 실전처럼 복습한다.",
-                    "practice": "하루 일과를 -ar/-er/-ir 동사로 4문장 설명하기.",
+                    "objective": "현재형 동사와 부정문, 의문문을 한 흐름으로 정리한다.",
+                    "practice": "하루 일과를 스페인어 현재형 4문장으로 말해 보기.",
                     "checkpoints": [
-                        "동사 어미를 빠르게 구분한다",
-                        "부정문과 질문을 섞어 본다",
-                        "짧은 일상 문장을 구성한다"
+                        "동사 유형을 구분한다",
+                        "문장 어순을 유지한다",
+                        "질문과 부정을 섞는다"
                     ]
                 }
             ]
         },
         {
             "week": 4,
-            "theme": "실전 대화 응용",
+            "theme": "실전 표현과 종합 복습",
             "days": [
                 {
                     "day": 16,
@@ -240,68 +240,68 @@
                     "lesson_id": "time-date",
                     "is_completed": false,
                     "estimated_minutes": 9,
-                    "objective": "시간과 날짜를 말하는 기본 표현을 익힌다.",
-                    "practice": "오늘 날짜와 현재 시간을 스페인어로 말해보기.",
+                    "objective": "시간, 요일, 날짜를 말하는 기본 표현을 익힌다.",
+                    "practice": "오늘 날짜와 현재 시간을 스페인어로 말해 보기.",
                     "checkpoints": [
-                        "요일과 날짜 표현을 구분한다",
-                        "시간 표현을 자주 소리 내어 본다",
-                        "일정 문장에서 활용해 본다"
+                        "시간 표현을 읽는다",
+                        "요일과 날짜를 구분한다",
+                        "a las 구조를 익힌다"
                     ]
                 },
                 {
                     "day": 17,
-                    "topic": "취미와 선호 (Gustar)",
+                    "topic": "gustar와 좋아하다",
                     "lesson_id": "gustar-verb",
                     "is_completed": false,
                     "estimated_minutes": 11,
-                    "objective": "gustar를 이용해 취향과 선호를 말하는 구조를 익힌다.",
-                    "practice": "음악/음식/활동을 좋아한다고 스페인어로 3문장 쓰기.",
+                    "objective": "me gusta / me gustan의 구조를 이해하고 선호를 말한다.",
+                    "practice": "음식, 취미, 활동을 넣어 좋아하는 것 3문장 말하기.",
                     "checkpoints": [
-                        "me gusta / me gustan을 구분한다",
-                        "간접목적격 표현을 익힌다",
-                        "선호 주제를 바꿔가며 연습한다"
+                        "gusta와 gustan을 구분한다",
+                        "me/te/le를 본다",
+                        "선호 표현을 말한다"
                     ]
                 },
                 {
                     "day": 18,
-                    "topic": "가족과 관계",
+                    "topic": "가족과 소유 표현",
                     "lesson_id": "family",
                     "is_completed": false,
-                    "estimated_minutes": 9,
-                    "objective": "가족 관계를 나타내는 핵심 어휘로 짧은 소개를 할 수 있다.",
+                    "estimated_minutes": 10,
+                    "objective": "가족 어휘와 mi/tu/su 같은 소유 표현을 배운다.",
                     "practice": "가족 구성원을 소개하는 3문장 만들기.",
                     "checkpoints": [
-                        "가족 어휘를 구분한다",
-                        "소유 표현을 사용한다",
-                        "가족 소개 문장을 자연스럽게 만든다"
+                        "가족 어휘를 익힌다",
+                        "소유 표현을 쓴다",
+                        "짧은 소개 문장을 만든다"
                     ]
                 },
                 {
                     "day": 19,
-                    "topic": "기초 문장 연결하기",
+                    "topic": "기본 연결어",
                     "lesson_id": "basic-conjunctions",
                     "is_completed": false,
                     "estimated_minutes": 10,
-                    "objective": "그리고/하지만/그래서 같은 기본 연결어로 문장을 이어 말한다.",
-                    "practice": "두 문장을 ‘그리고/하지만/왜냐하면’ 느낌으로 각각 연결해보기.",
+                    "objective": "그리고, 하지만, 왜냐하면 같은 연결어로 문장을 이어 말한다.",
+                    "practice": "두 문장을 y, pero, porque로 각각 연결해 보기.",
                     "checkpoints": [
-                        "연결어의 뜻을 구분한다",
-                        "짧은 문장을 하나로 잇는다",
-                        "말의 흐름이 끊기지 않게 만든다"
+                        "연결어 뜻을 구분한다",
+                        "두 문장을 잇는다",
+                        "말의 흐름을 만든다"
                     ]
                 },
                 {
                     "day": 20,
-                    "topic": "한달 완성 최종 리뷰",
+                    "topic": "한 달 종합 정리",
                     "lesson_id": "month1-final",
                     "is_completed": false,
                     "estimated_minutes": 15,
-                    "objective": "한 달 동안 배운 표현을 섞어 짧은 자기소개와 상황 설명을 할 수 있다.",
-                    "practice": "인사, 상태, 취향, 가족을 넣어 5문장 미니 스피치를 만들기.",
+                    "objective": "한 달 동안 배운 문법을 섞어 짧은 자기소개와 상황 설명을 할 수 있다.",
+                    "practice": "인사, 상태, 취향, 가족을 넣어 5문장 미니 발표 만들기.",
                     "checkpoints": [
                         "배운 문법을 섞어 쓴다",
-                        "짧은 발표 형식으로 말한다",
-                        "다음 달 학습 포인트를 확인한다"
+                        "짧은 발표를 해본다",
+                        "다음 단계 학습 포인트를 확인한다"
                     ]
                 }
             ]

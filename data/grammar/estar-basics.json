@@ -1,24 +1,42 @@
 {
     "id": "estar-basics",
-    "title": "현재 상태 표현 (Estar)",
+    "title": "estar의 용법",
     "level": "초급",
-    "description": "일시적인 상태나 위치를 나타낼 때 사용하는 Estar 동사입니다.",
+    "description": "estar가 위치와 일시적 상태를 어떻게 나타내는지 자세히 익힙니다.",
     "sections": [
         {
-            "heading": "Estar의 변화",
-            "content": "주어에 따라 동사의 형태가 바뀝니다.",
+            "heading": "estar는 지금 상태를 말한다",
+            "content": "estar는 “지금 이 순간의 상태”를 말할 때 자연스럽습니다. 감정, 몸 상태, 위치처럼 바뀔 수 있는 정보가 여기에 들어갑니다.",
             "examples": [
                 {
-                    "es": "Yo estoy",
-                    "ko": "나는 ~이다/있다"
+                    "es": "Estoy cansado.",
+                    "ko": "나는 피곤합니다."
                 },
                 {
-                    "es": "Tú estás",
-                    "ko": "너는 ~이다/있다"
+                    "es": "Está enferma.",
+                    "ko": "그녀는 아픕니다."
                 },
                 {
-                    "es": "Él/Ella está",
-                    "ko": "그/그녀는 ~이다/있다"
+                    "es": "Estamos listos.",
+                    "ko": "우리는 준비되었습니다."
+                }
+            ]
+        },
+        {
+            "heading": "위치와 함께 쓰기",
+            "content": "어디에 있는지를 말할 때도 estar를 씁니다. “장소 + en + 위치” 구조는 초보자가 가장 먼저 익혀야 할 패턴 중 하나입니다.",
+            "examples": [
+                {
+                    "es": "Estoy en casa.",
+                    "ko": "나는 집에 있습니다."
+                },
+                {
+                    "es": "Está en la escuela.",
+                    "ko": "그는 학교에 있습니다."
+                },
+                {
+                    "es": "Los libros están aquí.",
+                    "ko": "책들은 여기 있습니다."
                 }
             ]
         }

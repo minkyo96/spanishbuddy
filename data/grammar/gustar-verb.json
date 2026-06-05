@@ -1,20 +1,42 @@
 {
     "id": "gustar-verb",
-    "title": "취미와 선호 (Gustar)",
+    "title": "gustar와 좋아하다",
     "level": "초급",
-    "description": "좋아하는 것을 표현하는 독특한 동사인 Gustar의 사용법입니다.",
+    "description": "좋아하다를 말하는 독특한 구조를 배우고, me gusta / me gustan을 익힙니다.",
     "sections": [
         {
-            "heading": "Gustar 사용법",
-            "content": "주어가 '좋아하는 대상'이 되며, 'me gusta' 형태로 사용합니다.",
+            "heading": "직접 번역하면 헷갈리는 동사",
+            "content": "gustar는 한국어의 “좋아하다”와 완전히 같은 방식으로 쓰이지 않습니다. 스페인어에서는 “무엇이 나를 기쁘게 한다”에 가까운 구조로 이해하면 훨씬 쉽습니다.",
             "examples": [
                 {
                     "es": "Me gusta el café.",
-                    "ko": "나는 커피를 좋아해."
+                    "ko": "나는 커피를 좋아한다."
                 },
                 {
                     "es": "Me gustan los libros.",
-                    "ko": "나는 책들을 좋아해."
+                    "ko": "나는 책들을 좋아한다."
+                },
+                {
+                    "es": "Te gusta la música.",
+                    "ko": "너는 음악을 좋아한다."
+                }
+            ]
+        },
+        {
+            "heading": "단수와 복수 구분",
+            "content": "gusta와 gustan의 차이는 “좋아하는 대상이 단수인지 복수인지”에서 옵니다. 이 차이를 익히면 문장이 훨씬 자연스러워집니다.",
+            "examples": [
+                {
+                    "es": "Me gusta la pizza.",
+                    "ko": "나는 피자를 좋아한다."
+                },
+                {
+                    "es": "Me gustan las pizzas.",
+                    "ko": "나는 피자들을 좋아한다."
+                },
+                {
+                    "es": "Le gusta estudiar.",
+                    "ko": "그는 공부하는 것을 좋아한다."
                 }
             ]
         }

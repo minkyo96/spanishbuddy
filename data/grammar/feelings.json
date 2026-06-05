@@ -1,20 +1,42 @@
 {
     "id": "feelings",
-    "title": "감정과 기분",
+    "title": "감정과 상태 형용사",
     "level": "초급",
-    "description": "현재의 감정이나 기분 상태를 표현합니다.",
+    "description": "기분과 몸 상태를 나타내는 표현을 배우고 estar와 함께 쓰는 연습을 합니다.",
     "sections": [
         {
-            "heading": "감정 표현",
-            "content": "기분이나 감정은 일시적이므로 Estar를 사용합니다.",
+            "heading": "감정 표현은 상태 표현이다",
+            "content": "기쁨, 슬픔, 피곤함, 배고픔처럼 지금의 상태를 나타내는 표현은 대개 estar와 잘 어울립니다. 즉, “나는 어떤 사람인가”보다 “지금 어떤 상태인가”에 가깝습니다.",
             "examples": [
                 {
-                    "es": "Estoy cansado.",
-                    "ko": "나는 피곤합니다."
+                    "es": "Estoy feliz.",
+                    "ko": "나는 행복합니다."
                 },
                 {
-                    "es": "Estamos emocionados.",
-                    "ko": "우리는 설렙니다."
+                    "es": "Está triste.",
+                    "ko": "그는 슬픕니다."
+                },
+                {
+                    "es": "Estamos cansados.",
+                    "ko": "우리는 피곤합니다."
+                }
+            ]
+        },
+        {
+            "heading": "자주 쓰는 감정 단어",
+            "content": "처음에는 많은 단어보다 핵심 단어를 반복하는 것이 좋습니다. 일상에서 자주 쓰는 감정 단어부터 익히면 대화가 훨씬 쉬워집니다.",
+            "examples": [
+                {
+                    "es": "feliz",
+                    "ko": "행복한"
+                },
+                {
+                    "es": "cansado",
+                    "ko": "피곤한"
+                },
+                {
+                    "es": "nervioso",
+                    "ko": "긴장한"
                 }
             ]
         }

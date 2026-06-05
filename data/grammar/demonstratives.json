@@ -1,24 +1,42 @@
 {
     "id": "demonstratives",
-    "title": "가까운 곳/먼 곳 (Este/Ese)",
+    "title": "지시형용사",
     "level": "초급",
-    "description": "지시 형용사를 사용하여 대상을 가리키는 방법입니다.",
+    "description": "가까운 것, 조금 먼 것, 아주 먼 것을 스페인어로 가리키는 방법을 배웁니다.",
     "sections": [
         {
-            "heading": "지시 형용사",
-            "content": "거리와 성/수에 따라 형태가 달라집니다.",
+            "heading": "거리로 나누어 생각하기",
+            "content": "지시형용사는 대상을 가리킬 때 씁니다. 스페인어에서는 거리 개념이 중요하므로, “내 바로 앞 / 상대 앞 / 더 먼 곳”처럼 나눠 생각하면 이해하기 쉽습니다.",
             "examples": [
                 {
-                    "es": "Este libro",
-                    "ko": "이 책 (가까운 곳)"
+                    "es": "este libro",
+                    "ko": "이 책"
                 },
                 {
-                    "es": "Ese libro",
-                    "ko": "그 책 (조금 먼 곳)"
+                    "es": "ese libro",
+                    "ko": "그 책"
                 },
                 {
-                    "es": "Aquel libro",
-                    "ko": "저 책 (아주 먼 곳)"
+                    "es": "aquel libro",
+                    "ko": "저 책"
+                }
+            ]
+        },
+        {
+            "heading": "명사와 일치하기",
+            "content": "지시형용사도 명사의 성과 수에 맞춰 바뀝니다. 단어 하나만 외우지 말고, 명사와 세트로 기억하는 것이 좋습니다.",
+            "examples": [
+                {
+                    "es": "esta casa",
+                    "ko": "이 집"
+                },
+                {
+                    "es": "esas mesas",
+                    "ko": "저 책상들"
+                },
+                {
+                    "es": "aquellos chicos",
+                    "ko": "저 소년들"
                 }
             ]
         }

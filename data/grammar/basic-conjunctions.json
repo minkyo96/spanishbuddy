@@ -1,20 +1,42 @@
 {
     "id": "basic-conjunctions",
-    "title": "기초 문장 연결하기",
+    "title": "기본 연결어",
     "level": "초급",
-    "description": "단순한 문장을 연결하여 더 풍부하게 만드는 접속사입니다.",
+    "description": "그리고, 하지만, 그래서 같은 연결어로 두 문장을 자연스럽게 잇는 법을 배웁니다.",
     "sections": [
         {
-            "heading": "기본 접속사",
-            "content": "y(그리고), pero(하지만), porque(왜냐하면) 같은 기본 접속사를 배웁니다.",
+            "heading": "문장을 이어 주는 말",
+            "content": "연결어는 짧은 문장을 하나의 흐름으로 만들어 줍니다. 초보자는 우선 y(그리고), pero(하지만), porque(왜냐하면)부터 익히면 충분합니다.",
             "examples": [
                 {
-                    "es": "Hablo inglés y español.",
-                    "ko": "나는 영어와 스페인어를 합니다."
+                    "es": "y",
+                    "ko": "그리고"
                 },
                 {
-                    "es": "Estudio, pero es difícil.",
-                    "ko": "공부하지만, 어렵습니다."
+                    "es": "pero",
+                    "ko": "하지만"
+                },
+                {
+                    "es": "porque",
+                    "ko": "왜냐하면"
+                }
+            ]
+        },
+        {
+            "heading": "짧은 문장 연결하기",
+            "content": "문장 두 개를 연결하면 말이 훨씬 자연스러워집니다. 연결어 뒤에 이어지는 문장의 구조가 크게 바뀌지 않는다는 점을 기억하세요.",
+            "examples": [
+                {
+                    "es": "Estudio español y inglés.",
+                    "ko": "나는 스페인어와 영어를 공부한다."
+                },
+                {
+                    "es": "Quiero café, pero no tengo tiempo.",
+                    "ko": "나는 커피를 원하지만 시간이 없다."
+                },
+                {
+                    "es": "No salgo porque estoy cansado.",
+                    "ko": "나는 피곤해서 나가지 않는다."
                 }
             ]
         }

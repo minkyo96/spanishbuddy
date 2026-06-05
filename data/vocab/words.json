@@ -5,7 +5,8 @@
         "ko": "안녕",
         "category": "인사/기초",
         "example": "¡Hola! ¿Cómo estás?",
-        "example_ko": "안녕! 어떻게 지내?"
+        "example_ko": "안녕! 어떻게 지내?",
+        "pos": "표현"
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "ko": "감사합니다",
         "category": "인사/기초",
         "example": "Muchas gracias por todo.",
-        "example_ko": "모든 것에 정말 감사드립니다."
+        "example_ko": "모든 것에 정말 감사드립니다.",
+        "pos": "표현"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "ko": "죄송합니다",
         "category": "인사/기초",
         "example": "Perdón, no entiendo.",
-        "example_ko": "죄송합니다, 이해하지 못했어요."
+        "example_ko": "죄송합니다, 이해하지 못했어요.",
+        "pos": "표현"
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "ko": "네",
         "category": "인사/기초",
         "example": "Sí, hablo español.",
-        "example_ko": "네, 스페인어를 합니다."
+        "example_ko": "네, 스페인어를 합니다.",
+        "pos": "표현"
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "ko": "아니요",
         "category": "인사/기초",
         "example": "No, no lo sé.",
-        "example_ko": "아니요, 모르겠습니다."
+        "example_ko": "아니요, 모르겠습니다.",
+        "pos": "표현"
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "ko": "부탁합니다",
         "category": "인사/기초",
         "example": "Un café, por favor.",
-        "example_ko": "커피 한 잔 부탁합니다."
+        "example_ko": "커피 한 잔 부탁합니다.",
+        "pos": "표현"
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "ko": "만나서 반가워요",
         "category": "인사/기초",
         "example": "Mucho gusto en conocerte.",
-        "example_ko": "만나서 반갑습니다."
+        "example_ko": "만나서 반갑습니다.",
+        "pos": "표현"
     },
     {
         "id": 8,
@@ -61,7 +68,8 @@
         "ko": "잘 가요",
         "category": "인사/기초",
         "example": "Adiós, nos vemos pronto.",
-        "example_ko": "잘 가요, 곧 만나요."
+        "example_ko": "잘 가요, 곧 만나요.",
+        "pos": "표현"
     },
     {
         "id": 9,
@@ -69,7 +77,8 @@
         "ko": "좋은 아침",
         "category": "인사/기초",
         "example": "Buenos días a todos.",
-        "example_ko": "모두 좋은 아침입니다."
+        "example_ko": "모두 좋은 아침입니다.",
+        "pos": "표현"
     },
     {
         "id": 10,
@@ -77,7 +86,8 @@
         "ko": "좋은 오후",
         "category": "인사/기초",
         "example": "Buenas tardes, señor.",
-        "example_ko": "안녕하세요(오후), 선생님."
+        "example_ko": "안녕하세요(오후), 선생님.",
+        "pos": "표현"
     },
     {
         "id": 11,
@@ -85,7 +95,8 @@
         "ko": "좋은 밤",
         "category": "인사/기초",
         "example": "Buenas noches, mamá.",
-        "example_ko": "잘 자요(밤), 엄마."
+        "example_ko": "잘 자요(밤), 엄마.",
+        "pos": "표현"
     },
     {
         "id": 12,
@@ -93,7 +104,8 @@
         "ko": "미안합니다",
         "category": "인사/기초",
         "example": "Lo siento mucho.",
-        "example_ko": "정말 미안합니다."
+        "example_ko": "정말 미안합니다.",
+        "pos": "표현"
     },
     {
         "id": 13,
@@ -101,7 +113,8 @@
         "ko": "어떻게 지내?",
         "category": "인사/기초",
         "example": "¿Cómo estás hoy?",
-        "example_ko": "오늘 어떻게 지내?"
+        "example_ko": "오늘 어떻게 지내?",
+        "pos": "표현"
     },
     {
         "id": 14,
@@ -109,7 +122,8 @@
         "ko": "잘",
         "category": "인사/기초",
         "example": "Estoy muy bien, gracias.",
-        "example_ko": "매우 잘 지내요, 감사합니다."
+        "example_ko": "매우 잘 지내요, 감사합니다.",
+        "pos": "부사"
     },
     {
         "id": 15,
@@ -117,7 +131,8 @@
         "ko": "나쁘게",
         "category": "인사/기초",
         "example": "Hoy me siento mal.",
-        "example_ko": "오늘은 기분이 좋지 않아요."
+        "example_ko": "오늘은 기분이 좋지 않아요.",
+        "pos": "부사"
     },
     {
         "id": 16,
@@ -125,7 +140,8 @@
         "ko": "천만에요",
         "category": "인사/기초",
         "example": "De nada, es un placer.",
-        "example_ko": "천만에요, 제 기쁨입니다."
+        "example_ko": "천만에요, 제 기쁨입니다.",
+        "pos": "표현"
     },
     {
         "id": 17,
@@ -133,7 +149,8 @@
         "ko": "나중에 봐",
         "category": "인사/기초",
         "example": "Hasta luego, amigo.",
-        "example_ko": "나중에 봐, 친구야."
+        "example_ko": "나중에 봐, 친구야.",
+        "pos": "표현"
     },
     {
         "id": 18,
@@ -141,7 +158,8 @@
         "ko": "어때?",
         "category": "인사/기초",
         "example": "¿Qué tal tu día?",
-        "example_ko": "오늘 하루 어땠어?"
+        "example_ko": "오늘 하루 어땠어?",
+        "pos": "표현"
     },
     {
         "id": 19,
@@ -149,7 +167,8 @@
         "ko": "반가워요",
         "category": "인사/기초",
         "example": "Encantado de conocerte.",
-        "example_ko": "만나서 반갑습니다."
+        "example_ko": "만나서 반갑습니다.",
+        "pos": "표현"
     },
     {
         "id": 20,
@@ -157,7 +176,8 @@
         "ko": "모두 안녕",
         "category": "인사/기초",
         "example": "Hola a todos, ¿qué pasa?",
-        "example_ko": "모두 안녕, 무슨 일이야?"
+        "example_ko": "모두 안녕, 무슨 일이야?",
+        "pos": "표현"
     },
     {
         "id": 21,
@@ -165,7 +185,8 @@
         "ko": "책",
         "category": "사물/환경",
         "example": "El libro es muy interesante.",
-        "example_ko": "그 책은 매우 흥미롭습니다."
+        "example_ko": "그 책은 매우 흥미롭습니다.",
+        "pos": "명사"
     },
     {
         "id": 22,
@@ -173,7 +194,8 @@
         "ko": "책상",
         "category": "사물/환경",
         "example": "La mesa es blanca.",
-        "example_ko": "그 책상은 하얗습니다."
+        "example_ko": "그 책상은 하얗습니다.",
+        "pos": "명사"
     },
     {
         "id": 23,
@@ -181,7 +203,8 @@
         "ko": "집",
         "category": "사물/환경",
         "example": "Mi casa es pequeña.",
-        "example_ko": "제 집은 작습니다."
+        "example_ko": "제 집은 작습니다.",
+        "pos": "명사"
     },
     {
         "id": 24,
@@ -189,7 +212,8 @@
         "ko": "자동차",
         "category": "사물/환경",
         "example": "El coche es rojo.",
-        "example_ko": "그 자동차는 빨간색입니다."
+        "example_ko": "그 자동차는 빨간색입니다.",
+        "pos": "명사"
     },
     {
         "id": 25,
@@ -197,7 +221,8 @@
         "ko": "의자",
         "category": "사물/환경",
         "example": "La silla es cómoda.",
-        "example_ko": "그 의자는 편안합니다."
+        "example_ko": "그 의자는 편안합니다.",
+        "pos": "명사"
     },
     {
         "id": 26,
@@ -205,7 +230,8 @@
         "ko": "문",
         "category": "사물/환경",
         "example": "Cierra la puerta, por favor.",
-        "example_ko": "문을 닫아 주세요."
+        "example_ko": "문을 닫아 주세요.",
+        "pos": "명사"
     },
     {
         "id": 27,
@@ -213,7 +239,8 @@
         "ko": "창문",
         "category": "사물/환경",
         "example": "Abre la ventana.",
-        "example_ko": "창문을 여세요."
+        "example_ko": "창문을 여세요.",
+        "pos": "명사"
     },
     {
         "id": 28,
@@ -221,7 +248,8 @@
         "ko": "전화기",
         "category": "사물/환경",
         "example": "Mi teléfono no funciona.",
-        "example_ko": "제 전화기가 작동하지 않아요."
+        "example_ko": "제 전화기가 작동하지 않아요.",
+        "pos": "명사"
     },
     {
         "id": 29,
@@ -229,7 +257,8 @@
         "ko": "컴퓨터",
         "category": "사물/환경",
         "example": "Uso la computadora para trabajar.",
-        "example_ko": "저는 일하기 위해 컴퓨터를 사용합니다."
+        "example_ko": "저는 일하기 위해 컴퓨터를 사용합니다.",
+        "pos": "명사"
     },
     {
         "id": 30,
@@ -237,7 +266,8 @@
         "ko": "펜",
         "category": "사물/환경",
         "example": "Necesito un bolígrafo.",
-        "example_ko": "펜이 필요합니다."
+        "example_ko": "펜이 필요합니다.",
+        "pos": "명사"
     },
     {
         "id": 31,
@@ -245,7 +275,8 @@
         "ko": "종이",
         "category": "사물/환경",
         "example": "Escribe en el papel.",
-        "example_ko": "종이에 쓰세요."
+        "example_ko": "종이에 쓰세요.",
+        "pos": "명사"
     },
     {
         "id": 32,
@@ -253,7 +284,8 @@
         "ko": "시계",
         "category": "사물/환경",
         "example": "El reloj es antiguo.",
-        "example_ko": "그 시계는 오래되었습니다."
+        "example_ko": "그 시계는 오래되었습니다.",
+        "pos": "명사"
     },
     {
         "id": 33,
@@ -261,7 +293,8 @@
         "ko": "연필",
         "category": "사물/환경",
         "example": "Tengo un lápiz negro.",
-        "example_ko": "저는 검은 연필을 가지고 있습니다."
+        "example_ko": "저는 검은 연필을 가지고 있습니다.",
+        "pos": "명사"
     },
     {
         "id": 34,
@@ -269,7 +302,8 @@
         "ko": "배낭",
         "category": "사물/환경",
         "example": "La mochila es pesada.",
-        "example_ko": "배낭이 무겁습니다."
+        "example_ko": "배낭이 무겁습니다.",
+        "pos": "명사"
     },
     {
         "id": 35,
@@ -277,7 +311,8 @@
         "ko": "열쇠",
         "category": "사물/환경",
         "example": "No encuentro mi llave.",
-        "example_ko": "열쇠를 찾을 수 없어요."
+        "example_ko": "열쇠를 찾을 수 없어요.",
+        "pos": "명사"
     },
     {
         "id": 36,
@@ -285,7 +320,8 @@
         "ko": "거울",
         "category": "사물/환경",
         "example": "El espejo está roto.",
-        "example_ko": "거울이 깨졌습니다."
+        "example_ko": "거울이 깨졌습니다.",
+        "pos": "명사"
     },
     {
         "id": 37,
@@ -293,7 +329,8 @@
         "ko": "램프",
         "category": "사물/환경",
         "example": "La lámpara da mucha luz.",
-        "example_ko": "램프가 빛을 많이 냅니다."
+        "example_ko": "램프가 빛을 많이 냅니다.",
+        "pos": "명사"
     },
     {
         "id": 38,
@@ -301,7 +338,8 @@
         "ko": "공책",
         "category": "사물/환경",
         "example": "Escribo en el cuaderno.",
-        "example_ko": "공책에 씁니다."
+        "example_ko": "공책에 씁니다.",
+        "pos": "명사"
     },
     {
         "id": 39,
@@ -309,7 +347,8 @@
         "ko": "안경",
         "category": "사물/환경",
         "example": "Mis gafas son nuevas.",
-        "example_ko": "제 안경은 새 것입니다."
+        "example_ko": "제 안경은 새 것입니다.",
+        "pos": "명사"
     },
     {
         "id": 40,
@@ -317,7 +356,8 @@
         "ko": "텔레비전",
         "category": "사물/환경",
         "example": "El televisor es grande.",
-        "example_ko": "텔레비전이 큽니다."
+        "example_ko": "텔레비전이 큽니다.",
+        "pos": "명사"
     },
     {
         "id": 41,
@@ -325,7 +365,8 @@
         "ko": "행복한",
         "category": "상태/형용사",
         "example": "Estoy muy feliz hoy.",
-        "example_ko": "저는 오늘 매우 행복합니다."
+        "example_ko": "저는 오늘 매우 행복합니다.",
+        "pos": "형용사"
     },
     {
         "id": 42,
@@ -333,7 +374,8 @@
         "ko": "피곤한",
         "category": "상태/형용사",
         "example": "Estoy un poco cansado.",
-        "example_ko": "저는 조금 피곤합니다."
+        "example_ko": "저는 조금 피곤합니다.",
+        "pos": "형용사"
     },
     {
         "id": 43,
@@ -341,7 +383,8 @@
         "ko": "큰",
         "category": "상태/형용사",
         "example": "La ciudad es muy grande.",
-        "example_ko": "그 도시는 매우 큽니다."
+        "example_ko": "그 도시는 매우 큽니다.",
+        "pos": "형용사"
     },
     {
         "id": 44,
@@ -349,7 +392,8 @@
         "ko": "작은",
         "category": "상태/형용사",
         "example": "El perro es pequeño.",
-        "example_ko": "그 개는 작습니다."
+        "example_ko": "그 개는 작습니다.",
+        "pos": "형용사"
     },
     {
         "id": 45,
@@ -357,7 +401,8 @@
         "ko": "좋은",
         "category": "상태/형용사",
         "example": "Este libro es muy bueno.",
-        "example_ko": "이 책은 매우 좋습니다."
+        "example_ko": "이 책은 매우 좋습니다.",
+        "pos": "형용사"
     },
     {
         "id": 46,
@@ -365,7 +410,8 @@
         "ko": "나쁜",
         "category": "상태/형용사",
         "example": "El clima está malo hoy.",
-        "example_ko": "오늘 날씨가 나쁩니다."
+        "example_ko": "오늘 날씨가 나쁩니다.",
+        "pos": "형용사"
     },
     {
         "id": 47,
@@ -373,7 +419,8 @@
         "ko": "아름다운",
         "category": "상태/형용사",
         "example": "La playa es hermosa.",
-        "example_ko": "그 해변은 아름답습니다."
+        "example_ko": "그 해변은 아름답습니다.",
+        "pos": "형용사"
     },
     {
         "id": 48,
@@ -381,7 +428,8 @@
         "ko": "어려운",
         "category": "상태/형용사",
         "example": "El examen es difícil.",
-        "example_ko": "시험이 어렵습니다."
+        "example_ko": "시험이 어렵습니다.",
+        "pos": "형용사"
     },
     {
         "id": 49,
@@ -389,7 +437,8 @@
         "ko": "쉬운",
         "category": "상태/형용사",
         "example": "El español es fácil.",
-        "example_ko": "스페인어는 쉽습니다."
+        "example_ko": "스페인어는 쉽습니다.",
+        "pos": "형용사"
     },
     {
         "id": 50,
@@ -397,7 +446,8 @@
         "ko": "빠른",
         "category": "상태/형용사",
         "example": "El tren es muy rápido.",
-        "example_ko": "기차가 매우 빠릅니다."
+        "example_ko": "기차가 매우 빠릅니다.",
+        "pos": "형용사"
     },
     {
         "id": 51,
@@ -405,7 +455,8 @@
         "ko": "느린",
         "category": "상태/형용사",
         "example": "El caracol es lento.",
-        "example_ko": "달팽이는 느립니다."
+        "example_ko": "달팽이는 느립니다.",
+        "pos": "형용사"
     },
     {
         "id": 52,
@@ -413,7 +464,8 @@
         "ko": "뜨거운",
         "category": "상태/형용사",
         "example": "El café está caliente.",
-        "example_ko": "커피가 뜨겁습니다."
+        "example_ko": "커피가 뜨겁습니다.",
+        "pos": "형용사"
     },
     {
         "id": 53,
@@ -421,7 +473,8 @@
         "ko": "차가운",
         "category": "상태/형용사",
         "example": "El agua está muy fría.",
-        "example_ko": "물이 매우 차갑습니다."
+        "example_ko": "물이 매우 차갑습니다.",
+        "pos": "형용사"
     },
     {
         "id": 54,
@@ -429,7 +482,8 @@
         "ko": "슬픈",
         "category": "상태/형용사",
         "example": "Ella está triste hoy.",
-        "example_ko": "그녀는 오늘 슬픕니다."
+        "example_ko": "그녀는 오늘 슬픕니다.",
+        "pos": "형용사"
     },
     {
         "id": 55,
@@ -437,7 +491,8 @@
         "ko": "화난",
         "category": "상태/형용사",
         "example": "Él está muy enojado.",
-        "example_ko": "그는 매우 화가 났습니다."
+        "example_ko": "그는 매우 화가 났습니다.",
+        "pos": "형용사"
     },
     {
         "id": 56,
@@ -445,7 +500,8 @@
         "ko": "건강한",
         "category": "상태/형용사",
         "example": "Mi abuelo está sano.",
-        "example_ko": "제 할아버지는 건강하십니다."
+        "example_ko": "제 할아버지는 건강하십니다.",
+        "pos": "형용사"
     },
     {
         "id": 57,
@@ -453,7 +509,8 @@
         "ko": "아픈",
         "category": "상태/형용사",
         "example": "Estoy enfermo de la gripe.",
-        "example_ko": "독감으로 아픕니다."
+        "example_ko": "독감으로 아픕니다.",
+        "pos": "형용사"
     },
     {
         "id": 58,
@@ -461,7 +518,8 @@
         "ko": "맛있는/부유한",
         "category": "상태/형용사",
         "example": "La comida está rica.",
-        "example_ko": "음식이 맛있습니다."
+        "example_ko": "음식이 맛있습니다.",
+        "pos": "형용사"
     },
     {
         "id": 59,
@@ -469,7 +527,8 @@
         "ko": "가난한",
         "category": "상태/형용사",
         "example": "Él es un hombre pobre.",
-        "example_ko": "그는 가난한 남자입니다."
+        "example_ko": "그는 가난한 남자입니다.",
+        "pos": "형용사"
     },
     {
         "id": 60,
@@ -477,7 +536,8 @@
         "ko": "깨끗한",
         "category": "상태/형용사",
         "example": "El cuarto está limpio.",
-        "example_ko": "방이 깨끗합니다."
+        "example_ko": "방이 깨끗합니다.",
+        "pos": "형용사"
     },
     {
         "id": 61,
@@ -485,7 +545,8 @@
         "ko": "먹다",
         "category": "동사/행동",
         "example": "Quiero comer algo.",
-        "example_ko": "무언가 먹고 싶어요."
+        "example_ko": "무언가 먹고 싶어요.",
+        "pos": "동사"
     },
     {
         "id": 62,
@@ -493,7 +554,8 @@
         "ko": "말하다",
         "category": "동사/행동",
         "example": "Hablo un poco de español.",
-        "example_ko": "스페인어를 조금 합니다."
+        "example_ko": "스페인어를 조금 합니다.",
+        "pos": "동사"
     },
     {
         "id": 63,
@@ -501,7 +563,8 @@
         "ko": "살다",
         "category": "동사/행동",
         "example": "Vivo en Seúl.",
-        "example_ko": "저는 서울에 삽니다."
+        "example_ko": "저는 서울에 삽니다.",
+        "pos": "동사"
     },
     {
         "id": 64,
@@ -509,7 +572,8 @@
         "ko": "마시다",
         "category": "동사/행동",
         "example": "Bebo agua fría.",
-        "example_ko": "저는 찬물을 마십니다."
+        "example_ko": "저는 찬물을 마십니다.",
+        "pos": "동사"
     },
     {
         "id": 65,
@@ -517,7 +581,8 @@
         "ko": "자다",
         "category": "동사/행동",
         "example": "Necesito dormir más.",
-        "example_ko": "잠을 더 자야 해요."
+        "example_ko": "잠을 더 자야 해요.",
+        "pos": "동사"
     },
     {
         "id": 66,
@@ -525,7 +590,8 @@
         "ko": "공부하다",
         "category": "동사/행동",
         "example": "Estudio español cada día.",
-        "example_ko": "매일 스페인어를 공부합니다."
+        "example_ko": "매일 스페인어를 공부합니다.",
+        "pos": "동사"
     },
     {
         "id": 67,
@@ -533,7 +599,8 @@
         "ko": "일하다",
         "category": "동사/행동",
         "example": "Trabajo en una oficina.",
-        "example_ko": "저는 사무실에서 일합니다."
+        "example_ko": "저는 사무실에서 일합니다.",
+        "pos": "동사"
     },
     {
         "id": 68,
@@ -541,7 +608,8 @@
         "ko": "가다",
         "category": "동사/행동",
         "example": "Voy al supermercado.",
-        "example_ko": "슈퍼마켓에 갑니다."
+        "example_ko": "슈퍼마켓에 갑니다.",
+        "pos": "동사"
     },
     {
         "id": 69,
@@ -549,7 +617,8 @@
         "ko": "오다",
         "category": "동사/행동",
         "example": "Ven aquí, por favor.",
-        "example_ko": "여기로 오세요, 부탁합니다."
+        "example_ko": "여기로 오세요, 부탁합니다.",
+        "pos": "동사"
     },
     {
         "id": 70,
@@ -557,7 +626,8 @@
         "ko": "가지다",
         "category": "동사/행동",
         "example": "Tengo un perro.",
-        "example_ko": "저는 개 한 마리를 가지고 있습니다."
+        "example_ko": "저는 개 한 마리를 가지고 있습니다.",
+        "pos": "동사"
     },
     {
         "id": 71,
@@ -565,7 +635,8 @@
         "ko": "이다",
         "category": "동사/행동",
         "example": "Yo soy coreano.",
-        "example_ko": "저는 한국인입니다."
+        "example_ko": "저는 한국인입니다.",
+        "pos": "동사"
     },
     {
         "id": 72,
@@ -573,7 +644,8 @@
         "ko": "있다/이다",
         "category": "동사/행동",
         "example": "Estoy en casa.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 73,
@@ -581,7 +653,8 @@
         "ko": "하다/만들다",
         "category": "동사/행동",
         "example": "Hago mi tarea.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 74,
@@ -589,7 +662,8 @@
         "ko": "말하다",
         "category": "동사/행동",
         "example": "Dime la verdad.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 75,
@@ -597,7 +671,8 @@
         "ko": "할 수 있다",
         "category": "동사/행동",
         "example": "Puedo hablar español.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 76,
@@ -605,7 +680,8 @@
         "ko": "원하다",
         "category": "동사/행동",
         "example": "Quiero viajar a España.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 77,
@@ -613,7 +689,8 @@
         "ko": "알다",
         "category": "동사/행동",
         "example": "No sé la respuesta.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 78,
@@ -621,7 +698,8 @@
         "ko": "보다",
         "category": "동사/행동",
         "example": "Veo una película.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 79,
@@ -629,7 +707,8 @@
         "ko": "듣다",
         "category": "동사/행동",
         "example": "Escucho música clásica.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 80,
@@ -637,7 +716,8 @@
         "ko": "읽다",
         "category": "동사/행동",
         "example": "Leo un libro nuevo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 81,
@@ -645,7 +725,8 @@
         "ko": "빵",
         "category": "음식/식사",
         "example": "El pan es fresco.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 82,
@@ -653,7 +734,8 @@
         "ko": "물",
         "category": "음식/식사",
         "example": "Bebo un vaso de agua.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 83,
@@ -661,7 +743,8 @@
         "ko": "우유",
         "category": "음식/식사",
         "example": "La leche es blanca.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 84,
@@ -669,7 +752,8 @@
         "ko": "커피",
         "category": "음식/식사",
         "example": "Quiero un café negro.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 85,
@@ -677,7 +761,8 @@
         "ko": "차",
         "category": "음식/식사",
         "example": "El té verde es sano.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 86,
@@ -685,7 +770,8 @@
         "ko": "과일",
         "category": "음식/식사",
         "example": "Me gusta la fruta.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 87,
@@ -693,7 +779,8 @@
         "ko": "사과",
         "category": "음식/식사",
         "example": "La manzana es roja.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 88,
@@ -701,7 +788,8 @@
         "ko": "바나나",
         "category": "음식/식사",
         "example": "El plátano es amarillo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 89,
@@ -709,7 +797,8 @@
         "ko": "고기",
         "category": "음식/식사",
         "example": "Como carne de vaca.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 90,
@@ -717,7 +806,8 @@
         "ko": "생선",
         "category": "음식/식사",
         "example": "El pescado es fresco.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 91,
@@ -725,7 +815,8 @@
         "ko": "계란",
         "category": "음식/식사",
         "example": "Como un huevo cada día.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 92,
@@ -733,7 +824,8 @@
         "ko": "쌀/밥",
         "category": "음식/식사",
         "example": "El arroz es blanco.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 93,
@@ -741,7 +833,8 @@
         "ko": "치즈",
         "category": "음식/식사",
         "example": "El queso es delicioso.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 94,
@@ -749,7 +842,8 @@
         "ko": "소금",
         "category": "음식/식사",
         "example": "La comida tiene poca sal.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 95,
@@ -757,7 +851,8 @@
         "ko": "설탕",
         "category": "음식/식사",
         "example": "No pongas azúcar.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 96,
@@ -765,7 +860,8 @@
         "ko": "와인",
         "category": "음식/식사",
         "example": "El vino tinto es rico.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 97,
@@ -773,7 +869,8 @@
         "ko": "수프",
         "category": "음식/식사",
         "example": "La sopa está caliente.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 98,
@@ -781,7 +878,8 @@
         "ko": "샐러드",
         "category": "음식/식사",
         "example": "Como una ensalada.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 99,
@@ -789,7 +887,8 @@
         "ko": "케이크",
         "category": "음식/식사",
         "example": "El pastel es dulce.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 100,
@@ -797,7 +896,8 @@
         "ko": "저녁 식사",
         "category": "음식/식사",
         "example": "La cena es a las ocho.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 101,
@@ -805,7 +905,8 @@
         "ko": "도시",
         "category": "장소/여행",
         "example": "Vivo en una ciudad grande.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 102,
@@ -813,7 +914,8 @@
         "ko": "거리",
         "category": "장소/여행",
         "example": "La calle es ruidosa.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 103,
@@ -821,7 +923,8 @@
         "ko": "해변",
         "category": "장소/여행",
         "example": "Me gusta ir a la playa.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 104,
@@ -829,7 +932,8 @@
         "ko": "산",
         "category": "장소/여행",
         "example": "La montaña es alta.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 105,
@@ -837,7 +941,8 @@
         "ko": "식당",
         "category": "장소/여행",
         "example": "El restaurante es caro.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 106,
@@ -845,7 +950,8 @@
         "ko": "호텔",
         "category": "장소/여행",
         "example": "El hotel es cómodo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 107,
@@ -853,7 +959,8 @@
         "ko": "공항",
         "category": "장소/여행",
         "example": "Llego al aeropuerto tarde.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 108,
@@ -861,7 +968,8 @@
         "ko": "역",
         "category": "장소/여행",
         "example": "La estación está cerca.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 109,
@@ -869,7 +977,8 @@
         "ko": "마트",
         "category": "장소/여행",
         "example": "Voy al supermercado.",
-        "example_ko": "슈퍼마켓에 갑니다."
+        "example_ko": "슈퍼마켓에 갑니다.",
+        "pos": "명사"
     },
     {
         "id": 110,
@@ -877,7 +986,8 @@
         "ko": "공원",
         "category": "장소/여행",
         "example": "Camino por el parque.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 111,
@@ -885,7 +995,8 @@
         "ko": "박물관",
         "category": "장소/여행",
         "example": "El museo es fascinante.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 112,
@@ -893,7 +1004,8 @@
         "ko": "약국",
         "category": "장소/여행",
         "example": "Busco la farmacia.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 113,
@@ -901,7 +1013,8 @@
         "ko": "병원",
         "category": "장소/여행",
         "example": "El hospital es grande.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 114,
@@ -909,7 +1022,8 @@
         "ko": "은행",
         "category": "장소/여행",
         "example": "Voy al banco ahora.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 115,
@@ -917,7 +1031,8 @@
         "ko": "도서관",
         "category": "장소/여행",
         "example": "Estudio en la biblioteca.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 116,
@@ -925,7 +1040,8 @@
         "ko": "영화관",
         "category": "장소/여행",
         "example": "Voy al cine el sábado.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 117,
@@ -933,7 +1049,8 @@
         "ko": "광장",
         "category": "장소/여행",
         "example": "La plaza es muy bonita.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 118,
@@ -941,7 +1058,8 @@
         "ko": "교회",
         "category": "장소/여행",
         "example": "La iglesia es antigua.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 119,
@@ -949,7 +1067,8 @@
         "ko": "택시",
         "category": "장소/여행",
         "example": "Tomo un taxi al hotel.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 120,
@@ -957,7 +1076,8 @@
         "ko": "지도",
         "category": "장소/여행",
         "example": "Necesito un mapa.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 121,
@@ -965,7 +1085,8 @@
         "ko": "아버지",
         "category": "가족/사람",
         "example": "Mi padre es profesor.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 122,
@@ -973,7 +1094,8 @@
         "ko": "어머니",
         "category": "가족/사람",
         "example": "Mi madre es amable.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 123,
@@ -981,7 +1103,8 @@
         "ko": "아들",
         "category": "가족/사람",
         "example": "Tengo un hijo pequeño.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 124,
@@ -989,7 +1112,8 @@
         "ko": "딸",
         "category": "가족/사람",
         "example": "Mi hija estudia mucho.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 125,
@@ -997,7 +1121,8 @@
         "ko": "형제/남동생",
         "category": "가족/사람",
         "example": "Tengo un hermano mayor.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 126,
@@ -1005,7 +1130,8 @@
         "ko": "자매/여동생",
         "category": "가족/사람",
         "example": "Mi hermana es artista.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 127,
@@ -1013,7 +1139,8 @@
         "ko": "할아버지",
         "category": "가족/사람",
         "example": "Mi abuelo vive solo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 128,
@@ -1021,7 +1148,8 @@
         "ko": "할머니",
         "category": "가족/사람",
         "example": "Mi abuela cocina bien.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 129,
@@ -1029,7 +1157,8 @@
         "ko": "친구",
         "category": "가족/사람",
         "example": "Él es mi mejor amigo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 130,
@@ -1037,7 +1166,8 @@
         "ko": "남자친구",
         "category": "가족/사람",
         "example": "Mi novio es simpático.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 131,
@@ -1045,7 +1175,8 @@
         "ko": "여자친구",
         "category": "가족/사람",
         "example": "Tengo una novia linda.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 132,
@@ -1053,7 +1184,8 @@
         "ko": "남편",
         "category": "가족/사람",
         "example": "Mi esposo trabaja aquí.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 133,
@@ -1061,7 +1193,8 @@
         "ko": "아내",
         "category": "가족/사람",
         "example": "Mi esposa es doctora.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 134,
@@ -1069,7 +1202,8 @@
         "ko": "삼촌",
         "category": "가족/사람",
         "example": "Mi tío vive en Madrid.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 135,
@@ -1077,7 +1211,8 @@
         "ko": "이모/고모",
         "category": "가족/사람",
         "example": "Mi tía es muy alegre.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 136,
@@ -1085,7 +1220,8 @@
         "ko": "사촌",
         "category": "가족/사람",
         "example": "Mi primo es estudiante.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 137,
@@ -1093,7 +1229,8 @@
         "ko": "사람",
         "category": "가족/사람",
         "example": "Es una buena persona.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 138,
@@ -1101,7 +1238,8 @@
         "ko": "남자",
         "category": "가족/사람",
         "example": "El hombre es alto.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 139,
@@ -1109,7 +1247,8 @@
         "ko": "여자",
         "category": "가족/사람",
         "example": "La mujer es inteligente.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 140,
@@ -1117,7 +1256,8 @@
         "ko": "아이",
         "category": "가족/사람",
         "example": "El niño juega fútbol.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 141,
@@ -1125,7 +1265,8 @@
         "ko": "오늘",
         "category": "시간/날짜",
         "example": "Hoy es lunes.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "부사/시간표현"
     },
     {
         "id": 142,
@@ -1133,7 +1274,8 @@
         "ko": "내일",
         "category": "시간/날짜",
         "example": "Mañana es martes.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "부사/시간표현"
     },
     {
         "id": 143,
@@ -1141,7 +1283,8 @@
         "ko": "어제",
         "category": "시간/날짜",
         "example": "Ayer fue domingo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "부사/시간표현"
     },
     {
         "id": 144,
@@ -1149,7 +1292,8 @@
         "ko": "지금",
         "category": "시간/날짜",
         "example": "Tengo que irme ahora.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "부사/시간표현"
     },
     {
         "id": 145,
@@ -1157,7 +1301,8 @@
         "ko": "늦게/오후",
         "category": "시간/날짜",
         "example": "Llego tarde al trabajo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "부사/시간표현"
     },
     {
         "id": 146,
@@ -1165,7 +1310,8 @@
         "ko": "일찍",
         "category": "시간/날짜",
         "example": "Me levanto temprano.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "부사/시간표현"
     },
     {
         "id": 147,
@@ -1173,7 +1319,8 @@
         "ko": "날/낮",
         "category": "시간/날짜",
         "example": "Tengo un buen día.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 148,
@@ -1181,7 +1328,8 @@
         "ko": "밤",
         "category": "시간/날짜",
         "example": "La noche es tranquila.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 149,
@@ -1189,7 +1337,8 @@
         "ko": "주일",
         "category": "시간/날짜",
         "example": "Tengo una semana ocupada.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 150,
@@ -1197,7 +1346,8 @@
         "ko": "달",
         "category": "시간/날짜",
         "example": "Estamos en mayo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 151,
@@ -1205,7 +1355,8 @@
         "ko": "년",
         "category": "시간/날짜",
         "example": "Tengo treinta años.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 152,
@@ -1213,7 +1364,8 @@
         "ko": "시간",
         "category": "시간/날짜",
         "example": "No tengo tiempo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 153,
@@ -1221,7 +1373,8 @@
         "ko": "분",
         "category": "시간/날짜",
         "example": "Espera un minuto.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 154,
@@ -1229,7 +1382,8 @@
         "ko": "초",
         "category": "시간/날짜",
         "example": "Tarda un segundo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 155,
@@ -1237,7 +1391,8 @@
         "ko": "월요일",
         "category": "시간/날짜",
         "example": "Lunes es el primer día.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 156,
@@ -1245,7 +1400,8 @@
         "ko": "화요일",
         "category": "시간/날짜",
         "example": "Martes es el segundo día.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 157,
@@ -1253,7 +1409,8 @@
         "ko": "수요일",
         "category": "시간/날짜",
         "example": "Miércoles es el tercer día.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 158,
@@ -1261,7 +1418,8 @@
         "ko": "목요일",
         "category": "시간/날짜",
         "example": "Jueves es el cuarto día.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 159,
@@ -1269,7 +1427,8 @@
         "ko": "금요일",
         "category": "시간/날짜",
         "example": "Viernes es el quinto día.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 160,
@@ -1277,7 +1436,8 @@
         "ko": "주말",
         "category": "시간/날짜",
         "example": "Me gusta el fin de semana.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "부사/시간표현"
     },
     {
         "id": 161,
@@ -1285,7 +1445,8 @@
         "ko": "해",
         "category": "날씨/자연",
         "example": "El sol brilla mucho.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 162,
@@ -1293,7 +1454,8 @@
         "ko": "달",
         "category": "날씨/자연",
         "example": "La luna es blanca.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 163,
@@ -1301,7 +1463,8 @@
         "ko": "별",
         "category": "날씨/자연",
         "example": "Veo muchas estrellas.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 164,
@@ -1309,7 +1472,8 @@
         "ko": "하늘",
         "category": "날씨/자연",
         "example": "El cielo es azul.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 165,
@@ -1317,7 +1481,8 @@
         "ko": "비",
         "category": "날씨/자연",
         "example": "Me gusta la lluvia.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 166,
@@ -1325,7 +1490,8 @@
         "ko": "눈",
         "category": "날씨/자연",
         "example": "La nieve es fría.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 167,
@@ -1333,7 +1499,8 @@
         "ko": "바람",
         "category": "날씨/자연",
         "example": "Hace mucho viento hoy.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 168,
@@ -1341,7 +1508,8 @@
         "ko": "구름",
         "category": "날씨/자연",
         "example": "Hay muchas nubes.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 169,
@@ -1349,7 +1517,8 @@
         "ko": "더위",
         "category": "날씨/자연",
         "example": "Hace mucho calor.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 170,
@@ -1357,7 +1526,8 @@
         "ko": "추위",
         "category": "날씨/자연",
         "example": "Hace mucho frío.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 171,
@@ -1365,7 +1535,8 @@
         "ko": "나무",
         "category": "날씨/자연",
         "example": "El árbol es verde.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 172,
@@ -1373,7 +1544,8 @@
         "ko": "꽃",
         "category": "날씨/자연",
         "example": "La flor es hermosa.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 173,
@@ -1381,7 +1553,8 @@
         "ko": "바다",
         "category": "날씨/자연",
         "example": "El mar es profundo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 174,
@@ -1389,7 +1562,8 @@
         "ko": "강",
         "category": "날씨/자연",
         "example": "El río es largo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 175,
@@ -1397,7 +1571,8 @@
         "ko": "땅/지구",
         "category": "날씨/자연",
         "example": "La tierra es redonda.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 176,
@@ -1405,7 +1580,8 @@
         "ko": "불",
         "category": "날씨/자연",
         "example": "El fuego es peligroso.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 177,
@@ -1413,7 +1589,8 @@
         "ko": "공기",
         "category": "날씨/자연",
         "example": "El aire es puro.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 178,
@@ -1421,7 +1598,8 @@
         "ko": "동물",
         "category": "날씨/자연",
         "example": "Me gustan los animales.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 179,
@@ -1429,7 +1607,8 @@
         "ko": "개",
         "category": "날씨/자연",
         "example": "Tengo un perro blanco.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 180,
@@ -1437,7 +1616,8 @@
         "ko": "고양이",
         "category": "날씨/자연",
         "example": "El gato duerme mucho.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 181,
@@ -1445,7 +1625,8 @@
         "ko": "옷",
         "category": "의류/쇼핑",
         "example": "Compro ropa nueva.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 182,
@@ -1453,7 +1634,8 @@
         "ko": "셔츠",
         "category": "의류/쇼핑",
         "example": "La camisa es blanca.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 183,
@@ -1461,7 +1643,8 @@
         "ko": "바지",
         "category": "의류/쇼핑",
         "example": "Los pantalones son azules.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 184,
@@ -1469,7 +1652,8 @@
         "ko": "드레스",
         "category": "의류/쇼핑",
         "example": "El vestido es rojo.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 185,
@@ -1477,7 +1661,8 @@
         "ko": "신발",
         "category": "의류/쇼핑",
         "example": "Tengo zapatos negros.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 186,
@@ -1485,7 +1670,8 @@
         "ko": "모자",
         "category": "의류/쇼핑",
         "example": "Uso un sombrero.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 187,
@@ -1493,7 +1679,8 @@
         "ko": "자켓",
         "category": "의류/쇼핑",
         "example": "La chaqueta es caliente.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 188,
@@ -1501,7 +1688,8 @@
         "ko": "치마",
         "category": "의류/쇼핑",
         "example": "Ella lleva una falda.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 189,
@@ -1509,7 +1697,8 @@
         "ko": "양말",
         "category": "의류/쇼핑",
         "example": "Mis calcetines son grises.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 190,
@@ -1517,7 +1706,8 @@
         "ko": "가방",
         "category": "의류/쇼핑",
         "example": "La bolsa es pequeña.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 191,
@@ -1525,7 +1715,8 @@
         "ko": "가격",
         "category": "의류/쇼핑",
         "example": "El precio es muy alto.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 192,
@@ -1533,7 +1724,8 @@
         "ko": "저렴한",
         "category": "의류/쇼핑",
         "example": "Este reloj es barato.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "형용사"
     },
     {
         "id": 193,
@@ -1541,7 +1733,8 @@
         "ko": "비싼",
         "category": "의류/쇼핑",
         "example": "El coche es muy caro.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "형용사"
     },
     {
         "id": 194,
@@ -1549,7 +1742,8 @@
         "ko": "가게",
         "category": "의류/쇼핑",
         "example": "Voy a la tienda.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 195,
@@ -1557,7 +1751,8 @@
         "ko": "사다",
         "category": "의류/쇼핑",
         "example": "Quiero comprar esto.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 196,
@@ -1565,7 +1760,8 @@
         "ko": "팔다",
         "category": "의류/쇼핑",
         "example": "Él vende su casa.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "동사"
     },
     {
         "id": 197,
@@ -1573,7 +1769,8 @@
         "ko": "돈",
         "category": "의류/쇼핑",
         "example": "No tengo mucho dinero.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 198,
@@ -1581,7 +1778,8 @@
         "ko": "카드",
         "category": "의류/쇼핑",
         "example": "Pago con tarjeta.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 199,
@@ -1589,7 +1787,8 @@
         "ko": "할인",
         "category": "의류/쇼핑",
         "example": "Hay un gran descuento.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     },
     {
         "id": 200,
@@ -1597,6 +1796,7 @@
         "ko": "사이즈",
         "category": "의류/쇼핑",
         "example": "Necesito una talla M.",
-        "example_ko": "번역 준비 중..."
+        "example_ko": "번역 준비 중...",
+        "pos": "명사"
     }
 ]

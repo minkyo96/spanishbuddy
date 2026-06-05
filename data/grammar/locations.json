@@ -1,20 +1,42 @@
 {
     "id": "locations",
-    "title": "장소 말하기",
+    "title": "장소와 전치사 en",
     "level": "초급",
-    "description": "특정 장소에 있음을 표현하는 방법입니다.",
+    "description": "장소를 묻고 답하는 기본 표현과 위치 전치사 en을 익힙니다.",
     "sections": [
         {
-            "heading": "장소 표현",
-            "content": "Estar 동사와 장소 명사를 함께 사용합니다.",
+            "heading": "en의 기본 의미",
+            "content": "en은 보통 “~에 / ~에서”로 이해하면 됩니다. 장소를 말할 때 가장 자주 보이는 전치사 중 하나입니다.",
             "examples": [
                 {
-                    "es": "Estoy en casa.",
-                    "ko": "나는 집에 있습니다."
+                    "es": "en casa",
+                    "ko": "집에"
                 },
                 {
-                    "es": "El libro está en la mesa.",
-                    "ko": "책이 책상 위에 있습니다."
+                    "es": "en la escuela",
+                    "ko": "학교에"
+                },
+                {
+                    "es": "en Madrid",
+                    "ko": "마드리드에"
+                }
+            ]
+        },
+        {
+            "heading": "어디에 있어?",
+            "content": "위치를 묻는 질문은 짧고 자주 씁니다. 질문 자체를 통째로 외우면 대답도 쉽게 연결됩니다.",
+            "examples": [
+                {
+                    "es": "¿Dónde estás?",
+                    "ko": "어디에 있어? / 어디야?"
+                },
+                {
+                    "es": "Estoy aquí.",
+                    "ko": "나는 여기 있어."
+                },
+                {
+                    "es": "Está allí.",
+                    "ko": "그는 저기에 있어."
                 }
             ]
         }

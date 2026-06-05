@@ -1,16 +1,24 @@
 {
     "id": "week3-review",
-    "title": "3주차 복습 및 퀴즈",
+    "title": "3주차 복습",
     "level": "초급",
-    "description": "규칙 동사 변화와 부정/의문문을 복습합니다.",
+    "description": "규칙동사와 부정문, 의문문을 하나의 문장 흐름으로 정리합니다.",
     "sections": [
         {
-            "heading": "핵심 요약",
-            "content": "-ar, -er, -ir 동사의 변화를 완벽히 익혔는지 확인하세요.",
+            "heading": "문장 만들기 연습",
+            "content": "이번 주는 동사를 실제로 움직여 보는 주입니다. 주어를 바꾸고, 부정문과 질문을 바꾸는 연습을 하면 문장 감각이 빨리 생깁니다.",
             "examples": [
                 {
-                    "es": "No como carne.",
-                    "ko": "나는 고기를 먹지 않습니다."
+                    "es": "Yo hablo español.",
+                    "ko": "나는 스페인어를 말한다."
+                },
+                {
+                    "es": "No hablamos inglés.",
+                    "ko": "우리는 영어를 말하지 않는다."
+                },
+                {
+                    "es": "¿Vives en Seúl?",
+                    "ko": "너는 서울에 사니?"
                 }
             ]
         }

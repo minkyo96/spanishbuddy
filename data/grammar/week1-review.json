@@ -1,20 +1,42 @@
 {
     "id": "week1-review",
-    "title": "1주차 복습 및 퀴즈",
+    "title": "1주차 복습",
     "level": "초급",
-    "description": "1주차에 배운 인사, Ser 동사, 명사의 성/수를 총정리합니다.",
+    "description": "인사, ser, 명사, 관사, 형용사를 한 번에 다시 정리합니다.",
     "sections": [
         {
-            "heading": "핵심 요약",
-            "content": "인사말, Ser 동사의 쓰임, 명사-형용사 성수 일치를 다시 확인하세요.",
+            "heading": "1주차 핵심 정리",
+            "content": "이번 주는 스페인어 문장의 기초를 잡는 시간입니다. “누가 말하는지”, “무엇을 말하는지”, “명사와 형용사가 어떻게 맞는지”를 다시 확인합니다.",
             "examples": [
                 {
-                    "es": "¡Hola! Soy estudiante.",
-                    "ko": "안녕! 나는 학생이야."
+                    "es": "Soy estudiante.",
+                    "ko": "나는 학생입니다."
                 },
                 {
-                    "es": "La casa es grande.",
-                    "ko": "그 집은 큽니다."
+                    "es": "El libro es nuevo.",
+                    "ko": "그 책은 새 책입니다."
+                },
+                {
+                    "es": "La chica es amable.",
+                    "ko": "그 소녀는 친절합니다."
+                }
+            ]
+        },
+        {
+            "heading": "문장 조립 연습",
+            "content": "짧은 문장을 만들 때는 주어 → 동사 → 설명어 순서로 생각하세요. 단어 하나씩보다, 문장 덩어리를 보는 연습이 중요합니다.",
+            "examples": [
+                {
+                    "es": "Yo soy coreano.",
+                    "ko": "나는 한국인입니다."
+                },
+                {
+                    "es": "Ella es profesora.",
+                    "ko": "그녀는 선생님입니다."
+                },
+                {
+                    "es": "Tenemos libros nuevos.",
+                    "ko": "우리는 새 책들을 가지고 있습니다."
                 }
             ]
         }

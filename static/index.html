@@ -380,8 +380,8 @@
                         <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011-.982l5.447-2.724m0 17.296l5.447-2.724A1 1 0 0016 16.382V5.618a1 1 0 00-1-.982L9 2.296m0 17.296V2.296"></path></svg>
                         </div>
-                        <div class="font-bold text-sm text-slate-900 mb-1">커리큘럼</div>
-                        <div class="text-[11px] text-slate-500 leading-snug">주차별 학습 내용을 확인</div>
+                        <div class="font-bold text-sm text-slate-900 mb-1">문법</div>
+                        <div class="text-[11px] text-slate-500 leading-snug">기초 문법을 차근차근 학습</div>
                     </button>
                     <button onclick="showVocab()" class="home-card rounded-3xl p-4 text-left active:scale-[0.98] transition-transform">
                         <div class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
@@ -407,14 +407,14 @@
                 </section>
             </div>
 
-            <!-- Curriculum View -->
+            <!-- Grammar View -->
             <div id="curriculum-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
                 <header class="mb-10">
                     <div class="flex items-center space-x-3 mb-2">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011-.982l5.447-2.724m0 17.296l5.447-2.724A1 1 0 0016 16.382V5.618a1 1 0 00-1-.982L9 2.296m0 17.296V2.296"></path></svg>
-                        <h2 class="text-3xl font-bold leading-tight tracking-tight">나의 학습 지도</h2>
+                        <h2 class="text-3xl font-bold leading-tight tracking-tight">기초 문법</h2>
                     </div>
-                    <p class="text-slate-500 font-medium">한 달 완성 커리큘럼으로 기초를 마스터하세요.</p>
+                    <p class="text-slate-500 font-medium">기초 문법을 4주에 걸쳐 차근차근 익혀 보세요.</p>
                 </header>
                 <div id="curriculum-content" class="space-y-6">
                     <div class="animate-pulse space-y-4">
@@ -428,7 +428,7 @@
             <div id="lesson-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
                 <button onclick="showCurriculum()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    커리큘럼으로 돌아가기
+                    문법으로 돌아가기
                 </button>
                 <div id="lesson-content"></div>
             </div>
@@ -440,9 +440,9 @@
                     홈으로 돌아가기
                 </button>
                 <div class="mb-8">
-                    <p class="text-xs font-bold uppercase tracking-[0.24em] text-blue-600 mb-2">Basics</p>
+                    <p class="text-xs font-bold uppercase tracking-[0.24em] text-blue-600 mb-2">Grammar Basics</p>
                     <h2 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 mb-2">기초 학습</h2>
-                    <p class="text-slate-500 font-medium">발음, 알파벳, 강세 같은 시작 단계를 따로 정리했어요.</p>
+                    <p class="text-slate-500 font-medium">품사부터 관사, 동사까지 스페인어 문법의 시작을 정리했어요.</p>
                 </div>
                 <div id="basics-content"></div>
             </div>
@@ -520,7 +520,8 @@
                         </div>
                         <div class="vocab-card-back">
                             <div class="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">Korean</div>
-                            <h2 id="vocab-word-ko" class="text-4xl font-bold text-slate-900 mb-4">안녕하세요</h2>
+                            <h2 id="vocab-word-ko" class="text-4xl font-bold text-slate-900 mb-3">안녕하세요</h2>
+                            <div id="vocab-word-pos" class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold mb-5">표현</div>
                             <div class="p-4 bg-white rounded-2xl border border-gray-100 text-slate-500 text-center italic mb-6 max-w-xs">
                                 <div id="vocab-word-ex" class="text-slate-800 font-medium mb-1">¡Hola! ¿Cómo estás?</div>
                                 <div id="vocab-word-ex-ko" class="text-slate-400 text-sm">안녕하세요! 어떻게 지내세요?</div>
@@ -672,6 +673,7 @@
         let quizReviewMode = false;
         let currentQuizAnswered = false;
         let currentWordOrderSelection = [];
+        let lastEditableTextTargetId = null;
 
         function hideAllViews() {
             ['home-view', 'curriculum-view', 'lesson-view', 'chat-view', 'vocab-detail-view', 'basics-view', 'vocab-view', 'quiz-view', 'settings-view']
@@ -852,7 +854,7 @@
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-3-3v6"></path></svg>
                         </div>
                         <div>
-                            <div class="font-bold text-slate-900 mb-1">${nextLesson ? nextLesson.topic : '커리큘럼을 모두 완료했어요!'}</div>
+                            <div class="font-bold text-slate-900 mb-1">${nextLesson ? nextLesson.topic : '문법 코스를 모두 완료했어요!'}</div>
                             <div>${nextLesson ? `${nextLesson.weekTheme} · Day ${nextLesson.day}${nextLesson.objective ? ` · ${nextLesson.objective}` : ''}` : '이제 복습하거나 단어장/채팅으로 이어가면 좋아요.'}</div>
                         </div>
                     </div>
@@ -989,7 +991,7 @@
             if (!canOpenLesson(id, curriculum) && !isLessonCompleted(id)) {
                 document.getElementById('curriculum-view').classList.remove('hidden');
                 await showCurriculum();
-                alert('이전 과정을 먼저 완료해야 다음 과정이 열려요.');
+                alert('이전 문법을 먼저 완료해야 다음 문법이 열려요.');
                 return;
             }
             document.getElementById('lesson-view').classList.remove('hidden');
@@ -1182,6 +1184,11 @@
         let currentGroupId = -1;
         let currentQuiz = null;
 
+        function getVocabPosLabel(word) {
+            if (!word) return '명사';
+            return word.pos || word.part_of_speech || word.type || '명사';
+        }
+
         async function showVocab() {
             hideAllViews();
             setActiveBottomNav('vocab');
@@ -1243,6 +1250,7 @@
             document.getElementById('vocab-progress').innerText = `Word ${currentVocabIndex + 1} / ${currentVocabGroupWords.length}`;
             document.getElementById('vocab-word-es').innerText = word.es;
             document.getElementById('vocab-word-ko').innerText = word.ko;
+            document.getElementById('vocab-word-pos').innerText = getVocabPosLabel(word);
             document.getElementById('vocab-word-ex').innerText = word.example;
             document.getElementById('vocab-word-ex-ko').innerText = word.example_ko || '번역 준비 중...';
         }
@@ -1580,6 +1588,16 @@
                 } else if (quiz.type === 'fill_blank') {
                     inputArea += `
                         <div class="space-y-2 text-left">
+                            <div class="flex items-center gap-2 overflow-x-auto pb-1 px-1">
+                                <button type="button" onclick="insertQuizSymbol('¿')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">¿</button>
+                                <button type="button" onclick="insertQuizSymbol('¡')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">¡</button>
+                                <button type="button" onclick="insertQuizSymbol('á')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">á</button>
+                                <button type="button" onclick="insertQuizSymbol('é')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">é</button>
+                                <button type="button" onclick="insertQuizSymbol('í')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">í</button>
+                                <button type="button" onclick="insertQuizSymbol('ó')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ó</button>
+                                <button type="button" onclick="insertQuizSymbol('ú')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ú</button>
+                                <button type="button" onclick="insertQuizSymbol('ñ')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ñ</button>
+                            </div>
                             <div class="flex space-x-2">
                                 <input type="text" id="fill-blank-input" class="flex-1 p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold text-center focus:border-blue-500 outline-none transition-all" placeholder="빈칸 정답 입력..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
                                 <button type="button" onclick="checkFillBlank(${escapeAttr(JSON.stringify(quiz.answer))}, ${escapeAttr(JSON.stringify(quiz.sentence))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.hint))})" class="bg-blue-600 text-white px-6 rounded-2xl font-bold">확인</button>
@@ -1774,7 +1792,12 @@
             }
         });
 
-        showHome();
+        document.addEventListener('focusin', function(e) {
+            if (isEditableTextTarget(e.target)) {
+                lastEditableTextTargetId = e.target.id || null;
+            }
+        });
+
     
         async function showChat() {
             hideAllViews();
@@ -1803,8 +1826,11 @@
 
         function insertQuizSymbol(symbol) {
             const activeTarget = document.activeElement;
-            if (activeTarget && activeTarget.id === 'spelling-input') {
-                insertTextAtCursor('spelling-input', symbol);
+            const target = (isEditableTextTarget(activeTarget) ? activeTarget : document.getElementById(lastEditableTextTargetId))
+                || document.getElementById('fill-blank-input')
+                || document.getElementById('spelling-input');
+            if (isEditableTextTarget(target)) {
+                insertTextAtCursor(target.id, symbol);
             }
         }
 
@@ -1983,7 +2009,7 @@
             </button>
             <button id="nav-curriculum" onclick="showCurriculum()" class="flex flex-col items-center space-y-1 px-2.5 py-1.5 rounded-2xl text-slate-400 hover:text-blue-600 transition-all">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011-.982l5.447-2.724m0 17.296l5.447-2.724A1 1 0 0016 16.382V5.618a1 1 0 00-1-.982L9 2.296m0 17.296V2.296"></path></svg>
-                <span class="text-[10px] font-bold uppercase tracking-tighter">Curriculum</span>
+                <span class="text-[10px] font-bold uppercase tracking-tighter">Grammar</span>
             </button>
             <button id="nav-vocab" onclick="showVocab()" class="flex flex-col items-center space-y-1 px-2.5 py-1.5 rounded-2xl text-slate-400 hover:text-blue-600 transition-all">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>

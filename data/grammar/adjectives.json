@@ -1,24 +1,60 @@
 {
     "id": "adjectives",
-    "title": "기초 형용사",
+    "title": "형용사와 일치",
     "level": "초급",
-    "description": "형용사는 수식하는 명사의 성과 수에 일치시켜야 합니다.",
+    "description": "형용사가 무엇인지, 그리고 명사와 성·수를 맞추는 이유를 배웁니다.",
     "sections": [
         {
-            "heading": "성수 일치",
-            "content": "명사가 여성 복수라면 형용사도 여성 복수 형태가 되어야 합니다.",
+            "heading": "형용사는 어떤 역할을 할까?",
+            "content": "형용사는 명사의 상태나 성질을 설명하는 말입니다. 크다, 작다, 예쁘다, 친절하다처럼 명사를 더 자세하게 만들어 줍니다.",
             "examples": [
                 {
-                    "es": "El chico alto",
-                    "ko": "키 큰 소년 (남성 단수)"
+                    "es": "una casa grande",
+                    "ko": "큰 집"
                 },
                 {
-                    "es": "La chica alta",
-                    "ko": "키 큰 소녀 (여성 단수)"
+                    "es": "un libro nuevo",
+                    "ko": "새 책"
                 },
                 {
-                    "es": "Las chicas altas",
-                    "ko": "키 큰 소녀들 (여성 복수)"
+                    "es": "una chica amable",
+                    "ko": "친절한 여자아이"
+                }
+            ]
+        },
+        {
+            "heading": "성·수 일치",
+            "content": "형용사는 명사에 맞춰 형태가 바뀌는 경우가 많습니다. 명사가 여성형이면 형용사도 여성형, 복수면 형용사도 복수형으로 맞춥니다.",
+            "examples": [
+                {
+                    "es": "el libro nuevo",
+                    "ko": "새 책"
+                },
+                {
+                    "es": "la casa nueva",
+                    "ko": "새 집"
+                },
+                {
+                    "es": "los libros nuevos",
+                    "ko": "새 책들"
+                }
+            ]
+        },
+        {
+            "heading": "형용사의 위치",
+            "content": "형용사는 보통 명사 뒤에 오지만, 자주 쓰는 짧은 형용사는 명사 앞에 오기도 합니다. 초보 단계에서는 “명사 뒤에 형용사”를 기본 규칙으로 생각하면 좋습니다.",
+            "examples": [
+                {
+                    "es": "un coche rojo",
+                    "ko": "빨간 차"
+                },
+                {
+                    "es": "una persona feliz",
+                    "ko": "행복한 사람"
+                },
+                {
+                    "es": "los zapatos nuevos",
+                    "ko": "새 신발들"
                 }
             ]
         }

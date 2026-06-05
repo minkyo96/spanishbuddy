@@ -1,16 +1,24 @@
 {
     "id": "week2-review",
-    "title": "2주차 복습 및 퀴즈",
+    "title": "2주차 복습",
     "level": "초급",
-    "description": "Estar 동사와 장소, 감정 표현을 복습합니다.",
+    "description": "estar, 위치, 감정, 지시형용사를 묶어서 다시 점검합니다.",
     "sections": [
         {
-            "heading": "핵심 요약",
-            "content": "Estar의 변화와 장소/감정 표현의 차이를 이해했는지 확인하세요.",
+            "heading": "상태와 위치를 함께 정리하기",
+            "content": "이번 주 핵심은 “지금 어떤 상태인가”와 “어디에 있는가”를 말하는 것입니다. 문장을 길게 만들기보다, 짧고 정확하게 말하는 연습을 해보세요.",
             "examples": [
                 {
-                    "es": "Estoy feliz en Madrid.",
-                    "ko": "나는 마드리드에서 행복합니다."
+                    "es": "Estoy en casa.",
+                    "ko": "나는 집에 있어."
+                },
+                {
+                    "es": "Está feliz.",
+                    "ko": "그는 행복해."
+                },
+                {
+                    "es": "Estos libros son nuevos.",
+                    "ko": "이 책들은 새것이다."
                 }
             ]
         }

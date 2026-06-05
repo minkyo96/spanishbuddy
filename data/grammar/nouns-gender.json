@@ -1,34 +1,78 @@
 {
     "id": "nouns-gender",
-    "title": "기초 명사와 성/수",
+    "title": "명사, 관사, 성·수",
     "level": "초급",
-    "description": "스페인어의 모든 명사는 성(남성/여성)과 수(단수/복수)가 있습니다.",
+    "description": "스페인어 명사가 왜 남성형/여성형으로 나뉘는지, 그리고 관사와 복수형이 어떻게 붙는지 배웁니다.",
     "sections": [
         {
-            "heading": "명사의 성 (성별)",
-            "content": "일반적으로 -o로 끝나면 남성, -a로 끝나면 여성 명사입니다.",
+            "heading": "명사란 무엇일까?",
+            "content": "명사는 사람, 사물, 장소를 가리키는 말입니다. 스페인어에서는 명사를 말할 때 관사(el, la 등)와 함께 보는 습관이 중요합니다.",
             "examples": [
                 {
-                    "es": "El libro (남성)",
-                    "ko": "책"
+                    "es": "el libro",
+                    "ko": "그 책"
                 },
                 {
-                    "es": "La mesa (여성)",
-                    "ko": "책상"
+                    "es": "la mesa",
+                    "ko": "그 책상"
+                },
+                {
+                    "es": "la escuela",
+                    "ko": "그 학교"
                 }
             ]
         },
         {
-            "heading": "명사의 수 (단수/복수)",
-            "content": "모음으로 끝나면 -s를, 자음으로 끝나면 -es를 붙여 복수형을 만듭니다.",
+            "heading": "성(gender)은 왜 있을까?",
+            "content": "스페인어 명사는 남성형과 여성형으로 나뉘는 경우가 많습니다. 성은 단순히 “남자/여자”의 뜻이 아니라, 문법적으로 관사와 형용사를 맞추기 위한 기준입니다.",
             "examples": [
                 {
-                    "es": "Los libros",
-                    "ko": "책들"
+                    "es": "el amigo",
+                    "ko": "남자 친구"
                 },
                 {
-                    "es": "Las mesas",
-                    "ko": "책상들"
+                    "es": "la amiga",
+                    "ko": "여자 친구"
+                },
+                {
+                    "es": "el problema",
+                    "ko": "문제"
+                }
+            ]
+        },
+        {
+            "heading": "수(number): 단수와 복수",
+            "content": "하나를 말하면 단수, 둘 이상을 말하면 복수입니다. 복수형은 보통 -s 또는 -es를 붙이며, 관사도 함께 바뀝니다.",
+            "examples": [
+                {
+                    "es": "el libro → los libros",
+                    "ko": "책 1권 → 책들"
+                },
+                {
+                    "es": "la mesa → las mesas",
+                    "ko": "책상 1개 → 책상들"
+                },
+                {
+                    "es": "un amigo → unos amigos",
+                    "ko": "한 친구 → 몇몇 친구들"
+                }
+            ]
+        },
+        {
+            "heading": "관사와 함께 읽기",
+            "content": "처음부터 명사만 외우기보다 관사와 함께 읽어야 스페인어가 더 자연스럽게 익습니다. 관사를 붙여 읽으면 성과 수를 함께 기억할 수 있습니다.",
+            "examples": [
+                {
+                    "es": "el chico",
+                    "ko": "그 남자아이"
+                },
+                {
+                    "es": "la chica",
+                    "ko": "그 여자아이"
+                },
+                {
+                    "es": "los libros",
+                    "ko": "그 책들"
                 }
             ]
         }
