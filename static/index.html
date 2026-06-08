@@ -318,6 +318,10 @@
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path></svg>
                             Basics
                         </button>
+                        <button onclick="showQuizHistory()" class="w-full text-left px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m5-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            지난 퀴즈
+                        </button>
                         <button onclick="showSettings()" class="w-full text-left px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-center">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.82 2.293 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.82 3.31-2.37 2.293a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.82-2.293-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.82-3.31 2.37-2.293.996.18 2.064.861 2.064 1.8C10.325 4.317 10.325 4.317 10.325 4.317z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             Settings
@@ -607,6 +611,29 @@
                 </div>
             </div>
 
+            <!-- Quiz History View -->
+            <div id="quiz-history-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
+                <button onclick="showHome()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    홈으로 돌아가기
+                </button>
+                <div class="mb-10">
+                    <h2 class="text-3xl font-bold leading-tight tracking-tight mb-2">지난 퀴즈</h2>
+                    <p class="text-slate-500 font-medium">최근 퀴즈 세트를 골라서 오답만 다시 풀 수 있어요.</p>
+                </div>
+
+                <section class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+                    <div class="flex items-center justify-between gap-3 mb-4 text-xs font-semibold text-slate-400">
+                        <span id="quiz-history-selection-count">선택 0개</span>
+                        <button type="button" onclick="clearQuizHistorySelection()" class="text-blue-600 hover:text-blue-700 transition-colors">선택 해제</button>
+                    </div>
+                    <div id="quiz-history-list" class="space-y-3">
+                        <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-4 py-5 text-sm text-slate-400 text-center">지난 퀴즈가 아직 없어요.</div>
+                    </div>
+                    <button type="button" id="quiz-history-review-button" onclick="startSelectedQuizHistoryReview()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold text-lg shadow-lg shadow-blue-200 transition-all mt-5 disabled:opacity-50 disabled:cursor-not-allowed">선택한 퀴즈 오답 다시 풀기</button>
+                </section>
+            </div>
+
 <!-- Settings View -->
             <div id="settings-view" class="hidden fade-in h-full min-h-0 overflow-y-auto pb-2">
                 <button onclick="showHome()" class="mb-8 text-slate-400 hover:text-slate-600 flex items-center text-sm font-semibold transition-colors">
@@ -696,9 +723,12 @@
         let currentWordOrderSelection = [];
         let lastEditableTextTargetId = null;
         let quizResultAutoAdvanceTimer = null;
+        let quizHintVisible = false;
+        let selectedQuizHistoryIds = [];
+        const QUIZ_HISTORY_STORAGE_KEY = 'quiz_history';
 
         function hideAllViews() {
-            ['home-view', 'curriculum-view', 'lesson-view', 'chat-view', 'vocab-detail-view', 'basics-view', 'vocab-view', 'quiz-view', 'settings-view']
+            ['home-view', 'curriculum-view', 'lesson-view', 'chat-view', 'vocab-detail-view', 'basics-view', 'vocab-view', 'quiz-view', 'quiz-history-view', 'settings-view']
                 .forEach(id => {
                     const el = document.getElementById(id);
                     if (el) el.classList.add('hidden');
@@ -729,6 +759,135 @@
 
         function getSettings() {
             return JSON.parse(localStorage.getItem('user_settings') || '{}');
+        }
+
+        function getQuizHistory() {
+            try {
+                const history = JSON.parse(localStorage.getItem(QUIZ_HISTORY_STORAGE_KEY) || '[]');
+                return Array.isArray(history) ? history : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function setQuizHistory(history) {
+            localStorage.setItem(QUIZ_HISTORY_STORAGE_KEY, JSON.stringify(history));
+        }
+
+        function getQuizHistoryItemKey(item) {
+            if (!item) return '';
+            return item.id != null
+                ? `id:${item.id}`
+                : `fallback:${item.type || ''}:${item.question || ''}:${item.display_ko || ''}:${item.answer || ''}`;
+        }
+
+        function saveQuizHistoryEntry(entry) {
+            if (!entry || !entry.id) return;
+            const history = getQuizHistory().filter(item => item.id !== entry.id);
+            history.unshift(entry);
+            setQuizHistory(history.slice(0, 12));
+        }
+
+        function clearQuizHistorySelection() {
+            selectedQuizHistoryIds = [];
+            renderQuizHistoryList();
+        }
+
+        function toggleQuizHistorySelection(sessionId) {
+            if (!sessionId) return;
+            if (selectedQuizHistoryIds.includes(sessionId)) {
+                selectedQuizHistoryIds = selectedQuizHistoryIds.filter(id => id !== sessionId);
+            } else {
+                selectedQuizHistoryIds = [...selectedQuizHistoryIds, sessionId];
+            }
+            renderQuizHistoryList();
+        }
+
+        function formatQuizHistoryDate(timestamp) {
+            if (!timestamp) return '시간 정보 없음';
+            try {
+                return new Date(timestamp).toLocaleString('ko-KR', {
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                });
+            } catch (error) {
+                return '시간 정보 없음';
+            }
+        }
+
+        function renderQuizHistoryList() {
+            const list = document.getElementById('quiz-history-list');
+            const count = document.getElementById('quiz-history-selection-count');
+            const actionButton = document.getElementById('quiz-history-review-button');
+            if (!list) return;
+
+            const history = getQuizHistory();
+            const selectedCount = selectedQuizHistoryIds.length;
+            if (count) count.innerText = `선택 ${selectedCount}개`;
+            if (actionButton) actionButton.disabled = selectedCount === 0;
+
+            if (!history.length) {
+                list.innerHTML = '<div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-4 py-5 text-sm text-slate-400 text-center">지난 퀴즈가 아직 없어요.</div>';
+                return;
+            }
+
+            list.innerHTML = history.map(entry => {
+                const selected = selectedQuizHistoryIds.includes(entry.id);
+                const wrongCount = Array.isArray(entry.wrongQuestions) ? entry.wrongQuestions.length : 0;
+                const label = entry.reviewMode ? '오답 복습' : '퀴즈';
+                const difficultyLabel = getQuizDifficultyLabel(entry.difficulty);
+                return `
+                    <label class="block cursor-pointer" for="quiz-history-${entry.id}">
+                        <input id="quiz-history-${entry.id}" type="checkbox" class="sr-only" ${selected ? 'checked' : ''} onchange="toggleQuizHistorySelection('${entry.id}')">
+                        <div class="rounded-2xl border p-4 transition-all ${selected ? 'border-blue-300 bg-blue-50 shadow-sm' : 'border-slate-100 bg-slate-50'}">
+                            <div class="flex items-start justify-between gap-3">
+                                <div class="min-w-0">
+                                    <p class="text-sm font-bold text-slate-900 truncate">${escapeHtml(label)} · ${escapeHtml(formatQuizHistoryDate(entry.finishedAt))}</p>
+                                    <p class="text-xs text-slate-500 mt-1">정답 ${entry.correct || 0}/${entry.total || 0} · 오답 ${wrongCount}개 · 난이도 ${escapeHtml(difficultyLabel)}</p>
+                                </div>
+                                <span class="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-bold ${selected ? 'bg-blue-600 text-white' : 'bg-white text-slate-400 border border-slate-200'}">${selected ? '선택됨' : '선택'}</span>
+                            </div>
+                        </div>
+                    </label>
+                `;
+            }).join('');
+
+            if (actionButton) {
+                actionButton.disabled = selectedCount === 0;
+            }
+        }
+
+        function startSelectedQuizHistoryReview() {
+            const history = getQuizHistory();
+            const selectedEntries = history.filter(entry => selectedQuizHistoryIds.includes(entry.id));
+            if (!selectedEntries.length) {
+                alert('선택한 퀴즈가 없어요.');
+                return;
+            }
+
+            const reviewItems = [];
+            const seen = new Set();
+            selectedEntries.forEach(entry => {
+                (entry.wrongQuestions || []).forEach(item => {
+                    const key = getQuizHistoryItemKey(item);
+                    if (!key || seen.has(key)) return;
+                    seen.add(key);
+                    reviewItems.push(JSON.parse(JSON.stringify(item)));
+                });
+            });
+
+            if (!reviewItems.length) {
+                alert('선택한 퀴즈에 복습할 오답이 없어요.');
+                return;
+            }
+
+            selectedQuizHistoryIds = [];
+            hideAllViews();
+            setActiveBottomNav('quiz');
+            document.getElementById('quiz-view').classList.remove('hidden');
+            startQuizReviewSession(reviewItems);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1425,18 +1584,50 @@
             if (settingSelect) settingSelect.value = getQuizDifficulty();
         }
 
-        function initializeQuizSession() {
+        function initializeQuizSession(reviewItems = []) {
+            const reviewQueue = Array.isArray(reviewItems) ? reviewItems.map(item => ({ ...item })) : [];
+            const isReviewMode = reviewQueue.length > 0;
             quizSession = {
-                total: QUIZ_TOTAL_QUESTIONS,
+                sessionId: `quiz-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+                startedAt: Date.now(),
+                total: isReviewMode ? reviewQueue.length : QUIZ_TOTAL_QUESTIONS,
                 current: 1,
                 correct: 0,
                 completed: false,
+                askedQuestionKeys: [],
+                wrongQuestions: [],
+                reviewQueue,
+                reviewMissedQuestions: [],
+                historySaved: false,
             };
-            quizReviewMode = false;
+            quizReviewMode = isReviewMode;
             currentQuiz = null;
             currentQuizAnswered = false;
             currentWordOrderSelection = [];
             updateQuizProgressUI();
+        }
+
+        function startQuizReviewSession(reviewItems) {
+            if (!reviewItems || reviewItems.length === 0) {
+                alert('복습할 오답이 없어요.');
+                return;
+            }
+            hideQuizResultPopup();
+            hideAllViews();
+            setActiveBottomNav('quiz');
+            document.getElementById('quiz-view').classList.remove('hidden');
+            initializeQuizSession(reviewItems);
+            updateQuizDifficultyBadge();
+            loadQuizQuestion();
+        }
+
+        function recordQuizAttempt(isCorrect, quiz) {
+            if (!quizSession || isCorrect || !quiz) return;
+            const snapshot = JSON.parse(JSON.stringify(quiz));
+            quizSession.wrongQuestions.push(snapshot);
+            if (quizReviewMode) {
+                quizSession.reviewMissedQuestions.push(snapshot);
+            }
         }
 
         async function startQuiz() {
@@ -1463,28 +1654,63 @@
             const currentQuestion = Math.min(quizSession.current, quizSession.total);
             const percent = quizSession.completed ? 100 : Math.round(((currentQuestion - 1) / quizSession.total) * 100);
             const displayQuestion = quizSession.completed ? quizSession.total : currentQuestion;
-            if (progressText) progressText.innerText = `문제 ${displayQuestion}/${quizSession.total}`;
+            const progressLabel = quizReviewMode ? '오답 복습' : '문제';
+            if (progressText) progressText.innerText = `${progressLabel} ${displayQuestion}/${quizSession.total}`;
             if (scoreText) scoreText.innerText = `정답 ${quizSession.correct}개`;
             if (progressBar) progressBar.style.width = `${percent}%`;
+        }
+
+        function toggleQuizHint() {
+            const panel = document.getElementById('quiz-hint-panel');
+            const button = document.getElementById('quiz-hint-toggle');
+            if (!panel || !button) return;
+            quizHintVisible = !quizHintVisible;
+            panel.classList.toggle('hidden', !quizHintVisible);
+            button.innerText = quizHintVisible ? '힌트 숨기기' : '힌트 보기';
         }
 
         function showQuizFinalResult() {
             if (!quizSession) return;
             hideQuizResultPopup();
             const contentDiv = document.getElementById('quiz-content');
-            const scorePercent = Math.round((quizSession.correct / quizSession.total) * 100);
+            const total = quizSession.total || 0;
+            const scorePercent = total > 0 ? Math.round((quizSession.correct / total) * 100) : 0;
+            const reviewMode = quizReviewMode;
+            const wrongCount = reviewMode
+                ? (quizSession.reviewMissedQuestions || []).length
+                : Math.max((quizSession.wrongQuestions || []).length, total - quizSession.correct);
+            const title = reviewMode ? '오답 복습을 마쳤어요' : `${quizSession.total}문제를 모두 풀었어요`;
+            const description = reviewMode
+                ? (wrongCount > 0 ? `복습한 오답 ${quizSession.total}개 중 아직 남은 문제가 ${wrongCount}개예요.` : '복습한 오답을 모두 맞혔어요!')
+                : `이번 회차에서 오답은 ${wrongCount}개였어요. 설정의 지난 퀴즈 목록에서 다시 풀어볼 수 있어요.`;
+            const scoreLabel = reviewMode ? '복습 정답' : '최종 점수';
+            const primaryLabel = reviewMode ? '남은 오답 다시 풀기' : '다시 20문제 풀기';
+            if (!quizSession.historySaved) {
+                saveQuizHistoryEntry({
+                    id: quizSession.sessionId,
+                    startedAt: quizSession.startedAt,
+                    finishedAt: Date.now(),
+                    total: quizSession.total,
+                    correct: quizSession.correct,
+                    wrongQuestions: JSON.parse(JSON.stringify(quizSession.wrongQuestions || [])),
+                    reviewMode,
+                    difficulty: getQuizDifficulty(),
+                });
+                quizSession.historySaved = true;
+            }
             contentDiv.innerHTML = `
                 <div class="py-16 px-6 text-center">
                     <div class="text-5xl mb-4">🏁</div>
-                    <p class="text-sm font-bold uppercase tracking-widest text-blue-600 mb-3">퀴즈 완료</p>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-3">${quizSession.total}문제를 모두 풀었어요</h2>
+                    <p class="text-sm font-bold uppercase tracking-widest text-blue-600 mb-3">${reviewMode ? '오답 복습 완료' : '퀴즈 완료'}</p>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-3">${title}</h2>
+                    <p class="text-sm text-slate-500 mb-5">${description}</p>
                     <div class="bg-white border border-gray-100 rounded-3xl p-5 shadow-sm max-w-sm mx-auto mb-6">
-                        <div class="text-sm text-slate-500 mb-2">최종 점수</div>
+                        <div class="text-sm text-slate-500 mb-2">${scoreLabel}</div>
                         <div class="text-5xl font-bold text-slate-900 mb-2">${quizSession.correct}<span class="text-2xl text-slate-400"> / ${quizSession.total}</span></div>
                         <div class="text-sm font-semibold ${scorePercent >= 80 ? 'text-green-600' : scorePercent >= 60 ? 'text-blue-600' : 'text-amber-600'}">정답률 ${scorePercent}%</div>
                     </div>
                     <div class="space-y-3">
-                        <button onclick="restartQuizSession()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">다시 20문제 풀기</button>
+                        <button onclick="restartQuizSession()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">${primaryLabel}</button>
                         <button onclick="showVocab()" class="w-full py-4 rounded-2xl bg-white border border-gray-200 text-slate-700 font-bold">단어장으로 돌아가기</button>
                     </div>
                 </div>
@@ -1518,19 +1744,37 @@
             contentDiv.innerHTML = '<div class="text-center py-20 text-slate-400">문제 생성 중...</div>';
             currentQuiz = null;
             currentQuizAnswered = false;
+            quizHintVisible = false;
             updateQuizProgressUI();
             
             try {
-                const completedGroups = getCompletedVocabGroups();
-                const difficulty = getQuizDifficulty();
-                const queryParams = [
-                    ...completedGroups.map(g => `completed_groups=${g}`),
-                    `difficulty=${encodeURIComponent(difficulty)}`
-                ].join('&');
-                const response = await fetch(`${API_VOCAB}/quiz?${queryParams}`);
-                const quiz = await response.json();
+                let quiz;
+                if (quizReviewMode) {
+                    quiz = (quizSession.reviewQueue || [])[quizSession.current - 1];
+                    if (!quiz) {
+                        showQuizFinalResult();
+                        return;
+                    }
+                } else {
+                    const completedGroups = getCompletedVocabGroups();
+                    const difficulty = getQuizDifficulty();
+                    const queryParams = [
+                        ...completedGroups.map(g => `completed_groups=${g}`),
+                        `difficulty=${encodeURIComponent(difficulty)}`,
+                        ...(quizSession.askedQuestionKeys || []).map(key => `excluded_question_keys=${encodeURIComponent(key)}`)
+                    ].join('&');
+                    const response = await fetch(`${API_VOCAB}/quiz?${queryParams}`);
+                    quiz = await response.json();
+                }
                 currentQuiz = quiz;
                 currentQuizAnswered = false;
+
+                if (!quizReviewMode && quizSession) {
+                    const quizKey = quiz.quiz_key || (quiz.id != null && quiz.type ? `${quiz.id}:${quiz.type}` : null);
+                    if (quizKey && !quizSession.askedQuestionKeys.includes(quizKey)) {
+                        quizSession.askedQuestionKeys.push(quizKey);
+                    }
+                }
                 
                 if(quiz.error) {
                     currentQuiz = null;
@@ -1539,8 +1783,11 @@
                         <div class="py-20 px-6 text-center">
                             <div class="text-5xl mb-6">📚</div>
                             <h2 class="text-2xl font-bold text-slate-900 mb-4">${quiz.error}</h2>
-                            <p class="text-slate-500 mb-10">단어장에서 학습 완료한 그룹이 있어야 퀴즈를 풀 수 있습니다.</p>
-                            <button onclick="showVocab()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">단어장으로 이동</button>
+                            <p class="text-slate-500 mb-10">이번 퀴즈 세트에서는 더 이상 새로운 문제를 만들 수 없어요.</p>
+                            <div class="space-y-3">
+                                <button onclick="showQuizFinalResult()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">결과 보기</button>
+                                <button onclick="showVocab()" class="w-full py-4 rounded-2xl bg-white border border-gray-200 text-slate-700 font-bold">단어장으로 이동</button>
+                            </div>
                         </div>
                     `;
                     return;
@@ -1569,6 +1816,7 @@
                     html += `<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">빈칸 채우기</span>
                              <div class="mt-4 mb-2 space-y-3">
                                 <p class="text-xs font-semibold text-slate-400">${escapeHtml(quiz.prompt || '빈칸에 들어갈 단어를 입력하세요.')}</p>
+                                <p class="text-sm font-semibold text-slate-600 bg-slate-50 border border-slate-100 rounded-2xl px-4 py-3">예문 해석: ${escapeHtml(quiz.example_ko || quiz.sentence || '')}</p>
                                 <div class="rounded-3xl bg-slate-50 border border-slate-100 px-4 py-5">
                                     <p class="text-3xl font-bold text-slate-900 leading-relaxed">${escapeHtml(quiz.question)}</p>
                                 </div>
@@ -1584,6 +1832,15 @@
                              </div>`;
                 }
                 html += `</div>`;
+
+                const hintArea = quiz.hint ? `
+                    <div class="mb-6 flex flex-col items-center gap-3">
+                        <button type="button" id="quiz-hint-toggle" onclick="toggleQuizHint()" class="px-4 py-2 rounded-full border border-amber-200 bg-amber-50 text-amber-700 text-sm font-bold shadow-sm hover:bg-amber-100 transition-colors">힌트 보기</button>
+                        <div id="quiz-hint-panel" class="hidden w-full rounded-2xl border border-amber-100 bg-amber-50/80 px-4 py-3 text-sm font-semibold text-amber-800 text-left">
+                            ${escapeHtml(quiz.hint)}
+                        </div>
+                    </div>
+                ` : '';
 
                 if (quiz.type === 'multiple_choice' || quiz.type === 'true_false') {
                     setTimeout(() => speak(quiz.question), 500);
@@ -1635,9 +1892,8 @@
                             </div>
                             <div class="flex space-x-2">
                                 <input type="text" id="fill-blank-input" class="flex-1 p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold text-center focus:border-blue-500 outline-none transition-all" placeholder="빈칸 정답 입력..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
-                                <button type="button" onclick="checkFillBlank(${escapeAttr(JSON.stringify(quiz.answer))}, ${escapeAttr(JSON.stringify(quiz.sentence))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.hint))})" class="bg-blue-600 text-white px-6 rounded-2xl font-bold">확인</button>
+                                <button type="button" onclick="checkFillBlank(${escapeAttr(JSON.stringify(quiz.answer))}, ${escapeAttr(JSON.stringify(quiz.sentence))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.sentence))})" class="bg-blue-600 text-white px-6 rounded-2xl font-bold">확인</button>
                             </div>
-                            <p class="text-xs text-slate-400 font-semibold">힌트: ${escapeHtml(quiz.hint || '')}</p>
                         </div>
                     `;
                 } else if (quiz.type === 'word_order') {
@@ -1661,7 +1917,7 @@
                 }
                 inputArea += `</div>`;
                 
-                contentDiv.innerHTML = html + inputArea;
+                contentDiv.innerHTML = html + hintArea + inputArea;
                 if (quiz.type === 'word_order') {
                     resetWordOrderButtons();
                 }
@@ -1682,6 +1938,7 @@
                 }
                 if(btn.innerText.trim() === selected && selected !== correct) btn.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
             });
+            recordQuizAttempt(selected === correct, currentQuiz);
             if (selected === correct && quizSession) quizSession.correct += 1;
             showQuizResult(selected === correct, correct, example);
         }
@@ -1695,6 +1952,7 @@
             spellingInput.readOnly = true;
             const confirmButton = spellingInput?.parentElement?.querySelector('button');
             if (confirmButton) confirmButton.disabled = true;
+            recordQuizAttempt(isCorrect, currentQuiz);
             if (isCorrect && quizSession) quizSession.correct += 1;
             showQuizResult(isCorrect, correct, example);
         }
@@ -1708,6 +1966,7 @@
             fillBlankInput.readOnly = true;
             const confirmButton = fillBlankInput?.parentElement?.querySelector('button');
             if (confirmButton) confirmButton.disabled = true;
+            recordQuizAttempt(isCorrect, currentQuiz);
             if (isCorrect && quizSession) quizSession.correct += 1;
             showQuizResult(isCorrect, correct, example || sentence);
         }
@@ -1720,13 +1979,14 @@
             const userAnswer = normalizeWordOrderSentence(getWordOrderAnswerValue());
             const expected = normalizeWordOrderSentence(correct);
             const isCorrect = userAnswer.toLowerCase() === expected.toLowerCase();
+            recordQuizAttempt(isCorrect, currentQuiz);
             if (isCorrect && quizSession) quizSession.correct += 1;
             showQuizResult(isCorrect, correct, example || sentence);
         }
 
         function showQuizResult(isCorrect, correct, example) {
             hideQuizResultPopup();
-            const nextLabel = quizSession && quizSession.current >= quizSession.total ? '결과 보기' : '다음 문제 넘어가기';
+            const nextLabel = quizSession && quizSession.current >= quizSession.total ? (quizReviewMode ? '복습 결과 보기' : '결과 보기') : '다음 문제 넘어가기';
             const toneClass = isCorrect ? 'text-green-600 bg-green-50 border-green-100' : 'text-red-600 bg-red-50 border-red-100';
             const headline = isCorrect ? '정답입니다! 🎉' : `아쉬워요! 정답은 ${correct} 입니다.`;
             const popup = document.createElement('div');
@@ -1813,6 +2073,13 @@
                 document.getElementById('tts-speed-val').innerText = settings.ttsSpeed + 'x';
             }
         }
+
+        function showQuizHistory() {
+            hideAllViews();
+            document.getElementById('quiz-history-view').classList.remove('hidden');
+            document.getElementById('user-menu').classList.add('hidden');
+            renderQuizHistoryList();
+        }
         function saveSettings() {
             const settings = JSON.parse(localStorage.getItem('user_settings') || '{}');
             settings.nickname = document.getElementById('setting-nickname').value;
@@ -1829,6 +2096,8 @@
             if(confirm('정말로 모든 학습 진행도를 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
                 localStorage.removeItem('completed_lessons');
                 localStorage.removeItem('completed_vocab_groups');
+                localStorage.removeItem(QUIZ_HISTORY_STORAGE_KEY);
+                selectedQuizHistoryIds = [];
                 alert('모든 진행도가 초기화되었습니다.');
                 showHome();
             }

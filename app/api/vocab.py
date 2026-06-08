@@ -12,9 +12,16 @@ async def get_vocab_list():
 @router.get("/quiz")
 async def get_quiz_question(
     completed_groups: List[int] = Query(None),
-    difficulty: Optional[str] = Query("medium")
+    difficulty: Optional[str] = Query("medium"),
+    excluded_ids: List[int] = Query(None),
+    excluded_question_keys: List[str] = Query(None)
 ):
     # FastAPI handles comma-separated lists in query params automatically if type is List[int]
     # Example: /vocab/quiz?completed_groups=0&completed_groups=1
-    result = vocab_service_instance.get_quiz_question(completed_groups, difficulty)
+    result = vocab_service_instance.get_quiz_question(
+        completed_groups,
+        difficulty,
+        excluded_ids,
+        excluded_question_keys,
+    )
     return result
