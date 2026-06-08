@@ -108,6 +108,13 @@
             -webkit-font-smoothing: antialiased;
             overflow: hidden;
         }
+        /* Prevent mobile browsers (especially iOS Safari) from zooming text inputs on focus. */
+        @media (max-width: 767px) {
+            input[type="text"],
+            textarea {
+                font-size: 16px !important;
+            }
+        }
         .app-container {
             max-width: 500px;
             margin: 0 auto;
@@ -195,6 +202,20 @@
         .speaker-btn:active {
             transform: scale(0.8);
             color: #3B82F6;
+        }
+
+        .quiz-choice-btn {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            appearance: none;
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .quiz-choice-btn:hover {
+                background-color: #fff !important;
+                border-color: rgb(243 244 246) !important;
+                color: rgb(51 65 85) !important;
+            }
         }
     
         .vocab-card {
@@ -578,7 +599,7 @@
                         <button type="button" onclick="insertChatSymbol('ñ')" class="shrink-0 px-3 py-1.5 rounded-full border border-gray-200 bg-white text-slate-700 text-sm font-bold shadow-sm hover:bg-blue-50 hover:border-blue-200 transition-colors">ñ</button>
                     </div>
                     <div class="relative flex items-end space-x-2 bg-white p-2 rounded-2xl border border-gray-200 shadow-lg">
-                        <textarea id="chat-input" rows="1" class="flex-1 p-3 bg-transparent outline-none text-sm resize-none leading-relaxed max-h-32" placeholder="스페인어로 메시지를 입력하세요..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
+                        <textarea id="chat-input" rows="1" class="flex-1 p-3 bg-transparent outline-none text-base resize-none leading-relaxed max-h-32" placeholder="스페인어로 메시지를 입력하세요..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"></textarea>
                         <button onclick="sendChatMessage()" class="bg-blue-600 text-white p-3 rounded-xl hover:bg-blue-700 transition-all shadow-md shadow-blue-100 shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                         </button>
@@ -674,6 +695,7 @@
         let currentQuizAnswered = false;
         let currentWordOrderSelection = [];
         let lastEditableTextTargetId = null;
+        let quizResultAutoAdvanceTimer = null;
 
         function hideAllViews() {
             ['home-view', 'curriculum-view', 'lesson-view', 'chat-view', 'vocab-detail-view', 'basics-view', 'vocab-view', 'quiz-view', 'settings-view']
@@ -709,7 +731,10 @@
             return JSON.parse(localStorage.getItem('user_settings') || '{}');
         }
 
-        document.addEventListener('DOMContentLoaded', () => setActiveBottomNav('home'));
+        document.addEventListener('DOMContentLoaded', () => {
+            setActiveBottomNav('home');
+            showHome();
+        });
         function getProgressStats(totalLessons, totalVocabGroups) {
             const completedLessons = getCompletedLessons();
             const completedGroups = getCompletedVocabGroups();
@@ -1445,6 +1470,7 @@
 
         function showQuizFinalResult() {
             if (!quizSession) return;
+            hideQuizResultPopup();
             const contentDiv = document.getElementById('quiz-content');
             const scorePercent = Math.round((quizSession.correct / quizSession.total) * 100);
             contentDiv.innerHTML = `
@@ -1465,6 +1491,15 @@
             `;
             quizSession.completed = true;
             updateQuizProgressUI();
+        }
+
+        function hideQuizResultPopup() {
+            if (quizResultAutoAdvanceTimer) {
+                clearTimeout(quizResultAutoAdvanceTimer);
+                quizResultAutoAdvanceTimer = null;
+            }
+            const popup = document.getElementById('quiz-result-popup');
+            if (popup) popup.remove();
         }
 
         function restartQuizSession() {
@@ -1557,13 +1592,13 @@
                 let inputArea = `<div class="space-y-3">`;
                 if (quiz.type === 'multiple_choice') {
                     inputArea += quiz.options.map(opt => `
-                        <button type="button" onclick="checkAnswer(${escapeAttr(JSON.stringify(opt))}, ${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="w-full p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">${escapeHtml(opt)}</button>
+                        <button type="button" onclick="checkAnswer(${escapeAttr(JSON.stringify(opt))}, ${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="quiz-choice-btn w-full p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-semibold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">${escapeHtml(opt)}</button>
                     `).join('');
                 } else if (quiz.type === 'true_false') {
                     inputArea += `
                         <div class="grid grid-cols-2 gap-3">
-                            <button type="button" onclick="checkAnswer('True', ${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">O (맞음)</button>
-                            <button type="button" onclick="checkAnswer('False', ${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">X (틀림)</button>
+                            <button type="button" onclick="checkAnswer('True', ${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="quiz-choice-btn p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">O (맞음)</button>
+                            <button type="button" onclick="checkAnswer('False', ${escapeAttr(JSON.stringify(quiz.correct_answer))}, ${escapeAttr(JSON.stringify(quiz.example_ko || quiz.example))})" class="quiz-choice-btn p-4 bg-white border-2 border-gray-100 rounded-2xl text-lg font-bold hover:border-blue-500 hover:bg-blue-50 transition-all text-slate-700">X (틀림)</button>
                         </div>
                     `;
                 } else if (quiz.type === 'spelling') {
@@ -1690,28 +1725,46 @@
         }
 
         function showQuizResult(isCorrect, correct, example) {
-            const contentDiv = document.getElementById('quiz-content');
-            const existingResult = contentDiv.querySelector('#quiz-result');
-            if (existingResult) existingResult.remove();
-            const resultDiv = document.createElement('div');
-            resultDiv.id = 'quiz-result';
-            resultDiv.className = 'mt-8 fade-in';
-            const nextLabel = quizSession && quizSession.current >= quizSession.total ? '결과 보기' : '다음 문제 풀기';
-            resultDiv.innerHTML = `
-                <div class="mb-6">
-                    <p class="text-sm font-bold uppercase tracking-widest ${isCorrect ? 'text-green-600' : 'text-red-600'} mb-2">${quizSession ? `문제 ${quizSession.current}/${quizSession.total}` : '퀴즈'}</p>
-                    <p class="text-lg font-bold ${isCorrect ? 'text-green-600' : 'text-red-600'}">${isCorrect ? '정답입니다! 🎉' : '아쉬워요! 정답은 ' + correct + ' 입니다.'}</p>
-                    <p class="text-slate-500 text-sm mt-2 font-semibold">현재 점수: ${quizSession ? `${quizSession.correct}/${quizSession.total}` : '-'}</p>
-                    <p class="text-slate-500 text-sm mt-1">${example}</p>
+            hideQuizResultPopup();
+            const nextLabel = quizSession && quizSession.current >= quizSession.total ? '결과 보기' : '다음 문제 넘어가기';
+            const toneClass = isCorrect ? 'text-green-600 bg-green-50 border-green-100' : 'text-red-600 bg-red-50 border-red-100';
+            const headline = isCorrect ? '정답입니다! 🎉' : `아쉬워요! 정답은 ${correct} 입니다.`;
+            const popup = document.createElement('div');
+            popup.id = 'quiz-result-popup';
+            popup.className = 'fixed inset-0 z-50 flex items-center justify-center px-4 modal-overlay';
+            popup.innerHTML = `
+                <div class="modal-sheet w-full max-w-sm rounded-[28px] bg-white border border-gray-100 p-5 text-center shadow-2xl animate-[fadeIn_0.18s_ease-out]">
+                    <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full ${isCorrect ? 'bg-green-100' : 'bg-red-100'}">
+                        <span class="text-3xl">${isCorrect ? '✓' : '!'}</span>
+                    </div>
+                    <p class="text-xs font-bold uppercase tracking-[0.25em] ${isCorrect ? 'text-green-600' : 'text-red-600'} mb-2">문제 ${quizSession ? `${quizSession.current}/${quizSession.total}` : '-'}</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">${headline}</h3>
+                    <div class="rounded-2xl border px-4 py-3 mb-3 ${toneClass}">
+                        <p class="text-sm font-semibold">현재 점수: ${quizSession ? `${quizSession.correct}/${quizSession.total}` : '-'}</p>
+                        <p class="text-sm mt-1 text-slate-500">${escapeHtml(example || '')}</p>
+                    </div>
+                    <button type="button" id="quiz-result-next-button" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">${nextLabel}</button>
+                    <p class="mt-3 text-[11px] font-semibold text-slate-400">버튼을 눌러 다음 문제로 넘어가세요.</p>
                 </div>
-                <button onclick="advanceQuizFlow()" class="btn-primary w-full py-4 rounded-2xl text-white font-bold shadow-lg shadow-blue-200">${nextLabel}</button>
             `;
-            contentDiv.appendChild(resultDiv);
-            
-            setTimeout(() => speak(correct), 500);
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup) advanceQuizFlow();
+            });
+            document.body.appendChild(popup);
+
+            const nextButton = popup.querySelector('#quiz-result-next-button');
+            if (nextButton) {
+                nextButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    advanceQuizFlow();
+                });
+            }
+
+            setTimeout(() => speak(correct), 300);
         }
 
         function advanceQuizFlow() {
+            hideQuizResultPopup();
             if (!quizSession) return loadQuizQuestion();
             quizSession.current += 1;
             currentQuizAnswered = false;
